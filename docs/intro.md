@@ -2,46 +2,50 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# My Tech Stack
 
-Let's discover **Docusaurus in less than 5 minutes**.
+I am passionate about my favorite tech stack, which brings together a set of powerful technologies for web development. This stack allows me to build efficient, scalable, and aesthetically pleasing web applications. Let's dive into the components that make up my tech stack:
 
-## Getting Started
+## 1. Next.js
 
-Get started by **creating a new site**.
+[Next.js](https://nextjs.org/) is my go-to framework for building frontend websites. It provides server-side rendering, routing, and a fantastic developer experience. With Next.js, I can create fast and SEO-friendly web applications effortlessly.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 2. React
 
-### What you'll need
+[React](https://reactjs.org/) is the heart of my tech stack. It enables me to build reusable components, making the development process efficient and maintainable. React's component-based architecture aligns perfectly with my development philosophy.
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## 3. Redux
 
-## Generate a new site
+[Redux](https://redux.js.org/) is my choice for global state management. It keeps my application's state organized and provides a predictable way to manage data across components. Redux DevTools make debugging a breeze.
 
-Generate a new Docusaurus site using the **classic template**.
+## 4. GraphQL
 
-The classic template will automatically be added to your project after you run the command:
+[GraphQL](https://graphql.org/) is my preferred query language for APIs. It offers a flexible and efficient way to request data, allowing my frontend to fetch precisely what it needs. GraphQL enhances the overall performance of my applications.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## 5. Nestjs
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+[Nestjs](https://nestjs.com/) is my backend framework of choice. Its modular and scalable architecture simplifies server-side development. Nest.js, powered by TypeScript, ensures type safety and clean code.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## 6. TypeScript
 
-## Start your site
+[TypeScript](https://www.typescriptlang.org/) is the language I'm obsessed with. It adds static typing to JavaScript, reducing bugs and improving code quality. TypeScript is the backbone of my tech stack, providing type safety from front to back.
 
-Run the development server:
+## 7. PostgreSQL
 
-```bash
-cd my-website
-npm run start
-```
+[PostgreSQL](https://www.postgresql.org/) is my trusted database. Its reliability, extensibility, and support for complex queries make it an excellent choice for storing and managing data.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## 8. Prisma
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+[Prisma](https://www.prisma.io/) is my favorite ORM (Object-Relational Mapping). It simplifies database interactions and schema migrations. Prisma's type-safe queries align perfectly with TypeScript.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## 9. Apollo Client
+
+[Apollo Client](https://www.apollographql.com/docs/react/) is my weapon of choice for querying GraphQL in my React applications. It integrates seamlessly with React, providing a powerful and flexible data-fetching solution.
+
+## 10. Tailwind CSS
+
+[Tailwind CSS](https://tailwindcss.com/) is my styling framework. Its utility-first approach and easy customization allow me to create beautiful and responsive user interfaces with minimal effort.
+
+With this tech stack, I'm empowered to turn my web development ideas into reality. It's not just a stack; it's my passion, my toolkit, and the foundation of my digital creations.
+
+Let's continue building amazing things together! 🚀

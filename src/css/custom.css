@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply mt-8 text-5xl font-bold;
+  }
+  h2 {
+    @apply mt-8 text-4xl font-bold;
+  }
+  h3 {
+    @apply mt-8 text-3xl font-bold;
+  }
+}
+
+.navbar__logo img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  border: none;
+  margin-top: -10px;
+}
+
+/* .navbar {
+  background-color: rgb(15, 23, 42);
+  color: blue;
+} */
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
