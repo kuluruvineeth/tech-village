@@ -190,13 +190,24 @@ export class LinkedListStack<T> implements StackInterface<T> {
 import CollapsibleCodeBlock from '../../src/components/CodeBlock.tsx';
 
 <ul>
-<li><CollapsibleCodeBlock code={`export interface StackInterface<T> {
-  push(value: T): void;
-  pop(): T;
-  length(): number;
-  isEmpty(): boolean;
-  top(): T | null;
-}`} language="typescript" /></li>
+<li><CollapsibleCodeBlock code={`countGoodSubstrings(s: string): number {
+        const list: string[] = [];
+        const slidingWindowSize = 3;
+        let count = 0;
+        for (let i = 0; i < s.length; i++) {
+            list.push(s.charAt(i));
+            if (list.length > slidingWindowSize) {
+                list.shift();
+            }
+            if (list.length === 3) {
+                if (list[0] !== list[1] && list[0] !== list[2] && list[1] !== list[2]) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }`} language="typescript" /></li>
+
 <li><CollapsibleCodeBlock code={`export interface StackInterface<T> {
   push(value: T): void;
   pop(): T;
