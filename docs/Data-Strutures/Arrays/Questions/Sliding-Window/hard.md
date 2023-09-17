@@ -858,3 +858,559 @@ function maxTotalFruits(f: number[][], pos: number, k: number): number {
 ```
 
 </details>
+
+### 14. Maximum Number of Robots Within Budget
+
+<details>
+<summary><b>14. 	
+Maximum Number of Robots Within Budget</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You have n robots. You are given two 0-indexed integer arrays, chargeTimes and runningCosts, both of length n. The ith robot costs chargeTimes[i] units to charge and costs runningCosts[i] units to run. You are also given an integer budget.
+
+The total cost of running k chosen robots is equal to max(chargeTimes) + k \* sum(runningCosts), where max(chargeTimes) is the largest charge cost among the k robots and sum(runningCosts) is the sum of running costs among the k robots.
+
+Return the maximum number of consecutive robots you can run such that the total cost does not exceed budget.
+
+```
+Input: chargeTimes = [3,6,1,3,4], runningCosts = [2,1,3,4,5], budget = 25
+Output: 3
+Explanation:
+It is possible to run all individual and consecutive pairs of robots within budget.
+To obtain answer 3, consider the first 3 robots. The total cost will be max(3,6,1) + 3 * sum(2,1,3) = 6 + 3 * 6 = 24 which is less than 25.
+It can be shown that it is not possible to run more than 3 consecutive robots within budget, so we return 3.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function maximumRobots(
+  chargeTimes: number[],
+  runningCosts: number[],
+  budget: number
+): number {
+  const n: number = chargeTimes.length;
+  let ans: number = 0;
+  const dq: number[] = []; // Storing elements in 'descending order': front -> max, rear -> min.
+  let i: number = 0;
+  let sum: number = 0;
+
+  for (let j = 0; j < n; j++) {
+    sum += runningCosts[j];
+
+    while (dq.length > 0 && dq[dq.length - 1] < chargeTimes[j]) dq.pop();
+    dq.push(chargeTimes[j]);
+
+    let cost: number = sum * (j - i + 1) + dq[0];
+
+    while (i <= j && cost > budget) {
+      sum -= runningCosts[i];
+
+      if (dq[0] === chargeTimes[i]) dq.shift();
+      i++;
+
+      cost = sum * (j - i + 1) + dq[0];
+    }
+
+    ans = Math.max(ans, j - i + 1);
+  }
+
+  return ans;
+}
+```
+
+</details>
+
+### 15. Length of the Longest Valid Substring
+
+<details>
+<summary><b>15. 	
+Length of the Longest Valid Substring</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given a string word and an array of strings forbidden.
+
+A string is called valid if none of its substrings are present in forbidden.
+
+Return the length of the longest valid substring of the string word.
+
+A substring is a contiguous sequence of characters in a string, possibly empty.
+
+```
+Input: word = "cbaaaabc", forbidden = ["aaa","cb"]
+Output: 4
+Explanation: There are 11 valid substrings in word: "c", "b", "a", "ba", "aa", "bc", "baa", "aab", "ab", "abc" and "aabc". The length of the longest valid substring is 4.
+It can be shown that all other substrings contain either "aaa" or "cb" as a substring.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function longestValidSubstring(word: string, forbidden: string[]): number {
+  const ends: number[] = new Array(word.length).fill(-1);
+  const forbiddenWord: { [key: string]: number } = {};
+
+  for (const it of forbidden) {
+    forbiddenWord[it] = 1;
+  }
+
+  const n: number = word.length;
+
+  for (let i = 0; i < n; i++) {
+    let temp: string = "";
+    for (let j = i; j < i + 10 && j < n; j++) {
+      temp += word[j];
+      if (forbiddenWord[temp] !== undefined) {
+        ends[j] = i;
+      }
+    }
+  }
+
+  let i: number = 0;
+  let j: number = 0;
+  let ans: number = Number.MIN_SAFE_INTEGER;
+
+  while (j < n) {
+    if (ends[j] !== -1) {
+      const st: number = ends[j];
+      if (st < i) {
+        ans = Math.max(ans, j - i + 1);
+      } else {
+        i = st + 1;
+        ans = Math.max(ans, j - i + 1);
+      }
+    } else {
+      ans = Math.max(ans, j - i + 1);
+    }
+    j++;
+  }
+
+  return ans;
+}
+```
+
+</details>
+
+### 16. Maximize the Minimum Powered City
+
+<details>
+<summary><b>16. 	
+Maximize the Minimum Powered City</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given a 0-indexed integer array stations of length n, where stations[i] represents the number of power stations in the ith city.
+
+Each power station can provide power to every city in a fixed range. In other words, if the range is denoted by r, then a power station at city i can provide power to all cities j such that |i - j| <= r and 0 <= i, j <= n - 1.
+
+Note that |x| denotes absolute value. For example, |7 - 5| = 2 and |3 - 10| = 7.
+The power of a city is the total number of power stations it is being provided power from.
+
+The government has sanctioned building k more power stations, each of which can be built in any city, and have the same range as the pre-existing ones.
+
+Given the two integers r and k, return the maximum possible minimum power of a city, if the additional power stations are built optimally.
+
+Note that you can build the k power stations in multiple cities.
+
+```
+Input: stations = [1,2,4,5,0], r = 1, k = 2
+Output: 5
+Explanation:
+One of the optimal ways is to install both the power stations at city 1.
+So stations will become [1,4,4,5,0].
+- City 0 is provided by 1 + 4 = 5 power stations.
+- City 1 is provided by 1 + 4 + 4 = 9 power stations.
+- City 2 is provided by 4 + 4 + 5 = 13 power stations.
+- City 3 is provided by 5 + 4 = 9 power stations.
+- City 4 is provided by 5 + 0 = 5 power stations.
+So the minimum power of a city is 5.
+Since it is not possible to obtain a larger power, we return 5.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function maxPower(stations: number[], r: number, k: number): number {
+  const solution = new Solution();
+  return solution.maxPower(stations, r, k);
+}
+
+class Solution {
+  maxPower(stations: number[], r: number, k: number): number {
+    const n: number = stations.length;
+
+    function isGood(
+      minPowerRequired: number,
+      additionalStations: number
+    ): boolean {
+      let windowPower: number = stations
+        .slice(0, r)
+        .reduce((acc, val) => acc + val, 0);
+      const additions: number[] = Array(n).fill(0);
+
+      for (let i: number = 0; i < n; i++) {
+        if (i + r < n) {
+          windowPower += stations[i + r];
+        }
+
+        if (windowPower < minPowerRequired) {
+          const needed: number = minPowerRequired - windowPower;
+          if (needed > additionalStations) {
+            return false;
+          }
+          additions[Math.min(n - 1, i + r)] += needed;
+          windowPower = minPowerRequired;
+          additionalStations -= needed;
+        }
+
+        if (i - r >= 0) {
+          windowPower -= stations[i - r] + additions[i - r];
+        }
+      }
+
+      return true;
+    }
+
+    let left: number = 0;
+    let right: number = stations.reduce((acc, val) => acc + val, 0) + k;
+    let ans: number = 0;
+
+    while (left <= right) {
+      const mid: number = Math.floor((left + right) / 2);
+      if (isGood(mid, k)) {
+        ans = mid;
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
+
+    return ans;
+  }
+}
+```
+
+</details>
+
+### 17. Substring with Concatenation of All Words
+
+<details>
+<summary><b>17. 	
+Substring with Concatenation of All Words</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given a string s and an array of strings words. All the strings of words are of the same length.
+
+A concatenated substring in s is a substring that contains all the strings of any permutation of words concatenated.
+
+For example, if words = ["ab","cd","ef"], then "abcdef", "abefcd", "cdabef", "cdefab", "efabcd", and "efcdab" are all concatenated strings. "acdbef" is not a concatenated substring because it is not the concatenation of any permutation of words.
+Return the starting indices of all the concatenated substrings in s. You can return the answer in any order.
+
+```
+Input: s = "barfoothefoobarman", words = ["foo","bar"]
+Output: [0,9]
+Explanation: Since words.length == 2 and words[i].length == 3, the concatenated substring has to be of length 6.
+The substring starting at 0 is "barfoo". It is the concatenation of ["bar","foo"] which is a permutation of words.
+The substring starting at 9 is "foobar". It is the concatenation of ["foo","bar"] which is a permutation of words.
+The output order does not matter. Returning [9,0] is fine too.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function findSubstring(s: string, words: string[]): number[] {
+  const solution = new Solution();
+  return solution.slidingWin(s, words);
+}
+
+class Solution {
+  slidingWin(s: string, words: string[]): number[] {
+    if (!words.length || !s) {
+      return [];
+    }
+
+    if (words.join("").length > s.length) {
+      return [];
+    }
+
+    const wordMap: Map<string, number> = new Map();
+    for (const w of words) {
+      wordMap.set(w, (wordMap.get(w) || 0) + 1);
+    }
+
+    const lenWord: number = words[0].length;
+    const ans: number[] = [];
+
+    for (let i = 0; i < s.length; i++) {
+      const currMap: Map<string, number> = new Map();
+      for (let j = i; j < s.length; j += lenWord) {
+        const currWord: string = s.substr(j, lenWord);
+        if (!wordMap.has(currWord)) {
+          break;
+        } else {
+          if ((currMap.get(currWord) || 0) >= (wordMap.get(currWord) || 0)) {
+            break;
+          } else {
+            currMap.set(currWord, (currMap.get(currWord) || 0) + 1);
+          }
+        }
+
+        if (this.mapsAreEqual(currMap, wordMap)) {
+          ans.push(i);
+          break;
+        }
+      }
+    }
+
+    return ans;
+  }
+
+  mapsAreEqual(map1: Map<string, number>, map2: Map<string, number>): boolean {
+    if (map1.size !== map2.size) {
+      return false;
+    }
+    for (const [key, val] of map1) {
+      if (map2.get(key) !== val) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+```
+
+</details>
+
+### 18. Longest Duplicate Substring
+
+<details>
+<summary><b>18. 	
+Longest Duplicate Substring</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a string s, consider all duplicated substrings: (contiguous) substrings of s that occur 2 or more times. The occurrences may overlap.
+
+Return any duplicated substring that has the longest possible length. If s does not have a duplicated substring, the answer is "".
+
+```
+Input: s = "banana"
+Output: "ana"
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function longestDupSubstring(s: string): string {
+  let ans: string = "";
+  let j: number = 1;
+
+  for (let i: number = 0; i < s.length; i++) {
+    let window: string = s.substring(i, i + j);
+    let haystack: string = s.substring(i + 1);
+
+    while (haystack.includes(window)) {
+      ans = window;
+      j++;
+      window = s.substring(i, i + j);
+    }
+  }
+
+  return ans;
+}
+```
+
+</details>
+
+### 19. Shortest Subarray with Sum at Least K
+
+<details>
+<summary><b>19. 	
+Shortest Subarray with Sum at Least K</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums and an integer k, return the length of the shortest non-empty subarray of nums with a sum of at least k. If there is no such subarray, return -1.
+
+A subarray is a contiguous part of an array.
+
+```
+Input: nums = [2,-1,2], k = 3
+Output: 3
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function shortestSubarray(A: number[], k: number): number {
+  const n: number = A.length;
+  const q: [number, number][] = [[-1, 0]];
+  let ans: number = n + 1;
+  let psum: number = 0;
+
+  for (let i: number = 0; i < n; i++) {
+    psum += A[i];
+
+    if (A[i] > 0) {
+      while (q.length && psum - q[0][1] >= k) {
+        ans = Math.min(ans, i - q.shift()![0]);
+      }
+    } else {
+      while (q.length && psum <= q[q.length - 1][1]) {
+        q.pop();
+      }
+    }
+
+    q.push([i, psum]);
+  }
+
+  return ans <= n ? ans : -1;
+}
+```
+
+</details>
+
+### 20. Find Substring With Given Hash Value
+
+<details>
+<summary><b>20. 	
+ Find Substring With Given Hash Value</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+The hash of a 0-indexed string s of length k, given integers p and m, is computed using the following function:
+
+hash(s, p, m) = (val(s[0]) _ p0 + val(s[1]) _ p1 + ... + val(s[k-1]) \* pk-1) mod m.
+Where val(s[i]) represents the index of s[i] in the alphabet from val('a') = 1 to val('z') = 26.
+
+You are given a string s and the integers power, modulo, k, and hashValue. Return sub, the first substring of s of length k such that hash(sub, power, modulo) == hashValue.
+
+The test cases will be generated such that an answer always exists.
+
+A substring is a contiguous non-empty sequence of characters within a string.
+
+```
+Input: s = "leetcode", power = 7, modulo = 20, k = 2, hashValue = 0
+Output: "ee"
+Explanation: The hash of "ee" can be computed to be hash("ee", 7, 20) = (5 * 1 + 5 * 7) mod 20 = 40 mod 20 = 0.
+"ee" is the first substring of length 2 with hashValue 0. Hence, we return "ee".
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+yet to write
+```
+
+</details>
+
+### 21. Contains Duplicate III
+
+<details>
+<summary><b>21. 	
+Contains Duplicate III</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an integer array nums and two integers indexDiff and valueDiff.
+
+Find a pair of indices (i, j) such that:
+
+i != j,
+abs(i - j) <= indexDiff.
+abs(nums[i] - nums[j]) <= valueDiff, and
+Return true if such pair exists or false otherwise.
+
+```
+Input: nums = [1,2,3,1], indexDiff = 3, valueDiff = 0
+Output: true
+Explanation: We can choose (i, j) = (0, 3).
+We satisfy the three conditions:
+i != j --> 0 != 3
+abs(i - j) <= indexDiff --> abs(0 - 3) <= 3
+abs(nums[i] - nums[j]) <= valueDiff --> abs(1 - 1) <= 0
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+```typescript
+function containsNearbyAlmostDuplicate(
+  nums: number[],
+  k: number,
+  t: number
+): boolean {
+  if (t < 0) {
+    // Input sanity check
+    return false;
+  }
+  const buckets: { [key: number]: number } = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const m = Math.floor(nums[i] / (t + 1));
+
+    if (buckets[m] !== undefined) {
+      return true;
+    }
+
+    if (
+      buckets[m - 1] !== undefined &&
+      Math.abs(nums[i] - buckets[m - 1]) <= t
+    ) {
+      return true;
+    }
+
+    if (
+      buckets[m + 1] !== undefined &&
+      Math.abs(nums[i] - buckets[m + 1]) <= t
+    ) {
+      return true;
+    }
+
+    buckets[m] = nums[i];
+
+    if (i - k >= 0) {
+      const m_pop = Math.floor(nums[i - k] / (t + 1));
+      delete buckets[m_pop];
+    }
+  }
+
+  return false;
+}
+```
+
+</details>
