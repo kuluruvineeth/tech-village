@@ -3046,23 +3046,881 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
 
 ## Easy
 
-### 49. Reverse Nodes in k-Group
+### 49. Valid Palindrome
 
 <details>
 <summary><b>49. 	
-Reverse Nodes in k-Group</b></summary>
+Valid Palindrome</b></summary>
 <h1>Problem Statement</h1>
 <p>
 
-Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 
-k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
-
-You may not alter the values in the list's nodes, only nodes themselves may be changed.
+Given a string s, return true if it is a palindrome, or false otherwise.
 
 ```
-Input: head = [1,2,3,4,5], k = 2
-Output: [2,1,4,3,5]
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function isPalindrome(s: string): boolean {
+  if (s.length === 0) {
+    return true;
+  }
+
+  let head: number = 0;
+  let tail: number = s.length - 1;
+  let cHead: string;
+  let cTail: string;
+
+  while (head <= tail) {
+    cHead = s.charAt(head);
+    cTail = s.charAt(tail);
+
+    if (!isLetterOrDigit(cHead)) {
+      head++;
+    } else if (!isLetterOrDigit(cTail)) {
+      tail--;
+    } else {
+      if (cHead.toLowerCase() !== cTail.toLowerCase()) {
+        return false;
+      }
+      head++;
+      tail--;
+    }
+  }
+
+  return true;
+}
+
+function isLetterOrDigit(char: string): boolean {
+  return /^[0-9a-zA-Z]+$/.test(char);
+}
+```
+
+</details>
+
+</details>
+
+### 50. Valid Anagram
+
+<details>
+<summary><b>50. 	
+ Valid Anagram</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+```
+Input: s = "anagram", t = "nagaram"
+Output: true
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function isAnagram(s: string, t: string): boolean {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  const alphabet: number[] = new Array(26).fill(0);
+
+  for (let i = 0; i < s.length; i++) {
+    alphabet[s.charCodeAt(i) - "a".charCodeAt(0)]++;
+    alphabet[t.charCodeAt(i) - "a".charCodeAt(0)]--;
+  }
+
+  for (const count of alphabet) {
+    if (count !== 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+```
+
+</details>
+
+</details>
+
+### 51. Longest Palindrome
+
+<details>
+<summary><b>51. 	
+Longest Palindrome</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+
+Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
+
+```
+Input: s = "abccccdd"
+Output: 7
+Explanation: One longest palindrome that can be built is "dccaccd", whose length is 7.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function longestPalindrome(s: string): number {
+  if (s === null || s.length === 0) {
+    return 0;
+  }
+
+  const charSet: Set<string> = new Set();
+  let count: number = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s.charAt(i);
+
+    if (charSet.has(char)) {
+      charSet.delete(char);
+      count++;
+    } else {
+      charSet.add(char);
+    }
+  }
+
+  if (charSet.size !== 0) {
+    return count * 2 + 1;
+  }
+
+  return count * 2;
+}
+```
+
+</details>
+
+</details>
+
+### 52. Longest Common Prefix
+
+<details>
+<summary><b>52. 	
+Longest Common Prefix</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+```
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function longestCommonPrefix(strs: string[]): string {
+  if (strs.length === 0) {
+    return "";
+  }
+
+  strs.sort();
+  const s1: string = strs[0];
+  const s2: string = strs[strs.length - 1];
+  let idx: number = 0;
+
+  while (idx < s1.length && idx < s2.length) {
+    if (s1.charAt(idx) === s2.charAt(idx)) {
+      idx++;
+    } else {
+      break;
+    }
+  }
+
+  return s1.substring(0, idx);
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 53. Longest Substring Without Repeating Characters
+
+<details>
+<summary><b>53. 	
+Longest Substring Without Repeating Characters</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a string s, find the length of the longest substring without repeating characters.
+
+```
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function lengthOfLongestSubstring(s: string): number {
+  if (s.length === 0) {
+    return 0;
+  }
+
+  const map: Map<string, number> = new Map();
+  let max: number = 0;
+
+  for (let i = 0, j = 0; i < s.length; ++i) {
+    if (map.has(s.charAt(i))) {
+      j = Math.max(j, map.get(s.charAt(i))! + 1);
+    }
+    map.set(s.charAt(i), i);
+    max = Math.max(max, i - j + 1);
+  }
+
+  return max;
+}
+```
+
+</details>
+
+</details>
+
+### 54. String to Integer (atoi)
+
+<details>
+<summary><b>54. 	
+String to Integer (atoi)</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).
+
+The algorithm for myAtoi(string s) is as follows:
+
+Read in and ignore any leading whitespace.
+Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.
+Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored.
+Convert these digits into an integer (i.e. "123" -> 123, "0032" -> 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2).
+If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then clamp the integer so that it remains in the range. Specifically, integers less than -231 should be clamped to -231, and integers greater than 231 - 1 should be clamped to 231 - 1.
+Return the integer as the final result.
+Note:
+
+Only the space character ' ' is considered a whitespace character.
+Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.
+
+```
+Input: s = "42"
+Output: 42
+Explanation: The underlined characters are what is read in, the caret is the current reader position.
+Step 1: "42" (no characters read because there is no leading whitespace)
+         ^
+Step 2: "42" (no characters read because there is neither a '-' nor '+')
+         ^
+Step 3: "42" ("42" is read in)
+           ^
+The parsed integer is 42.
+Since 42 is in the range [-231, 231 - 1], the final result is 42.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function myAtoi(s: string): number {
+  let i: number = 0;
+  let num: number = 0;
+  let sign: number = 1;
+  const max: number = 2 ** 31 - 1;
+  const min: number = 2 ** 31 * -1;
+
+  s = s.trim();
+
+  if (s[i] === "-" || s[i] === "+") {
+    sign = s[i] === "-" ? -1 : 1;
+    i++;
+  }
+
+  while (s[i] && s[i].charCodeAt(0) - 48 >= 0 && s[i].charCodeAt(0) - 48 <= 9) {
+    num = num * 10 + (s[i].charCodeAt(0) - 48);
+    i++;
+  }
+
+  num = num * sign;
+
+  return num <= min ? min : num >= max ? max : num;
+}
+```
+
+</details>
+
+</details>
+
+### 55. Longest Palindromic Substring
+
+<details>
+<summary><b>55. 	
+Longest Palindromic Substring</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a string s, return the longest palindromic substring in s.
+
+```
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function longestPalindrome(s: string): string {
+  const solution = new Solution();
+  return solution.longestPalindrome(s);
+}
+
+class Solution {
+  private lo: number = 0;
+  private maxLen: number = 0;
+
+  longestPalindrome(s: string): string {
+    const len: number = s.length;
+
+    if (len < 2) {
+      return s;
+    }
+
+    for (let i: number = 0; i < len - 1; i++) {
+      this.extendPalindrome(s, i, i); // assume odd length, try to extend Palindrome as much as possible
+      this.extendPalindrome(s, i, i + 1); // assume even length
+    }
+
+    return s.substring(this.lo, this.lo + this.maxLen);
+  }
+
+  private extendPalindrome(s: string, j: number, k: number): void {
+    while (j >= 0 && k < s.length && s.charAt(j) === s.charAt(k)) {
+      j--;
+      k++;
+    }
+
+    if (this.maxLen < k - j - 1) {
+      this.lo = j + 1;
+      this.maxLen = k - j - 1;
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 56. Find All Anagrams in a String
+
+<details>
+<summary><b>56. 	
+Find All Anagrams in a String</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+```
+Input: s = "cbaebabacd", p = "abc"
+Output: [0,6]
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findAnagrams(s: string, p: string): number[] {
+  const ans: number[] = [];
+  const hash: number[] = Array(26).fill(0);
+  const phash: number[] = Array(26).fill(0);
+  const window: number = p.length;
+  const len: number = s.length;
+
+  if (len < window) {
+    return ans;
+  }
+
+  let left: number = 0;
+  let right: number = 0;
+
+  while (right < window) {
+    phash[p.charCodeAt(right) - "a".charCodeAt(0)] += 1;
+    hash[s.charCodeAt(right) - "a".charCodeAt(0)] += 1;
+    right++;
+  }
+  right -= 1;
+
+  while (right < len) {
+    if (JSON.stringify(phash) === JSON.stringify(hash)) {
+      ans.push(left);
+    }
+
+    right += 1;
+
+    if (right !== len) {
+      hash[s.charCodeAt(right) - "a".charCodeAt(0)] += 1;
+    }
+
+    hash[s.charCodeAt(left) - "a".charCodeAt(0)] -= 1;
+    left += 1;
+  }
+
+  return ans;
+}
+```
+
+</details>
+
+</details>
+
+### 57. Group Anagrams
+
+<details>
+<summary><b>57. 	
+Group Anagrams</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+```
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function groupAnagrams(strs: string[]): string[][] {
+  if (!strs || strs.length === 0) {
+    return [];
+  }
+
+  const map: Map<string, string[]> = new Map();
+
+  for (const s of strs) {
+    const ca: number[] = new Array(26).fill(0);
+
+    for (const c of s) {
+      ca[c.charCodeAt(0) - "a".charCodeAt(0)]++;
+    }
+
+    const keyStr: string = ca.join(",");
+
+    if (!map.has(keyStr)) {
+      map.set(keyStr, []);
+    }
+
+    map.get(keyStr)!.push(s);
+  }
+
+  return Array.from(map.values());
+}
+```
+
+</details>
+
+</details>
+
+### 58. Longest Repeating Character Replacement
+
+<details>
+<summary><b>58. 	
+Longest Repeating Character Replacement</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+```
+Input: s = "AABABBA", k = 1
+Output: 4
+Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+The substring "BBBB" has the longest repeating letters, which is 4.
+There may exists other ways to achive this answer too.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function characterReplacement(s: string, k: number): number {
+  const len = s.length;
+  const count = new Array(26).fill(0);
+  let start = 0;
+  let maxCount = 0;
+  let maxLength = 0;
+
+  for (let end = 0; end < len; end++) {
+    maxCount = Math.max(
+      maxCount,
+      ++count[s.charCodeAt(end) - "A".charCodeAt(0)]
+    );
+
+    while (end - start + 1 - maxCount > k) {
+      count[s.charCodeAt(start) - "A".charCodeAt(0)]--;
+      start++;
+    }
+
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+
+  return maxLength;
+}
+```
+
+</details>
+
+</details>
+
+### 59. Largest Number
+
+<details>
+<summary><b>59. 	
+Largest Number</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+
+Since the result may be very large, so you need to return a string instead of an integer.
+
+```
+Input: nums = [10,2]
+Output: "210"
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function largestNumber(nums: number[]): string {
+  if (!nums || nums.length === 0) {
+    return "";
+  }
+
+  // Convert number array to string array for sorting
+  const s_num: string[] = nums.map((num) => num.toString());
+
+  // Comparator to decide which string should come first in concatenation
+  const comp: (str1: string, str2: string) => number = (str1, str2) => {
+    const s1: string = str1 + str2;
+    const s2: string = str2 + str1;
+    return s2.localeCompare(s1); // reverse order here, so we can do append() later
+  };
+
+  s_num.sort(comp);
+
+  // An extreme edge case by lc, say you have only a bunch of 0 in your int array
+  if (s_num[0].charAt(0) === "0") {
+    return "0";
+  }
+
+  return s_num.join("");
+}
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 60. Minimum Window Substring
+
+<details>
+<summary><b>60. 	
+Minimum Window Substring</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+The testcases will be generated such that the answer is unique.
+
+```
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function minWindow(s: string, t: string): string {
+  const map: number[] = new Array(128).fill(0);
+
+  for (const c of t) {
+    map[c.charCodeAt(0)]++;
+  }
+
+  let counter: number = t.length;
+  let begin: number = 0;
+  let end: number = 0;
+  let d: number = Number.MAX_SAFE_INTEGER;
+  let head: number = 0;
+
+  while (end < s.length) {
+    if (map[s.charCodeAt(end++)]-- > 0) {
+      counter--; // in t
+    }
+
+    while (counter === 0) {
+      // valid
+      if (end - begin < d) {
+        d = end - (head = begin);
+      }
+
+      if (map[s.charCodeAt(begin++)]++ === 0) {
+        counter++; // make it invalid
+      }
+    }
+  }
+
+  return d === Number.MAX_SAFE_INTEGER ? "" : s.substring(head, head + d);
+}
+```
+
+</details>
+
+</details>
+
+### 61. Palindrome Pairs
+
+<details>
+<summary><b>61. 	
+Palindrome Pairs</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given a 0-indexed array of unique strings words.
+
+A palindrome pair is a pair of integers (i, j) such that:
+
+0 <= i, j < words.length,
+i != j, and
+words[i] + words[j] (the concatenation of the two strings) is a palindrome.
+Return an array of all the palindrome pairs of words.
+
+You must write an algorithm with O(sum of words[i].length) runtime complexity.
+
+```
+Input: words = ["abcd","dcba","lls","s","sssll"]
+Output: [[0,1],[1,0],[3,2],[2,4]]
+Explanation: The palindromes are ["abcddcba","dcbaabcd","slls","llssssll"]
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function palindromePairs(words: string[]): number[][] {
+  const res: number[][] = [];
+
+  if (!words || words.length === 0) {
+    return res;
+  }
+
+  const map: Map<string, number> = new Map();
+
+  for (let i = 0; i < words.length; i++) {
+    map.set(words[i], i);
+  }
+
+  // Special cases: "" can be combined with any palindrome string
+  if (map.has("")) {
+    const blankIdx: number | undefined = map.get("");
+    if (blankIdx !== undefined) {
+      for (let i = 0; i < words.length; i++) {
+        if (isPalindrome(words[i])) {
+          if (i === blankIdx) continue;
+          res.push([blankIdx, i]);
+          res.push([i, blankIdx]);
+        }
+      }
+    }
+  }
+
+  // Find all string and reverse string pairs
+  for (let i = 0; i < words.length; i++) {
+    const cur_r: string = reverseStr(words[i]);
+    if (map.has(cur_r)) {
+      const found: number | undefined = map.get(cur_r);
+      if (found !== undefined && found !== i) {
+        res.push([i, found]);
+      }
+    }
+  }
+
+  // Find the pair s1, s2 that
+  // case1: s1[0:cut] is palindrome and s1[cut+1:] = reverse(s2) => (s2, s1)
+  // case2: s1[cut+1:] is palindrome and s1[0:cut] = reverse(s2) => (s1, s2)
+  for (let i = 0; i < words.length; i++) {
+    const cur: string = words[i];
+    for (let cut = 1; cut < cur.length; cut++) {
+      if (isPalindrome(cur.substring(0, cut))) {
+        const cut_r: string = reverseStr(cur.substring(cut));
+        if (map.has(cut_r)) {
+          const found: number | undefined = map.get(cut_r);
+          if (found !== undefined && found !== i) {
+            res.push([found, i]);
+          }
+        }
+      }
+      if (isPalindrome(cur.substring(cut))) {
+        const cut_r: string = reverseStr(cur.substring(0, cut));
+        if (map.has(cut_r)) {
+          const found: number | undefined = map.get(cut_r);
+          if (found !== undefined && found !== i) {
+            res.push([i, found]);
+          }
+        }
+      }
+    }
+  }
+
+  return res;
+}
+
+function reverseStr(str: string): string {
+  const sb: string[] = str.split("");
+  return sb.reverse().join("");
+}
+
+function isPalindrome(s: string): boolean {
+  let i: number = 0;
+  let j: number = s.length - 1;
+  while (i <= j) {
+    if (s.charAt(i) !== s.charAt(j)) {
+      return false;
+    }
+    i++;
+    j--;
+  }
+  return true;
+}
+```
+
+</details>
+
+</details>
+
+## Binary Tree
+
+## Easy
+
+### 62. Invert Binary Tree
+
+<details>
+<summary><b>62. 	
+Invert Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, invert the tree, and return its root.
+
+```
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
 ```
 
 </p>
@@ -3075,43 +3933,3775 @@ Output: [2,1,4,3,5]
 
 ```typescript
 /**
- * Definition for singly-linked list.
- * class ListNode {
+ * Definition for a binary tree node.
+ * class TreeNode {
  *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
  *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
  *     }
  * }
  */
 
-function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
-  let curr: ListNode | null = head;
-  let count: number = 0;
-
-  while (curr !== null && count !== k) {
-    curr = curr.next;
-    count++;
+function invertTree(root: TreeNode | null): TreeNode | null {
+  if (root === null) {
+    return null;
   }
 
-  if (count === k) {
-    curr = reverseKGroup(curr, k);
+  const stack: TreeNode[] = [];
+  stack.push(root);
 
-    while (count-- > 0) {
-      const tmp: ListNode | null = head!.next;
-      head!.next = curr;
-      curr = head;
-      head = tmp;
+  while (stack.length > 0) {
+    const node: TreeNode = stack.pop()!;
+    const left: TreeNode | null = node.left;
+    node.left = node.right;
+    node.right = left;
+
+    if (node.left !== null) {
+      stack.push(node.left);
     }
-
-    head = curr;
+    if (node.right !== null) {
+      stack.push(node.right);
+    }
   }
 
-  return head;
+  return root;
 }
 ```
 
 </details>
 
 </details>
+
+### 63. Balanced Binary Tree
+
+<details>
+<summary><b>63. 	
+Balanced Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a binary tree, determine if it is height-balanced.
+
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: true
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isBalanced(root: TreeNode | null): boolean {
+  const solution = new Solution();
+  return solution.isBalanced(root);
+}
+
+class Solution {
+  isBalanced(root: TreeNode | null): boolean {
+    if (root === null) {
+      return true;
+    }
+    return this.helper(root) !== -1;
+  }
+
+  private helper(root: TreeNode | null): number {
+    if (root === null) {
+      return 0;
+    }
+    const left: number = this.helper(root.left);
+    const right: number = this.helper(root.right);
+    if (left === -1 || right === -1 || Math.abs(left - right) > 1) {
+      return -1;
+    }
+    return Math.max(left, right) + 1;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 64. Diameter of Binary Tree
+
+<details>
+<summary><b>64. 	
+Diameter of Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, return the length of the diameter of the tree.
+
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
+The length of a path between two nodes is represented by the number of edges between them.
+
+```
+Input: root = [1,2,3,4,5]
+Output: 3
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function diameterOfBinaryTree(root: TreeNode | null): number {
+  const solution = new Solution();
+  return solution.diameterOfBinaryTree(root);
+}
+
+class Solution {
+  private max: number = 0;
+
+  diameterOfBinaryTree(root: TreeNode | null): number {
+    this.maxDepth(root);
+    return this.max;
+  }
+
+  private maxDepth(root: TreeNode | null): number {
+    if (root === null) return 0;
+
+    const left: number = this.maxDepth(root.left);
+    const right: number = this.maxDepth(root.right);
+
+    this.max = Math.max(this.max, left + right);
+
+    return Math.max(left, right) + 1;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 65. Maximum Depth of Binary Tree
+
+<details>
+<summary><b>65. 	
+Maximum Depth of Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, return its maximum depth.
+
+A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function maxDepth(root: TreeNode | null): number {
+  if (root === null) {
+    return 0;
+  }
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+}
+```
+
+</details>
+
+</details>
+
+### 66. Same Tree
+
+<details>
+<summary><b>66. 	
+Same Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+
+Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+
+```
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+  if (p === null && q === null) {
+    return true;
+  }
+  if (p === null || q === null) {
+    return false;
+  }
+  if (p.val === q.val) {
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+  }
+  return false;
+}
+```
+
+</details>
+
+</details>
+
+### 67. Symmetric Tree
+
+<details>
+<summary><b>67. 	
+Symmetric Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+```
+Input: root = [1,2,2,3,4,4,3]
+Output: true
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isSymmetric(root: TreeNode | null): boolean {
+  return root === null || isSymmetricHelp(root.left, root.right);
+}
+
+function isSymmetricHelp(
+  left: TreeNode | null,
+  right: TreeNode | null
+): boolean {
+  if (left === null || right === null) {
+    return left === right;
+  }
+  if (left.val !== right.val) {
+    return false;
+  }
+  return (
+    isSymmetricHelp(left.left, right.right) &&
+    isSymmetricHelp(left.right, right.left)
+  );
+}
+```
+
+</details>
+
+</details>
+
+### 68. Subtree of Another Tree
+
+<details>
+<summary><b>68. 	
+ Subtree of Another Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values of subRoot and false otherwise.
+
+A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. The tree tree could also be considered as a subtree of itself.
+
+```
+Input: root = [3,4,5,1,2], subRoot = [4,1,2]
+Output: true
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class Solution {
+  isSubtree(s: TreeNode | null, t: TreeNode | null): boolean {
+    if (s === null) {
+      return false;
+    }
+    if (this.isSame(s, t)) {
+      return true;
+    }
+    return this.isSubtree(s.left, t) || this.isSubtree(s.right, t);
+  }
+
+  private isSame(s: TreeNode | null, t: TreeNode | null): boolean {
+    if (s === null && t === null) {
+      return true;
+    }
+    if (s === null || t === null) {
+      return false;
+    }
+
+    if (s.val !== t.val) {
+      return false;
+    }
+
+    return this.isSame(s.left, t.left) && this.isSame(s.right, t.right);
+  }
+}
+
+function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
+  const solution = new Solution();
+  return solution.isSubtree(root, subRoot);
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 69. Binary Tree Level Order Traversal
+
+<details>
+<summary><b>69. 	
+Binary Tree Level Order Traversal</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[9,20],[15,7]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[][] {
+  const queue: TreeNode[] = [];
+  const wrapList: number[][] = [];
+
+  if (root === null) {
+    return wrapList;
+  }
+
+  queue.push(root);
+  while (queue.length > 0) {
+    const levelNum: number = queue.length;
+    const subList: number[] = [];
+
+    for (let i = 0; i < levelNum; i++) {
+      if (queue[0].left !== null) {
+        queue.push(queue[0].left);
+      }
+      if (queue[0].right !== null) {
+        queue.push(queue[0].right);
+      }
+      subList.push(queue.shift()!.val);
+    }
+
+    wrapList.push(subList);
+  }
+
+  return wrapList;
+}
+```
+
+</details>
+
+</details>
+
+### 70. Lowest Common Ancestor of a Binary Tree
+
+<details>
+<summary><b>70. 	
+Lowest Common Ancestor of a Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function lowestCommonAncestor(
+  root: TreeNode | null,
+  p: TreeNode,
+  q: TreeNode
+): TreeNode | null {
+  if (root === null || root === p || root === q) {
+    return root;
+  }
+
+  const left: TreeNode | null = lowestCommonAncestor(root.left, p, q);
+  const right: TreeNode | null = lowestCommonAncestor(root.right, p, q);
+
+  return left === null ? right : right === null ? left : root;
+}
+```
+
+</details>
+
+</details>
+
+### 71. Binary Tree Right Side View
+
+<details>
+<summary><b>71. 	
+ Binary Tree Right Side View</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+```
+Input: root = [1,2,3,null,5,null,4]
+Output: [1,3,4]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function rightSideView(root: TreeNode | null): number[] {
+  if (root === null) {
+    return [];
+  }
+
+  const queue: TreeNode[] = [];
+  queue.push(root);
+  const result: number[] = [];
+
+  while (queue.length > 0) {
+    const size: number = queue.length;
+
+    for (let i = 0; i < size; i++) {
+      const current: TreeNode | null = queue.shift();
+
+      if (i === size - 1) {
+        result.push(current!.val);
+      }
+
+      if (current!.left !== null) {
+        queue.push(current!.left);
+      }
+      if (current!.right !== null) {
+        queue.push(current!.right);
+      }
+    }
+  }
+
+  return result;
+}
+```
+
+</details>
+
+</details>
+
+### 72. Construct Binary Tree from Preorder and Inorder Traversal
+
+<details>
+<summary><b>72. 	
+Construct Binary Tree from Preorder and Inorder Traversal</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+
+```
+Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+Output: [3,9,20,null,null,15,7]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
+  return helper(0, 0, inorder.length - 1, preorder, inorder);
+}
+
+function helper(
+  preStart: number,
+  inStart: number,
+  inEnd: number,
+  preorder: number[],
+  inorder: number[]
+): TreeNode | null {
+  if (preStart > preorder.length - 1 || inStart > inEnd) {
+    return null;
+  }
+
+  const rootValue: number = preorder[preStart];
+  const root: TreeNode = new TreeNode(rootValue);
+
+  let inIndex: number = 0; // Index of the current root in inorder
+
+  for (let i = inStart; i <= inEnd; i++) {
+    if (inorder[i] === rootValue) {
+      inIndex = i;
+      break;
+    }
+  }
+
+  root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
+  root.right = helper(
+    preStart + inIndex - inStart + 1,
+    inIndex + 1,
+    inEnd,
+    preorder,
+    inorder
+  );
+
+  return root;
+}
+```
+
+</details>
+
+</details>
+
+### 73. Path Sum II
+
+<details>
+<summary><b>73. 	
+Path Sum II</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where the sum of the node values in the path equals targetSum. Each path should be returned as a list of the node values, not node references.
+
+A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf is a node with no children.
+
+```
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+Output: [[5,4,11,2],[5,8,4,5]]
+Explanation: There are two paths whose sum equals targetSum:
+5 + 4 + 11 + 2 = 22
+5 + 8 + 4 + 5 = 22
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pathSum(root: TreeNode | null, sum: number): number[][] {
+  const res: number[][] = [];
+  pathSumHelper(root, sum, [], res);
+  return res;
+}
+
+function pathSumHelper(
+  root: TreeNode | null,
+  sum: number,
+  sol: number[],
+  res: number[][]
+): void {
+  if (root === null) {
+    return;
+  }
+
+  sol.push(root.val);
+
+  if (root.left === null && root.right === null && sum === root.val) {
+    res.push([...sol]);
+  } else {
+    pathSumHelper(root.left, sum - root.val, sol, res);
+    pathSumHelper(root.right, sum - root.val, sol, res);
+  }
+
+  sol.pop();
+}
+```
+
+</details>
+
+</details>
+
+### 74. Maximum Width of Binary Tree
+
+<details>
+<summary><b>74. 	
+Maximum Width of Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, return the maximum width of the given tree.
+
+The maximum width of a tree is the maximum width among all levels.
+
+The width of one level is defined as the length between the end-nodes (the leftmost and rightmost non-null nodes), where the null nodes between the end-nodes that would be present in a complete binary tree extending down to that level are also counted into the length calculation.
+
+It is guaranteed that the answer will in the range of a 32-bit signed integer.
+
+```
+Input: root = [1,3,2,5,3,null,9]
+Output: 4
+Explanation: The maximum width exists in the third level with length 4 (5,3,null,9).
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function widthOfBinaryTree(root: TreeNode | null): number {
+  let max: number = 0;
+
+  const queue: [TreeNode, number][] = [[root, 1]];
+
+  while (queue.length > 0) {
+    let queueLength: number = queue.length;
+
+    let firstNonNull: number = 0;
+    let lastNonNull: number = 0;
+
+    for (let i = 0; i < queueLength; i++) {
+      const currNode = queue.shift();
+      if (i === 0) firstNonNull = currNode[1];
+      if (i === queueLength - 1) lastNonNull = currNode[1];
+
+      if (currNode[0].left !== null) {
+        queue.push([currNode[0].left, currNode[1] * 2 - firstNonNull]);
+      }
+
+      if (currNode[0].right !== null) {
+        queue.push([currNode[0].right, currNode[1] * 2 + 1 - firstNonNull]);
+      }
+    }
+
+    max = Math.max(max, lastNonNull - firstNonNull + 1);
+  }
+
+  return max;
+}
+```
+
+</details>
+
+</details>
+
+### 75. Binary Tree Zigzag Level Order Traversal
+
+<details>
+<summary><b>75. 	
+Binary Tree Zigzag Level Order Traversal</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate between).
+
+```
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[20,9],[15,7]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+function zigzagLevelOrder(root: TreeNode | null): number[][] {
+  const res: number[][] = [];
+  if (!root) return res;
+
+  const queue: TreeNode[] = [root];
+  let order = true;
+  let size = 1;
+
+  while (queue.length > 0) {
+    const tmp: number[] = [];
+    for (let i = 0; i < size; ++i) {
+      const node = queue.shift()!;
+      if (order) {
+        tmp.push(node.val);
+      } else {
+        tmp.unshift(node.val);
+      }
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    res.push(tmp);
+    size = queue.length;
+    order = !order;
+  }
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+### 76. Path Sum III
+
+<details>
+<summary><b>76. 	
+ Path Sum III</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
+
+The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
+
+```
+Input: root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+Output: 3
+Explanation: The paths that sum to 8 are shown.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pathSum(root: TreeNode | null, sum: number): number {
+  const preSum: Map<number, number> = new Map();
+  preSum.set(0, 1);
+  return helper(root, 0, sum, preSum);
+}
+
+function helper(
+  root: TreeNode | null,
+  currSum: number,
+  target: number,
+  preSum: Map<number, number>
+): number {
+  if (!root) {
+    return 0;
+  }
+
+  currSum += root.val;
+  let res = preSum.get(currSum - target) || 0;
+  preSum.set(currSum, (preSum.get(currSum) || 0) + 1);
+
+  res +=
+    helper(root.left, currSum, target, preSum) +
+    helper(root.right, currSum, target, preSum);
+  preSum.set(currSum, (preSum.get(currSum) || 0) - 1);
+
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+### 77. All Nodes Distance K in Binary Tree
+
+<details>
+<summary><b>77. 	
+ All Nodes Distance K in Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, the value of a target node target, and an integer k, return an array of the values of all nodes that have a distance k from the target node.
+
+You can return the answer in any order.
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], target = 5, k = 2
+Output: [7,4,1]
+Explanation: The nodes that are a distance 2 from the target node (with value 5) have values 7, 4, and 1.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function distanceK(
+  root: TreeNode | null,
+  target: TreeNode | null,
+  k: number
+): number[] {
+  const solution = new Solution();
+  return solution.distanceK(root, target, k);
+}
+
+class Solution {
+  private map: Map<TreeNode, number> = new Map();
+
+  public distanceK(
+    root: TreeNode | null,
+    target: TreeNode | null,
+    K: number
+  ): number[] {
+    const res: number[] = [];
+    this.find(root, target);
+    this.dfs(root, target, K, this.map.get(root), res);
+    return res;
+  }
+
+  // Find target node first and store the distance in that path that we could use it later directly
+  private find(root: TreeNode | null, target: TreeNode | null): number {
+    if (!root) return -1;
+    if (root === target) {
+      this.map.set(root, 0);
+      return 0;
+    }
+    const left = this.find(root.left, target);
+    if (left >= 0) {
+      this.map.set(root, left + 1);
+      return left + 1;
+    }
+    const right = this.find(root.right, target);
+    if (right >= 0) {
+      this.map.set(root, right + 1);
+      return right + 1;
+    }
+    return -1;
+  }
+
+  private dfs(
+    root: TreeNode | null,
+    target: TreeNode | null,
+    K: number,
+    length: number,
+    res: number[]
+  ): void {
+    if (!root) return;
+    if (this.map.has(root)) length = this.map.get(root)!;
+    if (length === K) res.push(root.val);
+    this.dfs(root.left, target, K, length + 1, res);
+    this.dfs(root.right, target, K, length + 1, res);
+  }
+}
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 78.Serialize and Deserialize Binary Tree
+
+<details>
+<summary><b>78. 	
+Serialize and Deserialize Binary Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+```
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+  const codec = new Codec();
+  return codec.serialize(root);
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+  const codec = new Codec();
+  return codec.deserialize(data);
+}
+
+class Codec {
+  private static spliter: string = ",";
+  private static NN: string = "X";
+
+  // Encodes a tree to a single string.
+  public serialize(root: TreeNode | null): string {
+    const sb: string[] = [];
+    this.buildString(root, sb);
+    return sb.join("");
+  }
+
+  private buildString(node: TreeNode | null, sb: string[]): void {
+    if (!node) {
+      sb.push(Codec.NN);
+      sb.push(Codec.spliter);
+    } else {
+      sb.push(node.val.toString());
+      sb.push(Codec.spliter);
+      this.buildString(node.left, sb);
+      this.buildString(node.right, sb);
+    }
+  }
+
+  // Decodes your encoded data to a tree.
+  public deserialize(data: string): TreeNode | null {
+    const nodes: string[] = data.split(Codec.spliter);
+    const queue: string[] = nodes.slice();
+    return this.buildTree(queue);
+  }
+
+  private buildTree(nodes: string[]): TreeNode | null {
+    const val: string = nodes.shift()!;
+    if (val === Codec.NN) return null;
+    else {
+      const node: TreeNode = new TreeNode(Number(val));
+      node.left = this.buildTree(nodes);
+      node.right = this.buildTree(nodes);
+      return node;
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 79. Binary Tree Maximum Path Sum
+
+<details>
+<summary><b>79. 	
+Binary Tree Maximum Path Sum</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
+
+The path sum of a path is the sum of the node's values in the path.
+
+Given the root of a binary tree, return the maximum path sum of any non-empty path.
+
+```
+Input: root = [1,2,3]
+Output: 6
+Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function maxPathSum(root: TreeNode | null): number {
+  let res = -Infinity;
+
+  const traverse = (node: TreeNode | null): number => {
+    if (!node) return 0;
+    const left = Math.max(0, traverse(node.left));
+    const right = Math.max(0, traverse(node.right));
+    res = Math.max(res, node.val + left + right);
+    return node.val + Math.max(left, right);
+  };
+
+  traverse(root);
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+## Binary Search
+
+## Easy
+
+### 80. Binary Search
+
+<details>
+<summary><b>80. 	
+Binary Search</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+```
+Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+Explanation: 9 exists in nums and its index is 4
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function search(nums: number[], target: number): number {
+  let lo: number = 0;
+  let hi: number = nums.length - 1;
+
+  while (lo < hi) {
+    let mid: number = lo + Math.floor((hi - lo + 1) / 2);
+
+    if (target < nums[mid]) {
+      hi = mid - 1;
+    } else {
+      lo = mid;
+    }
+  }
+
+  return nums[lo] === target ? lo : -1;
+}
+```
+
+</details>
+
+</details>
+
+### 81. First Bad Version
+
+<details>
+<summary><b>81. 	
+First Bad Version</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
+
+Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
+
+You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
+
+```
+Input: n = 5, bad = 4
+Output: 4
+Explanation:
+call isBadVersion(3) -> false
+call isBadVersion(5) -> true
+call isBadVersion(4) -> true
+Then 4 is the first bad version.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * The knows API is defined in the parent class Relation.
+ * isBadVersion(version: number): boolean {
+ *     ...
+ * };
+ */
+
+var solution = function (isBadVersion: any) {
+  return function (n: number): number {
+    let start: number = 1;
+    let end: number = n;
+
+    while (start < end) {
+      let mid: number = start + Math.floor((end - start) / 2);
+
+      if (!isBadVersion(mid)) {
+        start = mid + 1;
+      } else {
+        end = mid;
+      }
+    }
+
+    return start;
+  };
+};
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 82. Search in Rotated Sorted Array
+
+<details>
+<summary><b>82. 	
+Search in Rotated Sorted Array</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+There is an integer array nums sorted in ascending order (with distinct values).
+
+Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+```
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function search(nums: number[], target: number): number {
+  let lo: number = 0;
+  let hi: number = nums.length - 1;
+
+  // Find the index of the smallest value using binary search.
+  // The loop will terminate since mid < hi, and lo or hi will shrink by at least 1.
+  // Proof by contradiction that mid < hi: if mid == hi, then lo == hi, and the loop would have been terminated.
+  while (lo < hi) {
+    let mid: number = Math.floor((lo + hi) / 2);
+    if (nums[mid] > nums[hi]) {
+      lo = mid + 1;
+    } else {
+      hi = mid;
+    }
+  }
+
+  // lo == hi is the index of the smallest value and also the number of places rotated.
+  const rot: number = lo;
+  lo = 0;
+  hi = nums.length - 1;
+
+  // The usual binary search and accounting for rotation.
+  while (lo <= hi) {
+    let mid: number = Math.floor((lo + hi) / 2);
+    let realMid: number = (mid + rot) % nums.length;
+
+    if (nums[realMid] === target) {
+      return realMid;
+    }
+
+    if (nums[realMid] < target) {
+      lo = mid + 1;
+    } else {
+      hi = mid - 1;
+    }
+  }
+
+  return -1;
+}
+```
+
+</details>
+
+</details>
+
+### 83. Time Based Key-Value Store
+
+<details>
+<summary><b>83. 	
+Time Based Key-Value Store</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a certain timestamp.
+
+Implement the TimeMap class:
+
+TimeMap() Initializes the object of the data structure.
+void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp.
+String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev <= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".
+
+```
+Input
+["TimeMap", "set", "get", "get", "set", "get", "get"]
+[[], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5]]
+Output
+[null, null, "bar", "bar", null, "bar2", "bar2"]
+
+Explanation
+TimeMap timeMap = new TimeMap();
+timeMap.set("foo", "bar", 1);  // store the key "foo" and value "bar" along with timestamp = 1.
+timeMap.get("foo", 1);         // return "bar"
+timeMap.get("foo", 3);         // return "bar", since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 is "bar".
+timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along with timestamp = 4.
+timeMap.get("foo", 4);         // return "bar2"
+timeMap.get("foo", 5);         // return "bar2"
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class TimeMap {
+  private m: Record<string, Array<[number, string]>>;
+
+  constructor() {
+    this.m = {};
+  }
+
+  set(key: string, value: string, timestamp: number): void {
+    if (!this.m[key]) {
+      this.m[key] = [];
+    }
+    this.m[key].push([timestamp, value]);
+  }
+
+  get(key: string, timestamp: number): string {
+    if (!this.m[key]) {
+      return "";
+    }
+
+    let start = 0;
+    let end = this.m[key].length;
+
+    while (start < end) {
+      const mid = Math.floor((start + end) / 2);
+      if (this.m[key][mid][0] > timestamp) {
+        end = mid;
+      } else {
+        start = mid + 1;
+      }
+    }
+
+    return start > 0 && start <= this.m[key].length
+      ? this.m[key][start - 1][1]
+      : "";
+  }
+}
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * var obj = new TimeMap()
+ * obj.set(key,value,timestamp)
+ * var param_2 = obj.get(key,timestamp)
+ */
+```
+
+</details>
+
+</details>
+
+### 84. Search a 2D Matrix
+
+<details>
+<summary><b>84. 	
+Search a 2D Matrix</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an m x n integer matrix matrix with the following two properties:
+
+Each row is sorted in non-decreasing order.
+The first integer of each row is greater than the last integer of the previous row.
+Given an integer target, return true if target is in matrix or false otherwise.
+
+You must write a solution in O(log(m \* n)) time complexity.
+
+```
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+Output: true
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function searchMatrix(matrix: number[][], target: number): boolean {
+  if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+    return false;
+  }
+
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let row = 0;
+  let col = cols - 1;
+
+  while (row < rows && col >= 0) {
+    const cur = matrix[row][col];
+    if (cur === target) {
+      return true;
+    } else if (target > cur) {
+      row++;
+    } else {
+      col--;
+    }
+  }
+
+  return false;
+}
+```
+
+</details>
+
+</details>
+
+### 85. Find Minimum in Rotated Sorted Array
+
+<details>
+<summary><b>85. 	
+Find Minimum in Rotated Sorted Array</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
+
+[4,5,6,7,0,1,2] if it was rotated 4 times.
+[0,1,2,4,5,6,7] if it was rotated 7 times.
+Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
+
+Given the sorted rotated array nums of unique elements, return the minimum element of this array.
+
+You must write an algorithm that runs in O(log n) time.
+
+```
+Input: nums = [3,4,5,1,2]
+Output: 1
+Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findMin(num: number[]): number {
+  let start: number = 0;
+  let end: number = num.length - 1;
+
+  while (start < end) {
+    if (num[start] < num[end]) {
+      return num[start];
+    }
+
+    let mid: number = Math.floor((start + end) / 2);
+
+    if (num[mid] >= num[start]) {
+      start = mid + 1;
+    } else {
+      end = mid;
+    }
+  }
+
+  return num[start];
+}
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 86. Maximum Profit in Job Scheduling
+
+<details>
+<summary><b>86. 	
+Maximum Profit in Job Scheduling</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].
+
+You're given the startTime, endTime and profit arrays, return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.
+
+If you choose a job that ends at time X you will be able to start another job that starts at time X.
+
+```
+Input: startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
+Output: 120
+Explanation: The subset chosen is the first and fourth job.
+Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function jobScheduling(
+  startTime: number[],
+  endTime: number[],
+  profit: number[]
+): number {
+  const solution = new Solution();
+  return solution.jobScheduling(startTime, endTime, profit);
+}
+
+class Solution {
+  private nums: {
+    st: number;
+    en: number;
+    profit: number;
+  }[];
+  private dp: number[];
+
+  constructor() {
+    this.nums = [];
+    this.dp = [];
+  }
+
+  private getLowerBound(idx: number): number {
+    let low = idx + 1;
+    let high = this.nums.length - 1;
+    let ans = -1;
+    while (low <= high) {
+      let mid = low + Math.floor((high - low) / 2);
+      if (this.nums[mid].st >= this.nums[idx].en) {
+        ans = mid;
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return ans;
+  }
+
+  private getMaxProfit(idx: number = 0): number {
+    if (idx >= this.nums.length) return 0;
+    if (this.dp[idx] !== -1) return this.dp[idx];
+
+    // Get the index of the next element whose start time >= current index end time.
+    const nextElementIdx = this.getLowerBound(idx);
+
+    // Try to include the current element and get the profit of remaining elements.
+    const include =
+      this.nums[idx].profit +
+      (nextElementIdx === -1 ? 0 : this.getMaxProfit(nextElementIdx));
+
+    // Try to exclude the current element and get the profit of remaining elements.
+    const exclude = this.getMaxProfit(idx + 1);
+
+    // Return the maximum profit from both possibilities.
+    return (this.dp[idx] = Math.max(exclude, include));
+  }
+
+  public jobScheduling(
+    startTime: number[],
+    endTime: number[],
+    profit: number[]
+  ): number {
+    const n = startTime.length;
+    this.nums = new Array(n);
+    this.dp = new Array(n + 1).fill(-1);
+
+    for (let i = 0; i < n; i++) {
+      this.nums[i] = {
+        st: startTime[i],
+        en: endTime[i],
+        profit: profit[i],
+      };
+    }
+
+    // Sort the elements according to start time.
+    this.nums.sort((a, b) => a.st - b.st);
+
+    // Function to get the maximum Profit.
+    return this.getMaxProfit();
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 87. Median of Two Sorted Arrays
+
+<details>
+<summary><b>87. 	
+Median of Two Sorted Arrays</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+```
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
+  const N1 = nums1.length;
+  const N2 = nums2.length;
+  if (N1 < N2) return findMedianSortedArrays(nums2, nums1); // Make sure nums2 is the shorter one.
+
+  let lo = 0;
+  let hi = N2 * 2;
+  while (lo <= hi) {
+    const mid2 = Math.floor((lo + hi) / 2); // Try Cut 2
+    const mid1 = N1 + N2 - mid2; // Calculate Cut 1 accordingly
+
+    const L1 =
+      mid1 === 0 ? Number.MIN_SAFE_INTEGER : nums1[Math.floor((mid1 - 1) / 2)]; // Get L1, R1, L2, R2 respectively
+    const L2 =
+      mid2 === 0 ? Number.MIN_SAFE_INTEGER : nums2[Math.floor((mid2 - 1) / 2)];
+    const R1 =
+      mid1 === N1 * 2 ? Number.MAX_SAFE_INTEGER : nums1[Math.floor(mid1 / 2)];
+    const R2 =
+      mid2 === N2 * 2 ? Number.MAX_SAFE_INTEGER : nums2[Math.floor(mid2 / 2)];
+
+    if (L1 > R2) {
+      lo = mid2 + 1; // nums1's lower half is too big; need to move mid1 right (mid2 left)
+    } else if (L2 > R1) {
+      hi = mid2 - 1; // nums2's lower half too big; need to move mid2 left.
+    } else {
+      return (Math.max(L1, L2) + Math.min(R1, R2)) / 2; // Otherwise, that's the right cut.
+    }
+  }
+  return -1;
+}
+```
+
+</details>
+
+</details>
+
+## Graph
+
+## Easy
+
+### 88. Flood Fill
+
+<details>
+<summary><b>88. 	
+Flood Fill</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+An image is represented by an m x n integer grid image where image[i][j] represents the pixel value of the image.
+
+You are also given three integers sr, sc, and color. You should perform a flood fill on the image starting from the pixel image[sr][sc].
+
+To perform a flood fill, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color), and so on. Replace the color of all of the aforementioned pixels with color.
+
+Return the modified image after performing the flood fill.
+
+```
+Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+Output: [[2,2,2],[2,2,0],[2,0,1]]
+Explanation: From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.
+Note the bottom corner is not colored 2, because it is not 4-directionally connected to the starting pixel.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function floodFill(
+  image: number[][],
+  sr: number,
+  sc: number,
+  color: number
+): number[][] {
+  const solution = new Solution();
+  return solution.floodFill(image, sr, sc, color);
+}
+
+class Solution {
+  floodFill(
+    image: number[][],
+    sr: number,
+    sc: number,
+    newColor: number
+  ): number[][] {
+    if (image[sr][sc] === newColor) return image;
+    this.fill(image, sr, sc, image[sr][sc], newColor);
+    return image;
+  }
+
+  private fill(
+    image: number[][],
+    sr: number,
+    sc: number,
+    color: number,
+    newColor: number
+  ): void {
+    if (
+      sr < 0 ||
+      sr >= image.length ||
+      sc < 0 ||
+      sc >= image[0].length ||
+      image[sr][sc] !== color
+    )
+      return;
+    image[sr][sc] = newColor;
+    this.fill(image, sr + 1, sc, color, newColor);
+    this.fill(image, sr - 1, sc, color, newColor);
+    this.fill(image, sr, sc + 1, color, newColor);
+    this.fill(image, sr, sc - 1, color, newColor);
+  }
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 89. 01 Matrix
+
+<details>
+<summary><b>89. 	
+01 Matrix</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
+
+The distance between two adjacent cells is 1.
+
+```
+Input: mat = [[0,0,0],[0,1,0],[1,1,1]]
+Output: [[0,0,0],[0,1,0],[1,2,1]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function updateMatrix(matrix: number[][]): number[][] {
+  const m: number = matrix.length;
+  const n: number = matrix[0].length;
+
+  const queue: number[][] = [];
+  const dirs: number[][] = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
+
+  // Initialize the queue and set non-zero values in the matrix to Integer.MAX_VALUE
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (matrix[i][j] === 0) {
+        queue.push([i, j]);
+      } else {
+        matrix[i][j] = Number.MAX_VALUE;
+      }
+    }
+  }
+
+  while (queue.length > 0) {
+    const cell: number[] = queue.shift()!;
+    for (const d of dirs) {
+      const r: number = cell[0] + d[0];
+      const c: number = cell[1] + d[1];
+      if (
+        r < 0 ||
+        r >= m ||
+        c < 0 ||
+        c >= n ||
+        matrix[r][c] <= matrix[cell[0]][cell[1]] + 1
+      )
+        continue;
+      queue.push([r, c]);
+      matrix[r][c] = matrix[cell[0]][cell[1]] + 1;
+    }
+  }
+
+  return matrix;
+}
+```
+
+</details>
+
+</details>
+
+### 90. Clone Graph
+
+<details>
+<summary><b>90. 	
+Clone Graph</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a reference of a node in a connected undirected graph.
+
+Return a deep copy (clone) of the graph.
+
+Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
+
+```
+class Node {
+public int val;
+public List<Node> neighbors;
+}
+```
+
+Test case format:
+
+For simplicity, each node's value is the same as the node's index (1-indexed). For example, the first node with val == 1, the second node with val == 2, and so on. The graph is represented in the test case using an adjacency list.
+
+An adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.
+
+The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
+
+```
+Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
+Output: [[2,4],[1,3],[2,4],[1,3]]
+Explanation: There are 4 nodes in the graph.
+1st node (val = 1)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
+2nd node (val = 2)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+3rd node (val = 3)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
+4th node (val = 4)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for Node.
+ * class Node {
+ *     val: number
+ *     neighbors: Node[]
+ *     constructor(val?: number, neighbors?: Node[]) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.neighbors = (neighbors===undefined ? [] : neighbors)
+ *     }
+ * }
+ */
+
+function dfs(node: Node, copy: Node, visited: (Node | null)[]): void {
+  visited[copy.val] = copy;
+
+  for (const n of node.neighbors) {
+    if (visited[n.val] === null) {
+      const newNode = new Node(n.val);
+      copy.neighbors.push(newNode);
+      dfs(n, newNode, visited);
+    } else {
+      copy.neighbors.push(visited[n.val]!);
+    }
+  }
+}
+
+function cloneGraph(node: Node | null): Node | null {
+  if (node === null) return null;
+  const copy = new Node(node.val);
+  const visited: (Node | null)[] = new Array(101).fill(null);
+  dfs(node, copy, visited);
+  return copy;
+}
+```
+
+</details>
+
+</details>
+
+### 91. Course Schedule
+
+<details>
+<summary><b>91. 	
+Course Schedule</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+Return true if you can finish all courses. Otherwise, return false.
+
+```
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take.
+To take course 1 you should have finished course 0. So it is possible.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function canFinish(numCourses: number, prerequisites: number[][]): boolean {
+  const matrix: number[][] = new Array(numCourses)
+    .fill(0)
+    .map(() => new Array(numCourses).fill(0)); // i -> j
+  const indegree: number[] = new Array(numCourses).fill(0);
+
+  for (let i = 0; i < prerequisites.length; i++) {
+    const ready: number = prerequisites[i][0];
+    const pre: number = prerequisites[i][1];
+    if (matrix[pre][ready] === 0) {
+      indegree[ready]++; // duplicate case
+    }
+    matrix[pre][ready] = 1;
+  }
+
+  let count: number = 0;
+  const queue: number[] = [];
+  for (let i = 0; i < indegree.length; i++) {
+    if (indegree[i] === 0) {
+      queue.push(i);
+    }
+  }
+
+  while (queue.length > 0) {
+    const course: number = queue.shift()!;
+    count++;
+    for (let i = 0; i < numCourses; i++) {
+      if (matrix[course][i] !== 0) {
+        if (--indegree[i] === 0) {
+          queue.push(i);
+        }
+      }
+    }
+  }
+
+  return count === numCourses;
+}
+```
+
+</details>
+
+</details>
+
+### 92. Number of Islands
+
+<details>
+<summary><b>92. 	
+Number of Islands</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+```
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function numIslands(grid: string[][]): number {
+  const solution = new Solution();
+  return solution.numIslands(grid);
+}
+
+class Solution {
+  private n: number;
+  private m: number;
+
+  numIslands(grid: string[][]): number {
+    let count = 0;
+    this.n = grid.length;
+    if (this.n === 0) return 0;
+    this.m = grid[0].length;
+    for (let i = 0; i < this.n; i++) {
+      for (let j = 0; j < this.m; j++) {
+        if (grid[i][j] === "1") {
+          this.DFSMarking(grid, i, j);
+          ++count;
+        }
+      }
+    }
+    return count;
+  }
+
+  private DFSMarking(grid: string[][], i: number, j: number): void {
+    if (i < 0 || j < 0 || i >= this.n || j >= this.m || grid[i][j] !== "1")
+      return;
+    grid[i][j] = "0";
+    this.DFSMarking(grid, i + 1, j);
+    this.DFSMarking(grid, i - 1, j);
+    this.DFSMarking(grid, i, j + 1);
+    this.DFSMarking(grid, i, j - 1);
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 93. Rotting Oranges
+
+<details>
+<summary><b>93. 	
+Rotting Oranges</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an m x n grid where each cell can have one of three values:
+
+0 representing an empty cell,
+1 representing a fresh orange, or
+2 representing a rotten orange.
+Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.
+
+Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
+
+```
+Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+Output: 4
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function orangesRotting(grid: number[][]): number {
+  if (grid === null || grid.length === 0) return 0;
+  const rows: number = grid.length;
+  const cols: number = grid[0].length;
+  const queue: number[][] = [];
+  let countFresh: number = 0;
+
+  // Put the position of all rotten oranges in the queue
+  // Count the number of fresh oranges
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (grid[i][j] === 2) {
+        queue.push([i, j]);
+      } else if (grid[i][j] === 1) {
+        countFresh++;
+      }
+    }
+  }
+
+  // If count of fresh oranges is zero, return 0
+  if (countFresh === 0) return 0;
+  let count: number = 0;
+  const dirs: number[][] = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
+
+  // BFS starting from initially rotten oranges
+  while (queue.length > 0) {
+    count++;
+    const size: number = queue.length;
+    for (let i = 0; i < size; i++) {
+      const point: number[] = queue.shift()!;
+      for (const dir of dirs) {
+        const x: number = point[0] + dir[0];
+        const y: number = point[1] + dir[1];
+        // If x or y is out of bound
+        // or the orange at (x , y) is already rotten
+        // or the cell at (x , y) is empty
+        // we do nothing
+        if (
+          x < 0 ||
+          y < 0 ||
+          x >= rows ||
+          y >= cols ||
+          grid[x][y] === 0 ||
+          grid[x][y] === 2
+        )
+          continue;
+        // Mark the orange at (x , y) as rotten
+        grid[x][y] = 2;
+        // Put the new rotten orange at (x , y) in the queue
+        queue.push([x, y]);
+        // Decrease the count of fresh oranges by 1
+        countFresh--;
+      }
+    }
+  }
+
+  return countFresh === 0 ? count - 1 : -1;
+}
+```
+
+</details>
+
+</details>
+
+### 94. Accounts Merge
+
+<details>
+<summary><b>94. 	
+Accounts Merge</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
+
+Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
+
+After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
+
+```
+Input: accounts = [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+Explanation:
+The first and second John's are the same person as they have the common email "johnsmith@mail.com".
+The third John and Mary are different people as none of their email addresses are used by other accounts.
+We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'],
+['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function accountsMerge(acts: string[][]): string[][] {
+  const owner: Map<string, string> = new Map();
+  const parents: Map<string, string> = new Map();
+  const unions: Map<string, Set<string>> = new Map();
+
+  for (const a of acts) {
+    for (let i = 1; i < a.length; i++) {
+      parents.set(a[i], a[i]);
+      owner.set(a[i], a[0]);
+    }
+  }
+
+  function find(s: string, p: Map<string, string>): string {
+    return p.get(s) === s ? s : find(p.get(s)!, p);
+  }
+
+  for (const a of acts) {
+    const p = find(a[1], parents);
+    for (let i = 2; i < a.length; i++) {
+      parents.set(find(a[i], parents), p);
+    }
+  }
+
+  for (const a of acts) {
+    const p = find(a[1], parents);
+    if (!unions.has(p)) unions.set(p, new Set());
+    for (let i = 1; i < a.length; i++) {
+      unions.get(p)!.add(a[i]);
+    }
+  }
+
+  const res: string[][] = [];
+  for (const p of unions.keys()) {
+    const emails = Array.from(unions.get(p)!);
+    emails.sort(); // Sort the emails alphabetically
+    emails.unshift(owner.get(p)!);
+    res.push(emails);
+  }
+
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+### 95. Word Search
+
+<details>
+<summary><b>95. 	
+Word Search</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+```
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+Output: true
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function exist(board: string[][], word: string): boolean {
+  const w: string[] = word.split("");
+  for (let y = 0; y < board.length; y++) {
+    for (let x = 0; x < board[y].length; x++) {
+      if (existHelper(board, y, x, w, 0)) return true;
+    }
+  }
+  return false;
+}
+
+function existHelper(
+  board: string[][],
+  y: number,
+  x: number,
+  word: string[],
+  i: number
+): boolean {
+  if (i === word.length) return true;
+  if (y < 0 || x < 0 || y === board.length || x === board[y].length)
+    return false;
+  if (board[y][x] !== word[i]) return false;
+  board[y][x] = String.fromCharCode(board[y][x].charCodeAt(0) ^ 256); // Toggle the character
+
+  const exist =
+    existHelper(board, y, x + 1, word, i + 1) ||
+    existHelper(board, y, x - 1, word, i + 1) ||
+    existHelper(board, y + 1, x, word, i + 1) ||
+    existHelper(board, y - 1, x, word, i + 1);
+
+  board[y][x] = String.fromCharCode(board[y][x].charCodeAt(0) ^ 256); // Toggle it back
+  return exist;
+}
+```
+
+</details>
+
+</details>
+
+### 96. Minimum Height Trees
+
+<details>
+<summary><b>96. 	
+Minimum Height Trees</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.
+
+Given a tree of n nodes labelled from 0 to n - 1, and an array of n - 1 edges where edges[i] = [ai, bi] indicates that there is an undirected edge between the two nodes ai and bi in the tree, you can choose any node of the tree as the root. When you select a node x as the root, the result tree has height h. Among all possible rooted trees, those with minimum height (i.e. min(h)) are called minimum height trees (MHTs).
+
+Return a list of all MHTs' root labels. You can return the answer in any order.
+
+The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.
+
+```
+Input: n = 4, edges = [[1,0],[1,2],[1,3]]
+Output: [1]
+Explanation: As shown, the height of the tree is 1 when the root is the node with label 1 which is the only MHT.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findMinHeightTrees(n: number, edges: number[][]): number[] {
+  if (n === 1) return [0];
+
+  const adj: Set<number>[] = new Array(n)
+    .fill(null)
+    .map(() => new Set<number>());
+
+  for (const edge of edges) {
+    adj[edge[0]].add(edge[1]);
+    adj[edge[1]].add(edge[0]);
+  }
+
+  const leaves: number[] = [];
+
+  for (let i = 0; i < n; ++i) {
+    if (adj[i].size === 1) leaves.push(i);
+  }
+
+  while (n > 2) {
+    n -= leaves.length;
+    const newLeaves: number[] = [];
+
+    for (const i of leaves) {
+      const j = adj[i].values().next().value;
+      adj[j].delete(i);
+
+      if (adj[j].size === 1) newLeaves.push(j);
+    }
+
+    leaves.length = 0;
+    for (const leaf of newLeaves) {
+      leaves.push(leaf);
+    }
+  }
+
+  return leaves;
+}
+```
+
+</details>
+
+</details>
+
+### 97. Pacific Atlantic Water Flow
+
+<details>
+<summary><b>97. 	
+Pacific Atlantic Water Flow</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.
+
+The island is partitioned into a grid of square cells. You are given an m x n integer matrix heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).
+
+The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.
+
+Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.
+
+```
+Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+Explanation: The following cells can flow to the Pacific and Atlantic oceans, as shown below:
+[0,4]: [0,4] -> Pacific Ocean
+       [0,4] -> Atlantic Ocean
+[1,3]: [1,3] -> [0,3] -> Pacific Ocean
+       [1,3] -> [1,4] -> Atlantic Ocean
+[1,4]: [1,4] -> [1,3] -> [0,3] -> Pacific Ocean
+       [1,4] -> Atlantic Ocean
+[2,2]: [2,2] -> [1,2] -> [0,2] -> Pacific Ocean
+       [2,2] -> [2,3] -> [2,4] -> Atlantic Ocean
+[3,0]: [3,0] -> Pacific Ocean
+       [3,0] -> [4,0] -> Atlantic Ocean
+[3,1]: [3,1] -> [3,0] -> Pacific Ocean
+       [3,1] -> [4,1] -> Atlantic Ocean
+[4,0]: [4,0] -> Pacific Ocean
+       [4,0] -> Atlantic Ocean
+Note that there are other possible paths for these cells to flow to the Pacific and Atlantic oceans.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function pacificAtlantic(heights: number[][]): number[][] {
+  const solution = new Solution();
+  return solution.pacificAtlantic(heights);
+}
+
+class Solution {
+  private dir: number[][] = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
+
+  pacificAtlantic(matrix: number[][]): number[][] {
+    const res: number[][] = [];
+    if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+      return res;
+    }
+    const n: number = matrix.length;
+    const m: number = matrix[0].length;
+
+    // One visited map for each ocean
+    const pacific: boolean[][] = new Array(n)
+      .fill(null)
+      .map(() => new Array(m).fill(false));
+    const atlantic: boolean[][] = new Array(n)
+      .fill(null)
+      .map(() => new Array(m).fill(false));
+    const pQueue: number[][] = [];
+    const aQueue: number[][] = [];
+
+    for (let i = 0; i < n; i++) {
+      // Vertical border
+      pQueue.push([i, 0]);
+      aQueue.push([i, m - 1]);
+      pacific[i][0] = true;
+      atlantic[i][m - 1] = true;
+    }
+
+    for (let i = 0; i < m; i++) {
+      // Horizontal border
+      pQueue.push([0, i]);
+      aQueue.push([n - 1, i]);
+      pacific[0][i] = true;
+      atlantic[n - 1][i] = true;
+    }
+
+    this.bfs(matrix, pQueue, pacific);
+    this.bfs(matrix, aQueue, atlantic);
+
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < m; j++) {
+        if (pacific[i][j] && atlantic[i][j]) {
+          res.push([i, j]);
+        }
+      }
+    }
+
+    return res;
+  }
+
+  private bfs(
+    matrix: number[][],
+    queue: number[][],
+    visited: boolean[][]
+  ): void {
+    const n: number = matrix.length;
+    const m: number = matrix[0].length;
+
+    while (queue.length > 0) {
+      const cur: number[] = queue.shift()!;
+      for (const d of this.dir) {
+        const x: number = cur[0] + d[0];
+        const y: number = cur[1] + d[1];
+        if (
+          x < 0 ||
+          x >= n ||
+          y < 0 ||
+          y >= m ||
+          visited[x][y] ||
+          matrix[x][y] < matrix[cur[0]][cur[1]]
+        ) {
+          continue;
+        }
+        visited[x][y] = true;
+        queue.push([x, y]);
+      }
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 98. Course Schedule II
+
+<details>
+<summary><b>98. 	
+Course Schedule II</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.
+
+```
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: [0,1]
+Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So the correct course order is [0,1].
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findOrder(numCourses: number, prerequisites: number[][]): number[] {
+  if (numCourses === 0) return [];
+
+  const indegree: number[] = new Array(numCourses).fill(0);
+  const order: number[] = new Array(numCourses).fill(0);
+  let index = 0;
+
+  for (let i = 0; i < prerequisites.length; i++) {
+    indegree[prerequisites[i][0]]++;
+  }
+
+  const queue: number[] = [];
+  for (let i = 0; i < numCourses; i++) {
+    if (indegree[i] === 0) {
+      order[index++] = i;
+      queue.push(i);
+    }
+  }
+
+  while (queue.length > 0) {
+    const prerequisite: number = queue.shift()!;
+    for (let i = 0; i < prerequisites.length; i++) {
+      if (prerequisites[i][1] === prerequisite) {
+        indegree[prerequisites[i][0]]--;
+        if (indegree[prerequisites[i][0]] === 0) {
+          order[index++] = prerequisites[i][0];
+          queue.push(prerequisites[i][0]);
+        }
+      }
+    }
+  }
+
+  return index === numCourses ? order : [];
+}
+```
+
+</details>
+
+</details>
+
+### 99. Cheapest Flights Within K Stops
+
+<details>
+<summary><b>99. 	
+Cheapest Flights Within K Stops</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+There are n cities connected by some number of flights. You are given an array flights where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city fromi to city toi with cost pricei.
+
+You are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops. If there is no such route, return -1.
+
+```
+Input: n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1
+Output: 700
+Explanation:
+The graph is shown above.
+The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700.
+Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findCheapestPrice(
+  n: number,
+  flights: number[][],
+  src: number,
+  dst: number,
+  K: number
+): number {
+  const cost: number[] = new Array(n).fill(Number.MAX_SAFE_INTEGER);
+  cost[src] = 0;
+
+  for (let i = 0; i <= K; i++) {
+    const temp: number[] = [...cost];
+
+    for (const f of flights) {
+      const curr: number = f[0];
+      const next: number = f[1];
+      const price: number = f[2];
+
+      if (cost[curr] === Number.MAX_SAFE_INTEGER) {
+        continue;
+      }
+
+      temp[next] = Math.min(temp[next], cost[curr] + price);
+    }
+
+    cost.splice(0, n, ...temp);
+  }
+
+  return cost[dst] === Number.MAX_SAFE_INTEGER ? -1 : cost[dst];
+}
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 100. Word Ladder
+
+<details>
+<summary><b>100. 	
+Word Ladder</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:
+
+Every adjacent pair of words differs by a single letter.
+Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
+sk == endWord
+Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
+
+```
+Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+Output: 5
+Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function ladderLength(
+  beginWord: string,
+  endWord: string,
+  wordList: string[]
+): number {
+  const wordSet: Set<string> = new Set(wordList);
+
+  if (!wordSet.has(endWord)) {
+    return 0; // The endWord is not in the wordList, so no transformation sequence is possible.
+  }
+
+  const visited: Set<string> = new Set();
+  visited.add(beginWord);
+
+  const queue: string[] = [beginWord];
+  let level: number = 1;
+
+  while (queue.length > 0) {
+    const levelSize: number = queue.length;
+
+    for (let i = 0; i < levelSize; i++) {
+      const currentWord: string = queue.shift()!;
+
+      for (let j = 0; j < currentWord.length; j++) {
+        for (let k = 97; k <= 122; k++) {
+          const newChar: string = String.fromCharCode(k);
+          const newWord: string =
+            currentWord.slice(0, j) + newChar + currentWord.slice(j + 1);
+
+          if (newWord === endWord) {
+            return level + 1; // Found the endWord, return the transformation length.
+          }
+
+          if (wordSet.has(newWord) && !visited.has(newWord)) {
+            visited.add(newWord);
+            queue.push(newWord);
+          }
+        }
+      }
+    }
+
+    level++;
+  }
+
+  return 0; // No transformation sequence found.
+}
+```
+
+</details>
+
+</details>
+
+### 101. Longest Increasing Path in a Matrix
+
+<details>
+<summary><b>101. 	
+Longest Increasing Path in a Matrix</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n integers matrix, return the length of the longest increasing path in matrix.
+
+From each cell, you can either move in four directions: left, right, up, or down. You may not move diagonally or move outside the boundary (i.e., wrap-around is not allowed).
+
+```
+Input: matrix = [[9,9,4],[6,6,8],[2,1,1]]
+Output: 4
+Explanation: The longest increasing path is [1, 2, 6, 9].
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+const dirs: number[][] = [
+  [0, 1],
+  [1, 0],
+  [0, -1],
+  [-1, 0],
+];
+
+function longestIncreasingPath(matrix: number[][]): number {
+  if (matrix.length === 0) return 0;
+  const m: number = matrix.length;
+  const n: number = matrix[0].length;
+  const cache: number[][] = new Array(m)
+    .fill(null)
+    .map(() => new Array(n).fill(0));
+  let max: number = 1;
+
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      const len: number = dfs(matrix, i, j, m, n, cache);
+      max = Math.max(max, len);
+    }
+  }
+
+  return max;
+}
+
+function dfs(
+  matrix: number[][],
+  i: number,
+  j: number,
+  m: number,
+  n: number,
+  cache: number[][]
+): number {
+  if (cache[i][j] !== 0) return cache[i][j];
+  let max: number = 1;
+
+  for (const dir of dirs) {
+    const x: number = i + dir[0];
+    const y: number = j + dir[1];
+
+    if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[i][j])
+      continue;
+
+    const len: number = 1 + dfs(matrix, x, y, m, n, cache);
+    max = Math.max(max, len);
+  }
+
+  cache[i][j] = max;
+  return max;
+}
+```
+
+</details>
+
+</details>
+
+### 102. Word Search II
+
+<details>
+<summary><b>102. 	
+Word Search II</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n board of characters and a list of strings words, return all words on the board.
+
+Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+```
+Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
+Output: ["eat","oath"]
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class TrieNode {
+  next: TrieNode[] = Array(26);
+  word: string | null = null;
+}
+
+function buildTrie(words: string[]): TrieNode {
+  const root: TrieNode = new TrieNode();
+  for (const word of words) {
+    let p: TrieNode = root;
+    for (const c of word) {
+      const i: number = c.charCodeAt(0) - "a".charCodeAt(0);
+      if (!p.next[i]) {
+        p.next[i] = new TrieNode();
+      }
+      p = p.next[i];
+    }
+    p.word = word;
+  }
+  return root;
+}
+
+function findWords(board: string[][], words: string[]): string[] {
+  const res: string[] = [];
+  const root: TrieNode = buildTrie(words);
+  const m: number = board.length;
+  const n: number = board[0].length;
+
+  function dfs(i: number, j: number, p: TrieNode) {
+    const c: string = board[i][j];
+    if (c === "#" || !p.next[c.charCodeAt(0) - "a".charCodeAt(0)]) return;
+    p = p.next[c.charCodeAt(0) - "a".charCodeAt(0)];
+    if (p.word !== null) {
+      res.push(p.word);
+      p.word = null;
+    }
+
+    board[i][j] = "#";
+    if (i > 0) dfs(i - 1, j, p);
+    if (j > 0) dfs(i, j - 1, p);
+    if (i < m - 1) dfs(i + 1, j, p);
+    if (j < n - 1) dfs(i, j + 1, p);
+    board[i][j] = c;
+  }
+
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      dfs(i, j, root);
+    }
+  }
+
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+### 103. Bus Routes
+
+<details>
+<summary><b>103. 	
+Bus Routes</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an array routes representing bus routes where routes[i] is a bus route that the ith bus repeats forever.
+
+For example, if routes[0] = [1, 5, 7], this means that the 0th bus travels in the sequence 1 -> 5 -> 7 -> 1 -> 5 -> 7 -> 1 -> ... forever.
+You will start at the bus stop source (You are not on any bus initially), and you want to go to the bus stop target. You can travel between bus stops by buses only.
+
+Return the least number of buses you must take to travel from source to target. Return -1 if it is not possible.
+
+```
+Input: routes = [[1,2,7],[3,6,7]], source = 1, target = 6
+Output: 2
+Explanation: The best strategy is take the first bus to the bus stop 7, then take the second bus to the bus stop 6.
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function numBusesToDestination(
+  routes: number[][],
+  S: number,
+  T: number
+): number {
+  const visited: Set<number> = new Set();
+  const queue: number[] = [];
+  const map: Map<number, number[]> = new Map();
+  let ret: number = 0;
+
+  if (S === T) return 0;
+
+  for (let i = 0; i < routes.length; i++) {
+    for (let j = 0; j < routes[i].length; j++) {
+      const buses: number[] = map.get(routes[i][j]) || [];
+      buses.push(i);
+      map.set(routes[i][j], buses);
+    }
+  }
+
+  queue.push(S);
+
+  while (queue.length > 0) {
+    const len: number = queue.length;
+    ret++;
+
+    for (let i = 0; i < len; i++) {
+      const cur: number = queue.shift()!;
+      const buses: number[] | undefined = map.get(cur);
+
+      if (buses) {
+        for (const bus of buses) {
+          if (visited.has(bus)) continue;
+          visited.add(bus);
+
+          for (let j = 0; j < routes[bus].length; j++) {
+            if (routes[bus][j] === T) return ret;
+            queue.push(routes[bus][j]);
+          }
+        }
+      }
+    }
+  }
+
+  return -1;
+}
+```
+
+</details>
+
+</details>
+
+## Binary Search Tree
+
+## Easy
+
+### 104. Lowest Common Ancestor of a Binary Search Tree
+
+<details>
+<summary><b>104. 	
+Lowest Common Ancestor of a Binary Search Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+```
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+Output: 6
+Explanation: The LCA of nodes 2 and 8 is 6.
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function lowestCommonAncestor(
+  root: TreeNode | null,
+  p: TreeNode | null,
+  q: TreeNode | null
+): TreeNode | null {
+  if (!root || !p || !q) {
+    return null;
+  }
+
+  if (root.val > p.val && root.val > q.val) {
+    return lowestCommonAncestor(root.left, p, q);
+  } else if (root.val < p.val && root.val < q.val) {
+    return lowestCommonAncestor(root.right, p, q);
+  } else {
+    return root;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 105. Convert Sorted Array to Binary Search Tree
+
+<details>
+<summary><b>105. 	
+Convert Sorted Array to Binary Search Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
+
+```
+Input: nums = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+Explanation: [0,-10,5,null,-3,null,9] is also accepted:
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function sortedArrayToBST(nums: number[]): TreeNode | null {
+  if (nums.length === 0) {
+    return null;
+  }
+  const head: TreeNode | null = helper(nums, 0, nums.length - 1);
+  return head;
+}
+
+function helper(nums: number[], low: number, high: number): TreeNode | null {
+  if (low > high) {
+    // Done
+    return null;
+  }
+  const mid: number = Math.floor((low + high) / 2);
+  const node: TreeNode = new TreeNode(nums[mid]);
+  node.left = helper(nums, low, mid - 1);
+  node.right = helper(nums, mid + 1, high);
+  return node;
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 106. Validate Binary Search Tree
+
+<details>
+<summary><b>106. 	
+Validate Binary Search Tree</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+
+A valid BST is defined as follows:
+
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
+
+```
+Input: root = [2,1,3]
+Output: true
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isValidBST(root: TreeNode | null): boolean {
+  if (root === null) {
+    return true;
+  }
+  const stack: TreeNode[] = [];
+  let pre: TreeNode | null = null;
+
+  while (root !== null || stack.length > 0) {
+    while (root !== null) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop()!;
+    if (pre !== null && root.val <= pre.val) {
+      return false;
+    }
+    pre = root;
+    root = root.right;
+  }
+  return true;
+}
+```
+
+</details>
+
+</details>
+
+### 107. Kth Smallest Element in a BST
+
+<details>
+<summary><b>107. 	
+ Kth Smallest Element in a BST</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+
+```
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+class KthSmallestFinder {
+  count: number = 0;
+  result: number = Number.MIN_SAFE_INTEGER;
+
+  kthSmallest(root: TreeNode | null, k: number): number {
+    this.traverse(root, k);
+    return this.result;
+  }
+
+  traverse(root: TreeNode | null, k: number): void {
+    if (root === null) {
+      return;
+    }
+    this.traverse(root.left, k);
+    // Real code starts here
+    this.count++;
+    if (this.count === k) {
+      this.result = root.val;
+      return;
+    }
+    // Real code ends here
+    this.traverse(root.right, k);
+  }
+}
+
+function kthSmallest(root: TreeNode | null, k: number): number {
+  const solution = new KthSmallestFinder();
+  return solution.kthSmallest(root, k);
+}
+```
+
+</details>
+
+</details>
+
+## Hash Table
+
+## Easy
+
+### 108. Ransom Note
+
+<details>
+<summary><b>108. 	
+Ransom Note</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.
+
+```
+Input: ransomNote = "a", magazine = "b"
+Output: false
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function canConstruct(ransomNote: string, magazine: string): boolean {
+  if (ransomNote.length > magazine.length) {
+    return false;
+  }
+
+  const alphabetCounter: number[] = new Array(26).fill(0);
+
+  for (const c of magazine) {
+    alphabetCounter[c.charCodeAt(0) - "a".charCodeAt(0)]++;
+  }
+
+  for (const c of ransomNote) {
+    if (alphabetCounter[c.charCodeAt(0) - "a".charCodeAt(0)] === 0) {
+      return false;
+    }
+    alphabetCounter[c.charCodeAt(0) - "a".charCodeAt(0)]--;
+  }
+
+  return true;
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 109. Insert Delete GetRandom O(1)
+
+<details>
+<summary><b>109. 	
+ Insert Delete GetRandom O(1)</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Implement the RandomizedSet class:
+
+RandomizedSet() Initializes the RandomizedSet object.
+bool insert(int val) Inserts an item val into the set if not present. Returns true if the item was not present, false otherwise.
+bool remove(int val) Removes an item val from the set if present. Returns true if the item was present, false otherwise.
+int getRandom() Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the same probability of being returned.
+You must implement the functions of the class such that each function works in average O(1) time complexity.
+
+```
+Input
+["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]
+[[], [1], [2], [2], [], [1], [2], []]
+Output
+[null, true, false, true, 2, true, false, 2]
+
+Explanation
+RandomizedSet randomizedSet = new RandomizedSet();
+randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
+randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].
+randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
+randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
+randomizedSet.insert(2); // 2 was already in the set, so return false.
+randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class RandomizedSet {
+  private nums: number[];
+  private locs: Map<number, number>;
+  private rand: () => number;
+
+  constructor() {
+    this.nums = [];
+    this.locs = new Map();
+    this.rand = Math.random;
+  }
+
+  insert(val: number): boolean {
+    if (this.locs.has(val)) {
+      return false;
+    }
+
+    this.locs.set(val, this.nums.length);
+    this.nums.push(val);
+    return true;
+  }
+
+  remove(val: number): boolean {
+    if (!this.locs.has(val)) {
+      return false;
+    }
+
+    const loc = this.locs.get(val);
+
+    if (loc! < this.nums.length - 1) {
+      const lastOne = this.nums[this.nums.length - 1];
+      this.nums[loc!] = lastOne;
+      this.locs.set(lastOne, loc!);
+    }
+
+    this.locs.delete(val);
+    this.nums.pop();
+    return true;
+  }
+
+  getRandom(): number {
+    const randomIndex = Math.floor(this.rand() * this.nums.length);
+    return this.nums[randomIndex];
+  }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * var obj = new RandomizedSet()
+ * var param_1 = obj.insert(val)
+ * var param_2 = obj.remove(val)
+ * var param_3 = obj.getRandom()
+ */
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 110. First Missing Positive
+
+<details>
+<summary><b>110. 	
+ First Missing Positive</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an unsorted integer array nums, return the smallest missing positive integer.
+
+You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
+
+```
+Input: nums = [1,2,0]
+Output: 3
+Explanation: The numbers in the range [1,2] are all in the array.
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function firstMissingPositive(nums: number[]): number {
+  const n = nums.length;
+
+  // 1. Mark numbers (num < 0) and (num > n) with a special marker number (n+1)
+  // (we can ignore those because if all numbers are > n then we'll simply return 1)
+  for (let i = 0; i < n; i++) {
+    if (nums[i] <= 0 || nums[i] > n) {
+      nums[i] = n + 1;
+    }
+  }
+  // Note: All numbers in the array are now positive and in the range 1..n+1
+
+  // 2. Mark each cell appearing in the array by converting the index for that number to negative
+  for (let i = 0; i < n; i++) {
+    const num = Math.abs(nums[i]);
+    if (num > n) {
+      continue;
+    }
+    const index = num - 1; // -1 for zero-indexed array (so the number 1 will be at position 0)
+    if (nums[index] > 0) {
+      // Prevents double negative operations
+      nums[index] = -1 * nums[index];
+    }
+  }
+
+  // 3. Find the first cell which isn't negative (doesn't appear in the array)
+  for (let i = 0; i < n; i++) {
+    if (nums[i] >= 0) {
+      return i + 1;
+    }
+  }
+
+  // 4. No positive numbers were found, which means the array contains all numbers 1..n
+  return n + 1;
+}
+```
+
+</details>
+
+</details>
+
+## Dynamic Programming
+
+## Easy
