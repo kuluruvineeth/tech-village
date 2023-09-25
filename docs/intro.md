@@ -22,27 +22,23 @@ I am passionate about my favorite tech stack, which brings together a set of pow
 
 [GraphQL](https://graphql.org/) is my preferred query language for APIs. It offers a flexible and efficient way to request data, allowing my frontend to fetch precisely what it needs. GraphQL enhances the overall performance of my applications.
 
-## 5. Nestjs
-
-[Nestjs](https://nestjs.com/) is my backend framework of choice. Its modular and scalable architecture simplifies server-side development. Nest.js, powered by TypeScript, ensures type safety and clean code.
-
-## 6. TypeScript
+## 5. TypeScript
 
 [TypeScript](https://www.typescriptlang.org/) is the language I'm obsessed with. It adds static typing to JavaScript, reducing bugs and improving code quality. TypeScript is the backbone of my tech stack, providing type safety from front to back.
 
-## 7. PostgreSQL
+## 6. PostgreSQL
 
 [PostgreSQL](https://www.postgresql.org/) is my trusted database. Its reliability, extensibility, and support for complex queries make it an excellent choice for storing and managing data.
 
-## 8. Prisma
+## 7. Prisma
 
 [Prisma](https://www.prisma.io/) is my favorite ORM (Object-Relational Mapping). It simplifies database interactions and schema migrations. Prisma's type-safe queries align perfectly with TypeScript.
 
-## 9. Apollo Client
+## 8. Apollo Client
 
 [Apollo Client](https://www.apollographql.com/docs/react/) is my weapon of choice for querying GraphQL in my React applications. It integrates seamlessly with React, providing a powerful and flexible data-fetching solution.
 
-## 10. Tailwind CSS
+## 9. Tailwind CSS
 
 [Tailwind CSS](https://tailwindcss.com/) is my styling framework. Its utility-first approach and easy customization allow me to create beautiful and responsive user interfaces with minimal effort.
 

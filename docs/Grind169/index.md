@@ -7705,3 +7705,2924 @@ function firstMissingPositive(nums: number[]): number {
 ## Dynamic Programming
 
 ## Easy
+
+### 111. Climbing Stairs
+
+<details>
+<summary><b>111. 	
+ Climbing Stairs</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are climbing a staircase. It takes n steps to reach the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+```
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function climbStairs(n: number): number {
+  // Base cases
+  if (n <= 0) return 0;
+  if (n === 1) return 1;
+  if (n === 2) return 2;
+
+  let oneStepBefore: number = 2;
+  let twoStepsBefore: number = 1;
+  let allWays: number = 0;
+
+  for (let i = 2; i < n; i++) {
+    allWays = oneStepBefore + twoStepsBefore;
+    twoStepsBefore = oneStepBefore;
+    oneStepBefore = allWays;
+  }
+
+  return allWays;
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 112. Maximum Subarray
+
+<details>
+<summary><b>112. 	
+ Maximum Subarray</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums, find the subarray with the largest sum, and return its sum.
+
+```
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function maxSubArray(A: number[]): number {
+  let maxSoFar: number = A[0];
+  let maxEndingHere: number = A[0];
+
+  for (let i = 1; i < A.length; ++i) {
+    maxEndingHere = Math.max(maxEndingHere + A[i], A[i]);
+    maxSoFar = Math.max(maxSoFar, maxEndingHere);
+  }
+
+  return maxSoFar;
+}
+```
+
+</details>
+
+</details>
+
+### 113. Coin Change
+
+<details>
+<summary><b>113. 	
+ Coin Change</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+You may assume that you have an infinite number of each kind of coin.
+
+```
+Input: coins = [1,2,5], amount = 11
+Output: 3
+Explanation: 11 = 5 + 5 + 1
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function coinChange(coins: number[], amount: number): number {
+  if (amount < 1) return 0;
+  const dp: number[] = new Array(amount + 1).fill(Number.MAX_VALUE);
+  dp[0] = 0;
+
+  for (let sum = 1; sum <= amount; sum++) {
+    let min = Number.MAX_VALUE;
+    for (const coin of coins) {
+      if (sum >= coin && dp[sum - coin] !== -1) {
+        const temp = dp[sum - coin] + 1;
+        min = Math.min(min, temp);
+      }
+    }
+    dp[sum] = min === Number.MAX_VALUE ? -1 : min;
+  }
+
+  return dp[amount];
+}
+```
+
+</details>
+
+</details>
+
+### 114. Partition Equal Subset Sum
+
+<details>
+<summary><b>114. 	
+ Partition Equal Subset Sum</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
+
+```
+Input: nums = [1,5,11,5]
+Output: true
+Explanation: The array can be partitioned as [1, 5, 5] and [11].
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function canPartition(nums: number[]): boolean {
+  let sum = 0;
+
+  for (const num of nums) {
+    sum += num;
+  }
+
+  if (sum % 2 !== 0) {
+    return false;
+  }
+
+  sum /= 2;
+
+  const n = nums.length;
+  const dp: boolean[] = new Array(sum + 1).fill(false);
+  dp[0] = true;
+
+  for (const num of nums) {
+    for (let i = sum; i > 0; i--) {
+      if (i >= num) {
+        dp[i] = dp[i] || dp[i - num];
+      }
+    }
+  }
+
+  return dp[sum];
+}
+```
+
+</details>
+
+</details>
+
+### 115. Unique Paths
+
+<details>
+<summary><b>115. 	
+ Unique Paths</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
+
+Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+
+The test cases are generated so that the answer will be less than or equal to 2 \* 109.
+
+```
+Input: m = 3, n = 2
+Output: 3
+Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+1. Right -> Down -> Down
+2. Down -> Down -> Right
+3. Down -> Right -> Down
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function uniquePaths(m: number, n: number): number {
+  const map: number[][] = new Array(m)
+    .fill(null)
+    .map(() => new Array(n).fill(0));
+
+  for (let i = 0; i < m; i++) {
+    map[i][0] = 1;
+  }
+
+  for (let j = 0; j < n; j++) {
+    map[0][j] = 1;
+  }
+
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      map[i][j] = map[i - 1][j] + map[i][j - 1];
+    }
+  }
+
+  return map[m - 1][n - 1];
+}
+```
+
+</details>
+
+</details>
+
+### 116. House Robber
+
+<details>
+<summary><b>116. 	
+ House Robber</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+
+```
+Input: nums = [1,2,3,1]
+Output: 4
+Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
+Total amount you can rob = 1 + 3 = 4.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function rob(nums: number[]): number {
+  if (nums.length === 0) return 0;
+
+  const memo: number[] = new Array(nums.length + 1);
+  memo[0] = 0;
+  memo[1] = nums[0];
+
+  for (let i = 1; i < nums.length; i++) {
+    const val = nums[i];
+    memo[i + 1] = Math.max(memo[i], memo[i - 1] + val);
+  }
+
+  return memo[nums.length];
+}
+```
+
+</details>
+
+</details>
+
+### 117. Maximum Product Subarray
+
+<details>
+<summary><b>117. 	
+Maximum Product Subarray</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums, find a subarray that has the largest product, and return the product.
+
+The test cases are generated so that the answer will fit in a 32-bit integer.
+
+```
+Input: nums = [2,3,-2,4]
+Output: 6
+Explanation: [2,3] has the largest product 6.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function maxProduct(A: number[]): number {
+  let n: number = A.length;
+  let res: number = A[0];
+  let l: number = 0;
+  let r: number = 0;
+
+  for (let i: number = 0; i < n; i++) {
+    l = (l === 0 ? 1 : l) * A[i];
+    r = (r === 0 ? 1 : r) * A[n - 1 - i];
+    res = Math.max(res, Math.max(l, r));
+  }
+
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+### 118. Longest Increasing Subsequence
+
+<details>
+<summary><b>118. 	
+Longest Increasing Subsequence</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums, return the length of the longest strictly increasing subsequence.
+
+```
+Input: nums = [10,9,2,5,3,7,101,18]
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function lengthOfLIS(nums: number[]): number {
+  const dp: number[] = new Array(nums.length).fill(0);
+  let len: number = 0;
+
+  for (const x of nums) {
+    let i: number = binarySearch(dp, 0, len, x);
+    if (i < 0) i = -(i + 1);
+    dp[i] = x;
+    if (i === len) len++;
+  }
+
+  return len;
+}
+
+function binarySearch(
+  arr: number[],
+  left: number,
+  right: number,
+  target: number
+): number {
+  while (left < right) {
+    const mid: number = Math.floor((left + right) / 2);
+    if (arr[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return -(left + 1);
+}
+```
+
+</details>
+
+</details>
+
+### 119. Jump Game
+
+<details>
+<summary><b>119. 	
+Jump Game</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+
+Return true if you can reach the last index, or false otherwise.
+
+```
+Input: nums = [2,3,1,1,4]
+Output: true
+Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function canJump(A: number[]): boolean {
+  let last: number = A.length - 1;
+
+  for (let i: number = A.length - 2; i >= 0; i--) {
+    if (i + A[i] >= last) {
+      last = i;
+    }
+  }
+
+  return last <= 0;
+}
+```
+
+</details>
+
+</details>
+
+### 120. Maximal Square
+
+<details>
+<summary><b>120. 	
+Maximal Square</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+
+```
+Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+Output: 4
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function maximalSquare(a: string[][]): number {
+  if (a.length === 0 || a[0].length === 0) {
+    return 0;
+  }
+
+  const m: number = a.length;
+  const n: number = a[0].length;
+  let result: number = 0;
+
+  const b: number[][] = new Array(m + 1)
+    .fill(0)
+    .map(() => new Array(n + 1).fill(0));
+
+  for (let i: number = 1; i <= m; i++) {
+    for (let j: number = 1; j <= n; j++) {
+      if (a[i - 1][j - 1] === "1") {
+        b[i][j] =
+          Math.min(b[i][j - 1], Math.min(b[i - 1][j - 1], b[i - 1][j])) + 1;
+        result = Math.max(b[i][j], result);
+      }
+    }
+  }
+
+  return result * result;
+}
+```
+
+</details>
+
+</details>
+
+### 121. Decode Ways
+
+<details>
+<summary><b>121. 	
+Decode Ways</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+A message containing letters from A-Z can be encoded into numbers using the following mapping:
+
+'A' -> "1"
+'B' -> "2"
+...
+'Z' -> "26"
+To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways). For example, "11106" can be mapped into:
+
+"AAJF" with the grouping (1 1 10 6)
+"KJF" with the grouping (11 10 6)
+Note that the grouping (1 11 06) is invalid because "06" cannot be mapped into 'F' since "6" is different from "06".
+
+Given a string s containing only digits, return the number of ways to decode it.
+
+The test cases are generated so that the answer fits in a 32-bit integer.
+
+```
+Input: s = "12"
+Output: 2
+Explanation: "12" could be decoded as "AB" (1 2) or "L" (12).
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function numDecodings(s: string): number {
+  if (s === null || s.length === 0) {
+    return 0;
+  }
+
+  const n: number = s.length;
+  const dp: number[] = new Array(n + 1).fill(0);
+  dp[0] = 1;
+  dp[1] = s.charAt(0) !== "0" ? 1 : 0;
+
+  for (let i: number = 2; i <= n; i++) {
+    const first: number = parseInt(s.substring(i - 1, i), 10);
+    const second: number = parseInt(s.substring(i - 2, i), 10);
+
+    if (first >= 1 && first <= 9) {
+      dp[i] += dp[i - 1];
+    }
+
+    if (second >= 10 && second <= 26) {
+      dp[i] += dp[i - 2];
+    }
+  }
+
+  return dp[n];
+}
+```
+
+</details>
+
+</details>
+
+### 122. Combination Sum IV
+
+<details>
+<summary><b>122. 	
+Combination Sum IV</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target.
+
+The test cases are generated so that the answer can fit in a 32-bit integer.
+
+```
+Input: nums = [1,2,3], target = 4
+Output: 7
+Explanation:
+The possible combination ways are:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+Note that different sequences are counted as different combinations.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+let dp: number[];
+
+function combinationSum4(nums: number[], target: number): number {
+  dp = new Array(target + 1).fill(-1);
+  dp[0] = 1;
+  return helper(nums, target);
+}
+
+function helper(nums: number[], target: number): number {
+  if (dp[target] !== -1) {
+    return dp[target];
+  }
+  let res = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (target >= nums[i]) {
+      res += helper(nums, target - nums[i]);
+    }
+  }
+  dp[target] = res;
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+## Binary
+
+## Easy
+
+### 123. Add Binary
+
+<details>
+<summary><b>123. 	
+Add Binary</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given two binary strings a and b, return their sum as a binary string.
+
+```
+Input: a = "11", b = "1"
+Output: "100"
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function addBinary(a: string, b: string): string {
+  const sb: string[] = [];
+  let i: number = a.length - 1;
+  let j: number = b.length - 1;
+  let carry: number = 0;
+
+  while (i >= 0 || j >= 0) {
+    let sum: number = carry;
+    if (j >= 0) sum += parseInt(b.charAt(j--), 10);
+    if (i >= 0) sum += parseInt(a.charAt(i--), 10);
+    sb.push((sum % 2).toString());
+    carry = Math.floor(sum / 2);
+  }
+
+  if (carry !== 0) sb.push(carry.toString());
+
+  return sb.reverse().join("");
+}
+```
+
+</details>
+
+</details>
+
+### 124. Counting Bits
+
+<details>
+<summary><b>124. 	
+Counting Bits</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n), ans[i] is the number of 1's in the binary representation of i.
+
+```
+Input: n = 2
+Output: [0,1,1]
+Explanation:
+0 --> 0
+1 --> 1
+2 --> 10
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function countBits(num: number): number[] {
+  const f: number[] = new Array(num + 1).fill(0);
+  for (let i = 1; i <= num; i++) {
+    f[i] = f[i >> 1] + (i & 1);
+  }
+  return f;
+}
+```
+
+</details>
+
+</details>
+
+### 125. Number of 1 Bits
+
+<details>
+<summary><b>125. 	
+Number of 1 Bits</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Write a function that takes the binary representation of an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
+
+Note:
+
+Note that in some languages, such as Java, there is no unsigned integer type. In this case, the input will be given as a signed integer type. It should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
+In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 3, the input represents the signed integer. -3.
+
+```
+Input: n = 00000000000000000000000000001011
+Output: 3
+Explanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function hammingWeight(n: number): number {
+  let ones: number = 0;
+  while (n !== 0) {
+    ones += n & 1;
+    n = n >>> 1;
+  }
+  return ones;
+}
+```
+
+</details>
+
+</details>
+
+### 126. Single Number
+
+<details>
+<summary><b>126. 	
+Single Number</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+```
+Input: nums = [2,2,1]
+Output: 1
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function singleNumber(nums: number[]): number {
+  let ans: number = 0;
+
+  const len: number = nums.length;
+  for (let i: number = 0; i !== len; i++) {
+    ans ^= nums[i];
+  }
+
+  return ans;
+}
+```
+
+</details>
+
+</details>
+
+### 127. Missing Number
+
+<details>
+<summary><b>127. 	
+Missing Number</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+```
+Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function missingNumber(nums: number[]): number {
+  let xor: number = 0;
+  let i: number = 0;
+  for (i = 0; i < nums.length; i++) {
+    xor = xor ^ i ^ nums[i];
+  }
+
+  return xor ^ i;
+}
+```
+
+</details>
+
+</details>
+
+### 128. Reverse Bits
+
+<details>
+<summary><b>128. 	
+ Reverse Bits</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Reverse bits of a given 32 bits unsigned integer.
+
+Note:
+
+Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
+In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 2 above, the input represents the signed integer -3 and the output represents the signed integer -1073741825.
+
+```
+Input: n = 00000010100101000001111010011100
+Output:    964176192 (00111001011110000010100101000000)
+Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function reverseBits(n: number): number {
+  if (!n) return 0;
+
+  let ans: number = 0;
+
+  for (let i: number = 0; i < 32; i++) {
+    ans = ans * 2 + (n & 1);
+    n >>>= 1;
+  }
+
+  return ans;
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 129. Find the Duplicate Number
+
+<details>
+<summary><b>129. 	
+ Find the Duplicate Number</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+
+There is only one repeated number in nums, return this repeated number.
+
+You must solve the problem without modifying the array nums and uses only constant extra space.
+
+```
+Input: nums = [1,3,4,2,2]
+Output: 2
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function findDuplicate(nums: number[]): number {
+  if (nums.length > 1) {
+    let slow: number = nums[0];
+    let fast: number = nums[nums[0]];
+    while (slow !== fast) {
+      slow = nums[slow];
+      fast = nums[nums[fast]];
+    }
+
+    fast = 0;
+    while (fast !== slow) {
+      fast = nums[fast];
+      slow = nums[slow];
+    }
+    return slow;
+  }
+  return -1;
+}
+```
+
+</details>
+
+</details>
+
+## Math
+
+## Easy
+
+### 130. Roman to Integer
+
+<details>
+<summary><b>130. 	
+Roman to Integer</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+Symbol Value
+I 1
+V 5
+X 10
+L 50
+C 100
+D 500
+M 1000
+For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+
+Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+
+I can be placed before V (5) and X (10) to make 4 and 9.
+X can be placed before L (50) and C (100) to make 40 and 90.
+C can be placed before D (500) and M (1000) to make 400 and 900.
+Given a roman numeral, convert it to an integer.
+
+```
+Input: s = "III"
+Output: 3
+Explanation: III = 3.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function romanToInt(s: string): number {
+  let ans: number = 0;
+  let num: number = 0;
+
+  for (let i: number = s.length - 1; i >= 0; i--) {
+    switch (s.charAt(i)) {
+      case "I":
+        num = 1;
+        break;
+      case "V":
+        num = 5;
+        break;
+      case "X":
+        num = 10;
+        break;
+      case "L":
+        num = 50;
+        break;
+      case "C":
+        num = 100;
+        break;
+      case "D":
+        num = 500;
+        break;
+      case "M":
+        num = 1000;
+        break;
+    }
+    if (4 * num < ans) {
+      ans -= num;
+    } else {
+      ans += num;
+    }
+  }
+  return ans;
+}
+```
+
+</details>
+
+</details>
+
+### 131. Palindrome Number
+
+<details>
+<summary><b>131. 	
+Palindrome Number</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+```
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function isPalindrome(x: number): boolean {
+  if (x < 0 || (x !== 0 && x % 10 === 0)) {
+    return false;
+  }
+
+  let rev: number = 0;
+  while (x > rev) {
+    rev = rev * 10 + (x % 10);
+    x = Math.floor(x / 10);
+  }
+
+  return x === rev || x === Math.floor(rev / 10);
+}
+```
+
+</details>
+
+</details>
+
+## Medium
+
+### 132. Random Pick with Weight
+
+<details>
+<summary><b>132. 	
+Random Pick with Weight</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.
+
+You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w).
+
+For example, if w = [1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).
+
+```
+Input
+["Solution","pickIndex"]
+[[[1]],[]]
+Output
+[null,0]
+
+Explanation
+Solution solution = new Solution([1]);
+solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class Solution {
+  private wSums: number[];
+
+  constructor(w: number[]) {
+    for (let i = 1; i < w.length; ++i) {
+      w[i] += w[i - 1];
+    }
+    this.wSums = w;
+  }
+
+  pickIndex(): number {
+    const len: number = this.wSums.length;
+    const idx: number = Math.floor(Math.random() * this.wSums[len - 1]) + 1;
+    let left: number = 0;
+    let right: number = len - 1;
+
+    // Search position
+    while (left < right) {
+      const mid: number = left + Math.floor((right - left) / 2);
+      if (this.wSums[mid] === idx) {
+        return mid;
+      } else if (this.wSums[mid] < idx) {
+        left = mid + 1;
+      } else {
+        right = mid;
+      }
+    }
+    return left;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 133. Pow(x, n)
+
+<details>
+<summary><b>133. 	
+Pow(x, n)</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
+
+```
+Input: x = 2.00000, n = 10
+Output: 1024.00000
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function myPow(x: number, n: number): number {
+  if (n === 0) {
+    return 1;
+  }
+
+  if (n < 0) {
+    n = -n;
+    x = 1 / x;
+  }
+
+  return n % 2 === 0
+    ? myPow(x * x, Math.floor(n / 2))
+    : x * myPow(x * x, Math.floor(n / 2));
+}
+```
+
+</details>
+
+</details>
+
+### 134. Reverse Integer
+
+<details>
+<summary><b>134. 	
+Reverse Integer</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+```
+Input: x = 123
+Output: 321
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function reverse(x: number): number {
+  const INT_MAX: number = 2 ** 31 - 1;
+  const INT_MIN: number = -(2 ** 31);
+
+  let result: number = 0;
+
+  while (x !== 0) {
+    const tail: number = x % 10;
+    const newResult: number = result * 10 + tail;
+
+    if (newResult > INT_MAX || newResult < INT_MIN) {
+      return 0;
+    }
+
+    result = newResult;
+    x = (x / 10) | 0; // Use bitwise OR to truncate decimal places for negative numbers
+  }
+
+  return result;
+}
+```
+
+</details>
+
+</details>
+
+## Heap
+
+## Medium
+
+### 135. K Closest Points to Origin
+
+<details>
+<summary><b>135. 	
+K Closest Points to Origin</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+
+The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)2 + (y1 - y2)2).
+
+You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
+
+```
+Input: points = [[1,3],[-2,2]], k = 1
+Output: [[-2,2]]
+Explanation:
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest k = 1 points from the origin, so the answer is just [[-2,2]].
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function kClosest(points: number[][], K: number): number[][] {
+  points.sort((a, b) => {
+    const distA: number = a[0] * a[0] + a[1] * a[1];
+    const distB: number = b[0] * b[0] + b[1] * b[1];
+    return distA - distB;
+  });
+
+  return points.slice(0, K);
+}
+```
+
+</details>
+
+</details>
+
+### 136.Task Scheduler
+
+<details>
+<summary><b>136. 	
+Task Scheduler</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
+
+However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
+
+Return the least number of units of times that the CPU will take to finish all the given tasks.
+
+```
+Input: tasks = ["A","A","A","B","B","B"], n = 2
+Output: 8
+Explanation:
+A -> B -> idle -> A -> B -> idle -> A -> B
+There is at least 2 units of time between any two same tasks.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class Task {
+  // I need a task name for debugging.
+  name: string;
+  count: number = 0;
+}
+
+function leastInterval(tasks: string[], n: number): number {
+  let maxHeap = new BinaryHeap<Task>((a, b) => a.count > b.count);
+
+  let tasksMap = {};
+  for (const task of tasks) {
+    if (!(task in tasksMap)) tasksMap[task] = 0;
+    tasksMap[task]++;
+  }
+
+  for (const task of Object.keys(tasksMap)) {
+    const taskObject = new Task();
+    taskObject.name = task;
+    taskObject.count = tasksMap[task];
+
+    maxHeap.push(taskObject);
+  }
+
+  // Let's make an IDLE task for consistency.
+  const idle = new Task();
+  idle.name = "IDLE";
+  idle.count = 0;
+
+  const used = [];
+  while (maxHeap.size() > 0) {
+    const task = maxHeap.pop();
+    used.push(task);
+    for (let j = 0; j < n; j++) {
+      if (maxHeap.size() > 0) {
+        const anotherTask = maxHeap.pop();
+        used.push(anotherTask);
+      } else {
+        used.push(idle);
+      }
+    }
+
+    // Reduce a counter for the last n tasks.
+    for (let i = used.length - n - 1; i < used.length; i++) {
+      const task = used[i];
+      task.count--;
+      if (task.count > 0) {
+        maxHeap.push(task);
+      }
+    }
+  }
+
+  // Remove IDLE tasks at the end.
+  let len = used.length;
+  while (len > 0 && used[len - 1] === idle) {
+    len--;
+  }
+  return len;
+}
+
+function swap<T>(list: T[], i: number, j: number): T[] {
+  if (i !== j) {
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+}
+
+class BinaryHeap<T> {
+  private harr: T[] = [];
+
+  constructor(private lessThan: (a: T, b: T) => boolean) {}
+
+  size() {
+    return this.harr.length;
+  }
+
+  push(v: T) {
+    this.harr.push(v);
+    let i = this.harr.length - 1;
+    while (i > 0 && this.lessThan(this.harr[i], this.harr[this.parent(i)])) {
+      swap(this.harr, i, this.parent(i));
+      i = this.parent(i);
+    }
+  }
+
+  pop() {
+    if (this.harr.length === 0) throw new Error("Overflow");
+
+    const [head] = this.harr;
+    this.harr[0] = this.harr[this.harr.length - 1];
+    this.harr.length -= 1;
+
+    this.heapify(0);
+
+    return head;
+  }
+
+  private heapify(i: number) {
+    const l = this.left(i);
+    const r = this.right(i);
+    let smallest = i;
+    if (l < this.harr.length && this.lessThan(this.harr[l], this.harr[i])) {
+      smallest = l;
+    }
+    if (
+      r < this.harr.length &&
+      this.lessThan(this.harr[r], this.harr[smallest])
+    ) {
+      smallest = r;
+    }
+    if (smallest !== i) {
+      swap(this.harr, smallest, i);
+      this.heapify(smallest);
+    }
+  }
+
+  private parent(i: number) {
+    return Math.floor((i - 1) / 2);
+  }
+
+  private left(i: number) {
+    return 2 * i + 1;
+  }
+
+  private right(i: number) {
+    return 2 * i + 2;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 137.Top K Frequent Words
+
+<details>
+<summary><b>137. 	
+Top K Frequent Words</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array of strings words and an integer k, return the k most frequent strings.
+
+Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
+
+```
+Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+Output: ["i","love"]
+Explanation: "i" and "love" are the two most frequent words.
+Note that "i" comes before "love" due to a lower alphabetical order.
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+type QueueNodeType = {
+  element: any;
+  priority: number;
+};
+
+const PriorityQueue1 = () => {
+  let queue: QueueNodeType[] = [];
+
+  function enqueue({ element, priority }: { element: any; priority: number }) {
+    const newNode: QueueNodeType = {
+      element,
+      priority,
+    };
+    if (queue.length === 0) {
+      queue.push(newNode);
+    } else {
+      let added = false;
+      for (let i = 0; i < queue.length; i++) {
+        if (queue[i].priority < priority) {
+          queue.splice(i, 0, newNode);
+          added = true;
+          break;
+        }
+
+        if (queue[i].priority === priority) {
+          if (element.localeCompare(queue[i].element) < 0) {
+            queue.splice(i, 0, newNode);
+            added = true;
+            break;
+          }
+        }
+      }
+      if (!added) {
+        queue.push(newNode);
+      }
+    }
+  }
+
+  function dequeue() {
+    return queue.shift();
+  }
+
+  function clear() {
+    queue = [];
+  }
+
+  function size() {
+    return queue.length;
+  }
+
+  function print() {
+    console.table(queue);
+  }
+
+  return {
+    enqueue,
+    dequeue,
+    clear,
+    size,
+    print,
+  };
+};
+
+function topKFrequent(words: string[], k: number): string[] {
+  let map = new Map();
+  let pq = PriorityQueue1();
+  const result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const curr = words[i];
+    if (map.get(curr) !== undefined) {
+      map.set(curr, map.get(curr) + 1);
+    } else {
+      map.set(curr, 1);
+    }
+  }
+
+  map.forEach((value, key) => {
+    const node: QueueNodeType = {
+      element: key,
+      priority: value,
+    };
+    pq.enqueue(node);
+  });
+
+  let qIndex = 0;
+  while (qIndex < k) {
+    result.push(pq.dequeue().element);
+    qIndex++;
+  }
+
+  return result;
+}
+```
+
+</details>
+
+</details>
+
+### 138.Find K Closest Elements
+
+<details>
+<summary><b>138. 	
+Find K Closest Elements</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.
+
+An integer a is closer to x than an integer b if:
+
+|a - x| < |b - x|, or
+|a - x| == |b - x| and a < b
+
+```
+Input: arr = [1,2,3,4,5], k = 4, x = 3
+Output: [1,2,3,4]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+const findClosestElements = (arr: number[], k: number, x: number): number[] => {
+  let left = findLowestClosest(arr, x);
+  let right = left + 1;
+
+  for (let i = 0; i < k; i++) {
+    if (isLeftCloser(arr, left, right, x)) {
+      left--;
+    } else {
+      right++;
+    }
+  }
+  return arr.slice(left + 1, right);
+};
+
+const findLowestClosest = (arr: number[], x: number): number => {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left + 1 < right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] < x) {
+      left = mid;
+    } else {
+      right = mid;
+    }
+  }
+  if (arr[left] >= x) {
+    return -1;
+  }
+  return arr[right] <= x ? right : left;
+};
+
+const isLeftCloser = (
+  arr: number[],
+  left: number,
+  right: number,
+  x: number
+): boolean => {
+  if (left < 0) {
+    return false;
+  }
+  if (right >= arr.length) {
+    return true;
+  }
+
+  if (x - arr[left] != arr[right] - x) {
+    return x - arr[left] < arr[right] - x;
+  }
+
+  return true;
+};
+```
+
+</details>
+
+</details>
+
+### 139.Kth Largest Element in an Array
+
+<details>
+<summary><b>139. 	
+Kth Largest Element in an Array</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
+
+```
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class MinHeap {
+  private k: number;
+  public heap: number[];
+  constructor(nums: number[], k: number) {
+    this.k = k;
+    this.heap = [];
+
+    for (let i = 0; i < nums.length; i++) {
+      this.add(nums[i]);
+    }
+  }
+
+  _heapifyUp(index: number): void {
+    while (index > 0) {
+      const parentIndex = Math.floor((index - 1) / 2);
+      if (this.heap[index] < this.heap[parentIndex]) {
+        [this.heap[index], this.heap[parentIndex]] = [
+          this.heap[parentIndex],
+          this.heap[index],
+        ];
+        index = parentIndex;
+      } else {
+        break;
+      }
+    }
+  }
+
+  _heapifyDown(index: number): void {
+    const length: number = this.heap.length;
+    while (index < length) {
+      let smallest: number = index;
+      const leftChild: number = index * 2 + 1;
+      const rightChild: number = index * 2 + 2;
+
+      if (leftChild < length && this.heap[leftChild] < this.heap[smallest]) {
+        smallest = leftChild;
+      }
+
+      if (rightChild < length && this.heap[rightChild] < this.heap[smallest]) {
+        smallest = rightChild;
+      }
+
+      if (index !== smallest) {
+        [this.heap[index], this.heap[smallest]] = [
+          this.heap[smallest],
+          this.heap[index],
+        ];
+        index = smallest;
+      } else {
+        break;
+      }
+    }
+  }
+
+  remove(num: number): void {
+    this.heap.push(num);
+    [this.heap[this.heap.length - 1], this.heap[0]] = [
+      this.heap[0],
+      this.heap[this.heap.length - 1],
+    ];
+    this.heap.pop();
+    this._heapifyDown(0);
+  }
+
+  add(num: number): void {
+    if (this.heap.length < this.k) {
+      this.heap.push(num);
+      this._heapifyUp(this.heap.length - 1);
+    } else if (num > this.heap[0]) {
+      this.remove(num);
+    }
+  }
+}
+
+function findKthLargest(nums: number[], k: number): number {
+  const kLargest: MinHeap = new MinHeap(nums, k);
+  return kLargest.heap[0];
+}
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 140.Find Median from Data Stream
+
+<details>
+<summary><b>140. 	
+Find Median from Data Stream</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
+
+For example, for arr = [2,3,4], the median is 3.
+For example, for arr = [2,3], the median is (2 + 3) / 2 = 2.5.
+Implement the MedianFinder class:
+
+MedianFinder() initializes the MedianFinder object.
+void addNum(int num) adds the integer num from the data stream to the data structure.
+double findMedian() returns the median of all elements so far. Answers within 10-5 of the actual answer will be accepted.
+
+```
+Input
+["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"]
+[[], [1], [2], [], [3], []]
+Output
+[null, null, null, 1.5, null, 2.0]
+
+Explanation
+MedianFinder medianFinder = new MedianFinder();
+medianFinder.addNum(1);    // arr = [1]
+medianFinder.addNum(2);    // arr = [1, 2]
+medianFinder.findMedian(); // return 1.5 (i.e., (1 + 2) / 2)
+medianFinder.addNum(3);    // arr[1, 2, 3]
+medianFinder.findMedian(); // return 2.0
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class Heap {
+  private readonly heap: number[];
+
+  constructor(isMax: boolean = false, list: number[] = []) {
+    // we will use the same min heap but all values will be multiplied by -1
+    // that trick helps us to avoid extra heaps logic
+    this.heap = [isMax ? -1 : 1];
+    list.forEach((item) => this.add(item));
+  }
+
+  peek = (): number => {
+    let peekVal: number = this.size() > 0 ? this.heap[1] : null;
+    return peekVal && this.isMaxHeap() ? -1 * peekVal : peekVal;
+  };
+
+  add = (node: number) => {
+    node = this.isMaxHeap() ? -1 * node : node;
+    this.heap.push(node);
+    if (this.heap.length == 2) return node;
+    this._heapifyUp();
+
+    return this.heap[1];
+  };
+
+  poll = (): number | null => {
+    if (this.heap.length == 1) return null;
+    if (this.heap.length == 2) return this.heap.pop();
+    const prevRoot = this.heap[1];
+    // bring last val to root
+    this.heap[1] = this.heap.pop();
+    // reorder top to bottom
+    this._heapifyDown();
+
+    return this.isMaxHeap() ? -1 * prevRoot : prevRoot;
+  };
+
+  isMaxHeap = (): boolean => this.heap[0] == -1;
+
+  isMinHeap = (): boolean => this.heap[0] == 1;
+
+  size = (): number => this.heap.length - 1;
+
+  _heapifyUp = (): void => {
+    let i = this.heap.length - 1;
+    const val = this.heap[i];
+
+    while (!this._isRoot(i) && this._getParentNode(i) > val) {
+      //swap values
+      [this.heap[this._getParentIndex(i)], this.heap[i]] = [
+        this.heap[i],
+        this.heap[this._getParentIndex(i)],
+      ];
+      i = this._getParentIndex(i);
+    }
+  };
+
+  _heapifyDown = (): void => {
+    if (this.heap.length < 3) return;
+    let i = 1;
+    const currentVal = this.heap[1];
+    let leftVal = this._getLeftNode(i);
+    let rightVal = this._getRightNode(i);
+    while (
+      leftVal !== undefined &&
+      (currentVal > leftVal || currentVal > rightVal)
+    ) {
+      if (
+        currentVal > leftVal &&
+        (rightVal === undefined || leftVal < rightVal)
+      ) {
+        // swap
+        [this.heap[this._getLeftIndex(i)], this.heap[i]] = [
+          currentVal,
+          leftVal,
+        ];
+        i = this._getLeftIndex(i);
+      } else {
+        [this.heap[this._getRightIndex(i)], this.heap[i]] = [
+          currentVal,
+          rightVal,
+        ];
+        i = this._getRightIndex(i);
+      }
+      leftVal = this._getLeftNode(i);
+      rightVal = this._getRightNode(i);
+    }
+  };
+
+  _isRoot = (i) => i == 1;
+
+  _getLeftIndex = (i) => i * 2;
+
+  _getLeftNode = (i) => this.heap[this._getLeftIndex(i)];
+
+  _getRightIndex = (i) => i * 2 + 1;
+
+  _getRightNode = (i) => this.heap[this._getRightIndex(i)];
+
+  _getParentIndex = (i) => Math.floor(i / 2);
+
+  _getParentNode = (i) => this.heap[this._getParentIndex(i)];
+}
+
+class MedianFinder {
+  private minHeap: Heap;
+  private maxHeap: Heap;
+
+  constructor() {
+    // Example: [1, 2, 3, 4, 5, 6]
+    // [4, 5, 6] => 4
+    this.minHeap = new Heap(); // large numbers  (the right part of the while ordered list)
+
+    // [3, 2, 1] => 3
+    this.maxHeap = new Heap(true); // small numbers (the left part of the while ordered list)
+  }
+
+  addNum(num: number): void {
+    // Make sure every num from small heap <= every number in max heap
+    if (num < this.maxHeap.peek()) {
+      this.maxHeap.add(num);
+    } else {
+      this.minHeap.add(num);
+    }
+
+    // this.maxHeap.add(num);
+    // if (this.minHeap.size() > 0 && this.maxHeap.peek() > this.minHeap.peek()) {
+    //   this.minHeap.add(this.maxHeap.poll());
+    // }
+
+    // Rebalancing our heaps (the difference should be not greater than 1)
+    if (this.minHeap.size() - this.maxHeap.size() > 1) {
+      this.maxHeap.add(this.minHeap.poll());
+    }
+    if (this.maxHeap.size() - this.minHeap.size() > 1) {
+      this.minHeap.add(this.maxHeap.poll());
+    }
+  }
+
+  findMedian(): number {
+    // the list is odd -> median in maxHeap (the size is greater)
+    if (this.maxHeap.size() > this.minHeap.size()) {
+      return this.maxHeap.peek();
+    }
+    // the list is odd -> median in minHeap (the size is greater)
+    if (this.maxHeap.size() < this.minHeap.size()) {
+      return this.minHeap.peek();
+    }
+
+    // the list is even - we should take 2 medians and return the mean
+    return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 140.Merge k Sorted Lists
+
+<details>
+<summary><b>140. 	
+Merge k Sorted Lists</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+
+Merge all the linked-lists into one sorted linked-list and return it.
+
+```
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function swap<T>(list: T[], i: number, j: number): T[] {
+  if (i !== j) {
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+}
+
+class BinaryHeap<T> {
+  private harr: T[] = [];
+
+  constructor(private lessThan: (a: T, b: T) => boolean) {}
+
+  size() {
+    return this.harr.length;
+  }
+
+  push(v: T) {
+    this.harr.push(v);
+    let i = this.harr.length - 1;
+    while (i > 0 && this.lessThan(this.harr[i], this.harr[this.parent(i)])) {
+      swap(this.harr, i, this.parent(i));
+      i = this.parent(i);
+    }
+  }
+
+  peek() {
+    if (this.harr.length === 0) throw new Error("Overflow");
+
+    const [head] = this.harr;
+    this.harr[0] = this.harr[this.harr.length - 1];
+    this.harr.length -= 1;
+
+    this.heapify(0);
+
+    return head;
+  }
+
+  private heapify(i: number) {
+    const l = this.left(i);
+    const r = this.right(i);
+    let smallest = i;
+    if (l < this.harr.length && this.lessThan(this.harr[l], this.harr[i])) {
+      smallest = l;
+    }
+    if (
+      r < this.harr.length &&
+      this.lessThan(this.harr[r], this.harr[smallest])
+    ) {
+      smallest = r;
+    }
+    if (smallest !== i) {
+      swap(this.harr, smallest, i);
+      this.heapify(smallest);
+    }
+  }
+
+  private parent(i: number) {
+    return Math.floor((i - 1) / 2);
+  }
+
+  private left(i: number) {
+    return 2 * i + 1;
+  }
+
+  private right(i: number) {
+    return 2 * i + 2;
+  }
+}
+
+function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
+  const pq = new BinaryHeap<ListNode>((a, b) => a.val < b.val);
+
+  for (const listNode of lists) {
+    if (listNode !== null) pq.push(listNode);
+  }
+
+  let dummyHead = new ListNode();
+  let head = dummyHead;
+  while (pq.size() > 0) {
+    const listNode = pq.peek();
+    if (listNode.next) pq.push(listNode.next);
+
+    head.next = listNode;
+    head = head.next;
+  }
+
+  return dummyHead.next;
+}
+```
+
+</details>
+
+</details>
+
+### 141.Smallest Range Covering Elements from K Lists
+
+<details>
+<summary><b>141. 	
+Smallest Range Covering Elements from K Lists</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You have k lists of sorted integers in non-decreasing order. Find the smallest range that includes at least one number from each of the k lists.
+
+We define the range [a, b] is smaller than range [c, d] if b - a < d - c or a < c if b - a == d - c.
+
+```
+Input: nums = [[4,10,15,24,26],[0,9,12,20],[5,18,22,30]]
+Output: [20,24]
+Explanation:
+List 1: [4, 10, 15, 24,26], 24 is in range [20,24].
+List 2: [0, 9, 12, 20], 20 is in range [20,24].
+List 3: [5, 18, 22, 30], 22 is in range [20,24].
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function smallestRange(nums: number[][]): number[] {
+  const minHeap = new MinPriorityQueue({ priority: (a) => a[0] });
+  let rangeStart = 0;
+  let rangeEnd = Infinity;
+  let maxNumber = -Infinity;
+
+  for (let num of nums) {
+    minHeap.enqueue([num[0], 0, num]);
+    maxNumber = Math.max(maxNumber, num[0]);
+  }
+
+  while (minHeap.size() == nums.length) {
+    let [num, i, list] = minHeap.dequeue().element;
+
+    if (rangeEnd - rangeStart > maxNumber - num) {
+      rangeStart = num;
+      rangeEnd = maxNumber;
+    }
+
+    if (list.length > i + 1) {
+      minHeap.enqueue([list[i + 1], i + 1, list]);
+      maxNumber = Math.max(maxNumber, list[i + 1]);
+    }
+  }
+
+  return [rangeStart, rangeEnd];
+}
+```
+
+</details>
+
+</details>
+
+## Trie
+
+## Medium
+
+### 142.Implement Trie (Prefix Tree)
+
+<details>
+<summary><b>142. 	
+Implement Trie (Prefix Tree)</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
+
+Implement the Trie class:
+
+Trie() Initializes the trie object.
+void insert(String word) Inserts the string word into the trie.
+boolean search(String word) Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise.
+boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise.
+
+```
+Input
+["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+Output
+[null, null, true, false, true, null, true]
+
+Explanation
+Trie trie = new Trie();
+trie.insert("apple");
+trie.search("apple");   // return True
+trie.search("app");     // return False
+trie.startsWith("app"); // return True
+trie.insert("app");
+trie.search("app");     // return True
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class TrieNode {
+  children: Map<string, TrieNode>;
+  isword: boolean;
+
+  constructor() {
+    this.children = new Map();
+    this.isword = false;
+  }
+}
+
+class Trie {
+  root: TrieNode;
+
+  constructor() {
+    this.root = new TrieNode();
+  }
+
+  insert(word: string): void {
+    let cur: TrieNode = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (!cur.children.has(word[i])) {
+        cur.children.set(word[i], new TrieNode());
+      }
+      cur = cur.children.get(word[i])!;
+    }
+    cur.isword = true;
+  }
+
+  search(word: string): boolean {
+    let cur = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (!cur.children.has(word[i])) {
+        return false;
+      }
+      cur = cur.children.get(word[i])!;
+    }
+    return cur.isword;
+  }
+
+  startsWith(prefix: string): boolean {
+    let cur = this.root;
+    for (let i = 0; i < prefix.length; i++) {
+      if (!cur.children.has(prefix[i])) {
+        return false;
+      }
+      cur = cur.children.get(prefix[i])!;
+    }
+    return true;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 143.Word Break
+
+<details>
+<summary><b>143. 	
+Word Break</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+Note that the same word in the dictionary may be reused multiple times in the segmentation.
+
+```
+Input: s = "leetcode", wordDict = ["leet","code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function wordBreak(s: string, wordDict: string[]): boolean {
+  const root = new TrieNode();
+  for (const word of wordDict) {
+    root.addWord(word);
+  }
+
+  const n = s.length;
+  const dp: boolean[] = new Array(n + 1).fill(false);
+  dp[n] = true;
+
+  for (let i = n - 1; i >= 0; i--) {
+    let cur: TrieNode = root;
+    for (let j = i + 1; j <= n; j++) {
+      const c = s.charAt(j - 1);
+      if (!cur.child.has(c)) break; // s[i:j] does not exist in our trie
+      cur = cur.child.get(c)!;
+      if (cur.isWord && dp[j]) {
+        dp[i] = true;
+        break;
+      }
+    }
+  }
+
+  return dp[0];
+}
+
+class TrieNode {
+  isWord: boolean;
+  child: Map<string, TrieNode>;
+
+  constructor() {
+    this.isWord = false;
+    this.child = new Map<string, TrieNode>();
+  }
+
+  addWord(word: string): void {
+    let cur: TrieNode = this;
+    for (const c of word) {
+      if (!cur.child.has(c)) {
+        cur.child.set(c, new TrieNode());
+      }
+      cur = cur.child.get(c)!;
+    }
+    cur.isWord = true;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 144.Design Add and Search Words Data Structure
+
+<details>
+<summary><b>144. 	
+Design Add and Search Words Data Structure</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Design a data structure that supports adding new words and finding if a string matches any previously added string.
+
+Implement the WordDictionary class:
+
+WordDictionary() Initializes the object.
+void addWord(word) Adds word to the data structure, it can be matched later.
+bool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.
+
+```
+Input
+["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
+[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
+Output
+[null,null,null,null,false,true,true,true]
+
+Explanation
+WordDictionary wordDictionary = new WordDictionary();
+wordDictionary.addWord("bad");
+wordDictionary.addWord("dad");
+wordDictionary.addWord("mad");
+wordDictionary.search("pad"); // return False
+wordDictionary.search("bad"); // return True
+wordDictionary.search(".ad"); // return True
+wordDictionary.search("b.."); // return True
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+class WordDictionary {
+  isWord: boolean;
+  child: { [Key: string]: WordDictionary };
+  constructor() {
+    this.child = {};
+    this.isWord = false;
+  }
+
+  addWord(word: string): void {
+    let curr: WordDictionary = this;
+    for (const c of word) {
+      if (!curr.child[c]) {
+        curr.child[c] = new WordDictionary();
+      }
+      curr = curr.child[c];
+    }
+    curr.isWord = true;
+  }
+
+  search(word: string, i = 0): boolean {
+    let curr: WordDictionary = this;
+    for (; i < word.length; i++) {
+      const c = word[i];
+      if (c !== ".") {
+        if (!curr.child[c]) {
+          return false;
+        }
+        curr = curr.child[c];
+      } else {
+        for (const key in curr.child) {
+          if (curr.child[key].search(word, i + 1)) {
+            return true;
+          }
+        }
+        return false;
+      }
+    }
+    return curr.isWord;
+  }
+}
+```
+
+</details>
+
+</details>
+
+## Recursion
+
+## Medium
+
+### 145.Permutations
+
+<details>
+<summary><b>145. 	
+Permutations</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
+
+```
+Input: nums = [1,2,3]
+Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function permute(nums: number[]): number[][] {
+  const list: number[][] = [];
+  // No need to sort nums in TypeScript
+
+  function backtrack(tempList: number[], nums: number[]): void {
+    if (tempList.length === nums.length) {
+      list.push([...tempList]);
+    } else {
+      for (let i = 0; i < nums.length; i++) {
+        if (tempList.includes(nums[i])) continue; // Element already exists, skip
+        tempList.push(nums[i]);
+        backtrack(tempList, nums);
+        tempList.pop();
+      }
+    }
+  }
+
+  backtrack([], nums);
+  return list;
+}
+```
+
+</details>
+
+</details>
+
+### 146.Subsets
+
+<details>
+<summary><b>146. 	
+Subsets</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+```
+Input: nums = [1,2,3]
+Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function subsets(nums: number[]): number[][] {
+  const list: number[][] = [];
+  nums.sort((a, b) => a - b);
+
+  function backtrack(tempList: number[], nums: number[], start: number): void {
+    list.push([...tempList]);
+
+    for (let i = start; i < nums.length; i++) {
+      tempList.push(nums[i]);
+      backtrack(tempList, nums, i + 1);
+      tempList.pop();
+    }
+  }
+
+  backtrack([], nums, 0);
+  return list;
+}
+```
+
+</details>
+
+</details>
+
+### 147.Letter Combinations of a Phone Number
+
+<details>
+<summary><b>147. 	
+Letter Combinations of a Phone Number</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+
+A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+
+```
+Input: digits = "23"
+Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function letterCombinations(digits: string): string[] {
+  const solution = new Solution();
+  return solution.letterCombinations(digits);
+}
+
+class Solution {
+  private static readonly KEYS: string[] = [
+    "",
+    "",
+    "abc",
+    "def",
+    "ghi",
+    "jkl",
+    "mno",
+    "pqrs",
+    "tuv",
+    "wxyz",
+  ];
+
+  letterCombinations(digits: string): string[] {
+    const ret: string[] = [];
+    if (digits.length === 0) {
+      return ret; // Return an empty array for an empty string
+    }
+    this.combination("", digits, 0, ret);
+    return ret;
+  }
+
+  private combination(
+    prefix: string,
+    digits: string,
+    offset: number,
+    ret: string[]
+  ): void {
+    if (offset >= digits.length) {
+      ret.push(prefix);
+      return;
+    }
+    const letters: string = Solution.KEYS[parseInt(digits.charAt(offset))];
+    for (let i = 0; i < letters.length; i++) {
+      this.combination(prefix + letters.charAt(i), digits, offset + 1, ret);
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 148.Next Permutation
+
+<details>
+<summary><b>148. 	
+Next Permutation</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+A permutation of an array of integers is an arrangement of its members into a sequence or linear order.
+
+For example, for arr = [1,2,3], the following are all the permutations of arr: [1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1].
+The next permutation of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the next permutation of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order).
+
+For example, the next permutation of arr = [1,2,3] is [1,3,2].
+Similarly, the next permutation of arr = [2,3,1] is [3,1,2].
+While the next permutation of arr = [3,2,1] is [1,2,3] because [3,2,1] does not have a lexicographical larger rearrangement.
+Given an array of integers nums, find the next permutation of nums.
+
+The replacement must be in place and use only constant extra memory.
+
+```
+Input: nums = [1,2,3]
+Output: [1,3,2]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function nextPermutation(nums: number[]): void {
+  const solution = new Solution();
+  solution.nextPermutation(nums);
+}
+
+class Solution {
+  nextPermutation(nums: number[]): void {
+    // pivot is the element just before the non-increasing (weakly decreasing) suffix
+    const pivot: number = this.indexOfLastPeak(nums) - 1;
+    // partitions nums into [prefix pivot suffix]
+    if (pivot !== -1) {
+      const nextPrefix: number = this.lastIndexOfGreater(nums, nums[pivot]); // in the worst case it's suffix[0]
+      // next prefix must exist because pivot < suffix[0], otherwise pivot would be part of suffix
+      this.swap(nums, pivot, nextPrefix); // this minimizes the change in prefix
+    }
+    this.reverseSuffix(nums, pivot + 1); // reverses the whole list if there was no pivot
+  }
+
+  /**
+   * Find the last element which is a peak.
+   * In case there are multiple equal peaks, return the first of those.
+   * @return first index of last peak
+   */
+  indexOfLastPeak(nums: number[]): number {
+    for (let i = nums.length - 1; i > 0; --i) {
+      if (nums[i - 1] < nums[i]) return i;
+    }
+    return 0;
+  }
+
+  /** @return last index where the {@code num > threshold} or -1 if not found */
+  lastIndexOfGreater(nums: number[], threshold: number): number {
+    for (let i = nums.length - 1; i >= 0; --i) {
+      if (threshold < nums[i]) return i;
+    }
+    return -1;
+  }
+
+  /** Reverse numbers starting from an index till the end. */
+  reverseSuffix(nums: number[], start: number): void {
+    let end: number = nums.length - 1;
+    while (start < end) {
+      this.swap(nums, start++, end--);
+    }
+  }
+
+  swap(nums: number[], i: number, j: number): void {
+    const temp: number = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 149.Generate Parentheses
+
+<details>
+<summary><b>149. 	
+Generate Parentheses</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+```
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function generateParenthesis(n: number): string[] {
+  const list: string[] = [];
+  backtrack(list, "", 0, 0, n);
+  return list;
+}
+
+function backtrack(
+  list: string[],
+  str: string,
+  open: number,
+  close: number,
+  max: number
+): void {
+  if (str.length === max * 2) {
+    list.push(str);
+    return;
+  }
+
+  if (open < max) {
+    backtrack(list, str + "(", open + 1, close, max);
+  }
+  if (close < open) {
+    backtrack(list, str + ")", open, close + 1, max);
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 150.Generate Parentheses
+
+<details>
+<summary><b>150. 	
+Generate Parentheses</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+```
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function generateParenthesis(n: number): string[] {
+  const list: string[] = [];
+  backtrack(list, "", 0, 0, n);
+  return list;
+}
+
+function backtrack(
+  list: string[],
+  str: string,
+  open: number,
+  close: number,
+  max: number
+): void {
+  if (str.length === max * 2) {
+    list.push(str);
+    return;
+  }
+
+  if (open < max) {
+    backtrack(list, str + "(", open + 1, close, max);
+  }
+  if (close < open) {
+    backtrack(list, str + ")", open, close + 1, max);
+  }
+}
+```
+
+</details>
+
+</details>
