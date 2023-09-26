@@ -10571,19 +10571,26 @@ function backtrack(
 
 </details>
 
-### 150.Generate Parentheses
+## Hard
+
+### 150.N-Queens
 
 <details>
 <summary><b>150. 	
-Generate Parentheses</b></summary>
+N-Queens</b></summary>
 <h1>Problem Statement</h1>
 <p>
 
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+
+Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order.
+
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.
 
 ```
-Input: n = 3
-Output: ["((()))","(()())","(())()","()(())","()()()"]
+Input: n = 4
+Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
 
 ```
 
@@ -10596,29 +10603,452 @@ Output: ["((()))","(()())","(())()","()(())","()()()"]
 <summary><b1>toggle code</b1></summary>
 
 ```typescript
-function generateParenthesis(n: number): string[] {
-  const list: string[] = [];
-  backtrack(list, "", 0, 0, n);
-  return list;
+function solveNQueens(n: number): string[][] {
+  const solution = new Solution();
+  return solution.solveNQueens(n);
 }
 
-function backtrack(
-  list: string[],
-  str: string,
-  open: number,
-  close: number,
-  max: number
-): void {
-  if (str.length === max * 2) {
-    list.push(str);
-    return;
+class Solution {
+  solveNQueens(n: number): string[][] {
+    const res: string[][] = [];
+    const nQueens: any[] = new Array(n)
+      .fill("")
+      .map(() => new Array(n).fill("."));
+    this.solveNQueensHelper(res, nQueens, 0, n);
+    return res;
   }
 
-  if (open < max) {
-    backtrack(list, str + "(", open + 1, close, max);
+  private solveNQueensHelper(
+    res: string[][],
+    nQueens: string[][],
+    row: number,
+    n: number
+  ): void {
+    if (row === n) {
+      res.push(nQueens.map((row) => row.join("")));
+      return;
+    }
+    for (let col = 0; col < n; ++col) {
+      if (this.isValid(nQueens, row, col, n)) {
+        nQueens[row][col] = "Q";
+        this.solveNQueensHelper(res, nQueens, row + 1, n);
+        nQueens[row][col] = ".";
+      }
+    }
   }
-  if (close < open) {
-    backtrack(list, str + ")", open, close + 1, max);
+
+  private isValid(
+    nQueens: string[][],
+    row: number,
+    col: number,
+    n: number
+  ): boolean {
+    // Check if the column had a queen before.
+    for (let i = 0; i < row; ++i) {
+      if (nQueens[i][col] === "Q") {
+        return false;
+      }
+    }
+    // Check if the 45° diagonal had a queen before.
+    for (let i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j) {
+      if (nQueens[i][j] === "Q") {
+        return false;
+      }
+    }
+    // Check if the 135° diagonal had a queen before.
+    for (let i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j) {
+      if (nQueens[i][j] === "Q") {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+```
+
+</details>
+
+</details>
+
+## Matrix
+
+## Medium
+
+### 151.Spiral Matrix
+
+<details>
+<summary><b>151. 	
+Spiral Matrix</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+```
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function spiralOrder(matrix: number[][]): number[] {
+  const res: number[] = [];
+
+  if (matrix.length === 0) {
+    return res;
+  }
+
+  let rowBegin = 0;
+  let rowEnd = matrix.length - 1;
+  let colBegin = 0;
+  let colEnd = matrix[0].length - 1;
+
+  while (rowBegin <= rowEnd && colBegin <= colEnd) {
+    // Traverse Right
+    for (let j = colBegin; j <= colEnd; j++) {
+      res.push(matrix[rowBegin][j]);
+    }
+    rowBegin++;
+
+    // Traverse Down
+    for (let j = rowBegin; j <= rowEnd; j++) {
+      res.push(matrix[j][colEnd]);
+    }
+    colEnd--;
+
+    if (rowBegin <= rowEnd) {
+      // Traverse Left
+      for (let j = colEnd; j >= colBegin; j--) {
+        res.push(matrix[rowEnd][j]);
+      }
+    }
+    rowEnd--;
+
+    if (colBegin <= colEnd) {
+      // Traverse Up
+      for (let j = rowEnd; j >= rowBegin; j--) {
+        res.push(matrix[j][colBegin]);
+      }
+    }
+    colBegin++;
+  }
+
+  return res;
+}
+```
+
+</details>
+
+</details>
+
+### 152.Valid Sudoku
+
+<details>
+<summary><b>152. 	
+Valid Sudoku</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+Note:
+
+A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+Only the filled cells need to be validated according to the mentioned rules.
+
+```
+Input: board =
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+Output: true
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function isValidSudoku(board: string[][]): boolean {
+  for (let i = 0; i < 9; i++) {
+    const rows = new Set<string>();
+    const columns = new Set<string>();
+    const cube = new Set<string>();
+
+    for (let j = 0; j < 9; j++) {
+      if (board[i][j] !== "." && !rows.has(board[i][j])) {
+        rows.add(board[i][j]);
+      } else if (board[i][j] !== ".") {
+        return false;
+      }
+
+      if (board[j][i] !== "." && !columns.has(board[j][i])) {
+        columns.add(board[j][i]);
+      } else if (board[j][i] !== ".") {
+        return false;
+      }
+
+      const rowIndex = 3 * Math.floor(i / 3);
+      const colIndex = 3 * (i % 3);
+      const cubeValue = board[rowIndex + Math.floor(j / 3)][colIndex + (j % 3)];
+
+      if (cubeValue !== "." && !cube.has(cubeValue)) {
+        cube.add(cubeValue);
+      } else if (cubeValue !== ".") {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+```
+
+</details>
+
+</details>
+
+### 153.Rotate Image
+
+<details>
+<summary><b>153. 	
+Rotate Image</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+
+```
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [[7,4,1],[8,5,2],[9,6,3]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function rotate(matrix: number[][]): void {
+  const n = matrix.length;
+
+  // Transpose the matrix
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      const temp = matrix[i][j];
+      matrix[i][j] = matrix[j][i];
+      matrix[j][i] = temp;
+    }
+  }
+
+  // Reverse each row
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < Math.floor(n / 2); j++) {
+      const temp = matrix[i][j];
+      matrix[i][j] = matrix[i][n - 1 - j];
+      matrix[i][n - 1 - j] = temp;
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+### 154.Set Matrix Zeroes
+
+<details>
+<summary><b>154. 	
+Set Matrix Zeroes</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+You must do it in place.
+
+```
+Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+function setZeroes(matrix: number[][]): void {
+  let fr = false;
+  let fc = false;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      if (matrix[i][j] === 0) {
+        if (i === 0) fr = true;
+        if (j === 0) fc = true;
+        matrix[0][j] = 0;
+        matrix[i][0] = 0;
+      }
+    }
+  }
+
+  for (let i = 1; i < matrix.length; i++) {
+    for (let j = 1; j < matrix[0].length; j++) {
+      if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+
+  if (fr) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      matrix[0][j] = 0;
+    }
+  }
+
+  if (fc) {
+    for (let i = 0; i < matrix.length; i++) {
+      matrix[i][0] = 0;
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+## Hard
+
+### 155.Sudoku Solver
+
+<details>
+<summary><b>155. 	
+Sudoku Solver</b></summary>
+<h1>Problem Statement</h1>
+<p>
+
+Write a program to solve a Sudoku puzzle by filling the empty cells.
+
+A sudoku solution must satisfy all of the following rules:
+
+Each of the digits 1-9 must occur exactly once in each row.
+Each of the digits 1-9 must occur exactly once in each column.
+Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+The '.' character indicates empty cells.
+
+```
+Input: board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+Output: [["5","3","4","6","7","8","9","1","2"],["6","7","2","1","9","5","3","4","8"],["1","9","8","3","4","2","5","6","7"],["8","5","9","7","6","1","4","2","3"],["4","2","6","8","5","3","7","9","1"],["7","1","3","9","2","4","8","5","6"],["9","6","1","5","3","7","2","8","4"],["2","8","7","4","1","9","6","3","5"],["3","4","5","2","8","6","1","7","9"]]
+
+```
+
+</p>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+
+<h3>Typescript Code</h3>
+
+<details>
+<summary><b1>toggle code</b1></summary>
+
+```typescript
+/**
+ Do not return anything, modify board in-place instead.
+ */
+function solveSudoku(board: string[][]): void {
+  const solution = new Solution();
+  solution.solveSudoku(board);
+}
+
+class Solution {
+  solveSudoku(board: string[][]): void {
+    if (board === null || board.length === 0) {
+      return;
+    }
+    this.solve(board);
+  }
+
+  solve(board: string[][]): boolean {
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < board[0].length; j++) {
+        if (board[i][j] === ".") {
+          for (
+            let charCode = "1".charCodeAt(0);
+            charCode <= "9".charCodeAt(0);
+            charCode++
+          ) {
+            const c = String.fromCharCode(charCode);
+            if (this.isValid(board, i, j, c)) {
+              board[i][j] = c; // Put c for this cell
+
+              if (this.solve(board)) {
+                return true; // If it's the solution, return true
+              } else {
+                board[i][j] = "."; // Otherwise, go back
+              }
+            }
+          }
+
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  private isValid(
+    board: string[][],
+    row: number,
+    col: number,
+    c: string
+  ): boolean {
+    for (let i = 0; i < 9; i++) {
+      if (board[i][col] !== "." && board[i][col] === c) return false; // Check row
+      if (board[row][i] !== "." && board[row][i] === c) return false; // Check column
+      if (
+        board[3 * Math.floor(row / 3) + Math.floor(i / 3)][
+          3 * Math.floor(col / 3) + (i % 3)
+        ] !== "." &&
+        board[3 * Math.floor(row / 3) + Math.floor(i / 3)][
+          3 * Math.floor(col / 3) + (i % 3)
+        ] === c
+      )
+        return false; // Check 3*3 block
+    }
+    return true;
   }
 }
 ```
