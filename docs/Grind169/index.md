@@ -31,7 +31,7 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/59455.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTk0NTUuanBnIiwiaWF0IjoxNjk1Njk2ODYxLCJleHAiOjE4NTMzNzY4NjF9.NFO2vM59sCKthVcy4A8RU0nRn-rJHkdQcGMIcYHQ-eo&t=2023-09-26T02%3A54%3A21.689Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -77,7 +77,7 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/49938.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDk5MzguanBnIiwiaWF0IjoxNjk1Njk3NzkzLCJleHAiOjE4NTMzNzc3OTN9.d9vepWbjMyDOJpobilIcqRDp0ychvQJ28gx_YjpadDg&t=2023-09-26T03%3A09%3A53.097Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -123,7 +123,7 @@ Output: 2
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/72243.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNzIyNDMuanBnIiwiaWF0IjoxNjk1Njk4NDA5LCJleHAiOjE4NTMzNzg0MDl9.hxXD3TL3lFe8tIygsR_Pn5z4TDitnb4oF6znxwTGKRg&t=2023-09-26T03%3A20%3A09.082Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -165,7 +165,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/88650.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODg2NTAuanBnIiwiaWF0IjoxNjk1NzI5NjA4LCJleHAiOjE4NTM0MDk2MDh9.z0wM1UfH75fIy4Ti74vV_SVvCdWWa-r3nHFxyE-wMnc&t=2023-09-26T12%3A00%3A08.160Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -204,7 +204,7 @@ Output: [1,3,12,0,0]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/3911.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzkxMS5qcGciLCJpYXQiOjE2OTU3MzAxNDQsImV4cCI6MTg1MzQxMDE0NH0.ncsJ0OeOLSczwjCh9YZAm4VYbV9wPOWymziIgzxdR18&t=2023-09-26T12%3A09%3A04.311Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -245,7 +245,7 @@ After sorting, it becomes [0,1,9,16,100].
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/29808.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjk4MDguanBnIiwiaWF0IjoxNjk1NzMwNzkxLCJleHAiOjE4NTM0MTA3OTF9.1iBSfZnG85GHzLatCR7tPAaicukmZfub98FbfpWQCOU&t=2023-09-26T12%3A19%3A51.664Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -295,7 +295,7 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87700.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MDAuanBnIiwiaWF0IjoxNjk1NzMxODM1LCJleHAiOjE4NTM0MTE4MzV9.Pp1ZKSf3EQhrg4dugWQQUUpMLIBv4_LaiDqxbNgGelQ&t=2023-09-26T12%3A37%3A15.539Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -357,7 +357,7 @@ Notice that the order of the output and the order of the triplets does not matte
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/13222.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTMyMjIuanBnIiwiaWF0IjoxNjk1Nzc4NjEwLCJleHAiOjE4NTM0NTg2MTB9.YXcduHiwQCPi5reRn76sQ00XuNtjFS1DR0EqU_Lpos4&t=2023-09-27T01%3A36%3A50.517Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -429,7 +429,7 @@ Output: [24,12,8,6]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/47979.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDc5NzkuanBnIiwiaWF0IjoxNjk1Nzc5NzQ0LCJleHAiOjE4NTM0NTk3NDR9.VitPD68sT9joZ2JyyfNTdVP6jcUXN8ACeDLwiTXHt6E&t=2023-09-27T01%3A55%3A44.883Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -480,7 +480,8 @@ These are the only two combinations.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/90644.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTA2NDQuanBnIiwiaWF0IjoxNjk1Nzg3MTc5LCJleHAiOjE4NTM0NjcxNzl9.rHjF6gpXjGwIfuOeBDRGYYRE_CO_oN4VMtlac91uEVo&t=2023-09-27T03%3A59%3A39.494Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/17293.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTcyOTMuanBnIiwiaWF0IjoxNjk1Nzg3MjMxLCJleHAiOjE4NTM0NjcyMzF9.hqbqFlriL3yhS36YuVhqGDte1SwhHKtm5-Kk-8xcyYI&t=2023-09-27T04%3A00%3A31.427Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -491,34 +492,34 @@ function combinationSum(candidates: number[], target: number): number[][] {
 }
 
 class Solution {
-  combination(
-    candidates: number[],
+  findCombination(
+    ind: number,
     target: number,
-    currComb: number[],
-    currSum: number,
-    currIndex: number,
-    ans: number[][]
+    arr: number[],
+    ans: number[][],
+    ds: number[]
   ): void {
-    if (currSum > target) return; // Backtrack
-    if (currSum === target) {
-      ans.push([...currComb]); // Store the solution and backtrack
+    if (ind === arr.length) {
+      if (target === 0) {
+        ans.push([...ds]);
+      }
       return;
     }
 
-    for (let i = currIndex; i < candidates.length; i++) {
-      // Try all possible options for the next level
-      currComb.push(candidates[i]); // Put one option into the combination
-      currSum += candidates[i];
-      this.combination(candidates, target, currComb, currSum, i, ans); // Try with this combination, whether it gives a solution or not.
-      currComb.pop(); // When this option backtracks to here, remove this and go on to the next option.
-      currSum -= candidates[i];
+    // Pick up the element
+    if (arr[ind] <= target) {
+      ds.push(arr[ind]);
+      this.findCombination(ind, target - arr[ind], arr, ans, ds);
+      ds.pop();
     }
+
+    this.findCombination(ind + 1, target, arr, ans, ds);
   }
 
   combinationSum(candidates: number[], target: number): number[][] {
     const ans: number[][] = [];
-    const currComb: number[] = [];
-    this.combination(candidates, target, currComb, 0, 0, ans);
+    const ds: number[] = [];
+    this.findCombination(0, target, candidates, ans, ds);
     return ans;
   }
 }
@@ -543,7 +544,7 @@ Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/46976.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDY5NzYuanBnIiwiaWF0IjoxNjk1Nzg4ODYxLCJleHAiOjE4NTM0Njg4NjF9.0OGpN5pgKcsVSn5zLjxfEOzrBqdBgJ-w8ar62qA0xLg&t=2023-09-27T04%3A27%3A42.077Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
