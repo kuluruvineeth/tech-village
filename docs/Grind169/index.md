@@ -598,7 +598,7 @@ Output: [0,0,1,1,2,2]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/85569.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODU1NjkuanBnIiwiaWF0IjoxNjk1ODY2Nzg4LCJleHAiOjE4NTM1NDY3ODh9.N7oJBMgBlJ4NC9Vsdznux6nObf5C8RVqw39GmcFknUQ&t=2023-09-28T02%3A06%3A28.361Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -655,7 +655,7 @@ Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/33108.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzMxMDguanBnIiwiaWF0IjoxNjk1ODY3OTU5LCJleHAiOjE4NTM1NDc5NTl9.2yYH1ekNcnD9oqE4gx5gWQB6lVcJHMwheBjLDmVU0Tg&t=2023-09-28T02%3A25%3A59.310Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -709,7 +709,7 @@ Therefore, return 3 as the starting index.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/85782.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODU3ODIuanBnIiwiaWF0IjoxNjk1ODY4NTczLCJleHAiOjE4NTM1NDg1NzN9.8lIHOfeUwoskC4mq-XW7Kw9b2cacVvz9XcRLfcQQixc&t=2023-09-28T02%3A36%3A13.706Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -762,7 +762,7 @@ Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefor
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/59770.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTk3NzAuanBnIiwiaWF0IjoxNjk1ODY5MTM0LCJleHAiOjE4NTM1NDkxMzR9.cyDuIF58Feiwrtg6fLpXx7Vkukw-lq5ZfrlENgKRYAI&t=2023-09-28T02%3A45%3A34.792Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -809,7 +809,7 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/69437.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjk0MzcuanBnIiwiaWF0IjoxNjk1ODY5NTIyLCJleHAiOjE4NTM1NDk1MjJ9.7CkFOTK2SiVp8W_lirkXW-CVCV3u-4SJ0mAmNnr7B5c&t=2023-09-28T02%3A52%3A02.475Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -851,7 +851,7 @@ Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/35905.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzU5MDUuanBnIiwiaWF0IjoxNjk1ODcxNjIyLCJleHAiOjE4NTM1NTE2MjJ9.YbIm74JLNfKUjueR4bH7wsjoEJ7pDpUjIvT4Ef0Bo2Q&t=2023-09-28T03%3A27%3A02.500Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -898,7 +898,7 @@ Output: 2
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/95472.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTU0NzIuanBnIiwiaWF0IjoxNjk1ODczMjQ1LCJleHAiOjE4NTM1NTMyNDV9.PKtB3kc1N8ghq13Ka4hdCmFX-WGw-aVveSLRVfjh-ew&t=2023-09-28T03%3A54%3A06.167Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
