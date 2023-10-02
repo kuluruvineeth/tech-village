@@ -1242,7 +1242,7 @@ Explanation: Both s and t become "ac".
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/56448.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTY0NDguanBnIiwiaWF0IjoxNjk2MjIwNDgzLCJleHAiOjE4NTM5MDA0ODN9.XhyQW6h3B3UBO5B9ItrxsAyxM568l93TBlPiEx6VjSk&t=2023-10-02T04%3A21%3A23.806Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -1311,7 +1311,7 @@ Explanation: ((2 + 1) * 3) = 9
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/85979.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODU5NzkuanBnIiwiaWF0IjoxNjk2MjIwOTEwLCJleHAiOjE4NTM5MDA5MTB9.DOqbpn8xlDdfgL6TLRQMdSQnxVlLDfpzSSoXQSjFfms&t=2023-10-02T04%3A28%3A30.942Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -1382,7 +1382,7 @@ minStack.getMin(); // return -2
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/85582.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODU1ODIuanBnIiwiaWF0IjoxNjk2MjIxODM3LCJleHAiOjE4NTM5MDE4Mzd9.kve0I4n8ibYsIXocGXkRSXCWjlUd3VnwFVCJwnwd1wg&t=2023-10-02T04%3A43%3A57.574Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -1437,7 +1437,7 @@ Output: [1,1,4,2,1,1,0,0]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/11360.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTEzNjAuanBnIiwiaWF0IjoxNjk2MjIyOTU2LCJleHAiOjE4NTM5MDI5NTZ9.tOZVeTOWT36e1_5F82M9n2SOZPzWqYZsmVloB0K1SKg&t=2023-10-02T05%3A02%3A36.212Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
