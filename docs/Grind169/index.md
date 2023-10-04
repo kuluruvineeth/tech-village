@@ -1670,7 +1670,8 @@ Explanation: The above elevation map (black section) is represented by array [0,
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/93498.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTM0OTguanBnIiwiaWF0IjoxNjk2MzgxMTA5LCJleHAiOjE4NTQwNjExMDl9.EIgH223t9K0V2XJR0f61Le7hynzJBSBVzgho7lFhKoc&t=2023-10-04T00%3A58%3A29.123Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/2468.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjQ2OC5qcGciLCJpYXQiOjE2OTYzODExNDMsImV4cCI6MTg1NDA2MTE0M30.Dn5oMANmAjGmkvzT0HsoNo53jDMleASdIj1Se0kXahM&t=2023-10-04T00%3A59%3A03.525Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -1679,28 +1680,32 @@ Explanation: The above elevation map (black section) is represented by array [0,
 
 ```typescript
 function trap(height: number[]): number {
-  if (height === null) return 0;
-  const stack: number[] = [];
-  let i = 0,
-    maxWater = 0,
-    maxBotWater = 0;
+  const n: number = height.length;
+  let left: number = 0;
+  let right: number = n - 1;
+  let res: number = 0;
+  let maxLeft: number = 0;
+  let maxRight: number = 0;
 
-  while (i < height.length) {
-    if (stack.length === 0 || height[i] <= height[stack[stack.length - 1]]) {
-      stack.push(i++);
+  while (left <= right) {
+    if (height[left] <= height[right]) {
+      if (height[left] >= maxLeft) {
+        maxLeft = height[left];
+      } else {
+        res += maxLeft - height[left];
+      }
+      left++;
     } else {
-      const bot = stack.pop();
-      maxBotWater =
-        stack.length === 0
-          ? 0
-          : (Math.min(height[stack[stack.length - 1]], height[i]) -
-              height[bot]) *
-            (i - stack[stack.length - 1] - 1);
-      maxWater += maxBotWater;
+      if (height[right] >= maxRight) {
+        maxRight = height[right];
+      } else {
+        res += maxRight - height[right];
+      }
+      right--;
     }
   }
 
-  return maxWater;
+  return res;
 }
 ```
 
@@ -1726,7 +1731,8 @@ Output: 23
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/37100.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzcxMDAuanBnIiwiaWF0IjoxNjk2MzgyNjI1LCJleHAiOjE4NTQwNjI2MjV9.rIf73Ji1TEnIyu_Hpw0UOqP2BEIaQaNZ80d9gSvzUjY&t=2023-10-04T01%3A23%3A47.384Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/46916.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDY5MTYuanBnIiwiaWF0IjoxNjk2MzgyNjc2LCJleHAiOjE4NTQwNjI2NzZ9.yKfQ4AHg9c3iyF6T1HvZDf1KRZIkUFWUTm4eRjS1KnU&t=2023-10-04T01%3A24%3A36.316Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -1794,7 +1800,9 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/41580.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDE1ODAuanBnIiwiaWF0IjoxNjk2Mzg1Nzc3LCJleHAiOjE4NTQwNjU3Nzd9.uIAoZcFtt9h5hTjvDSOceQ13U7c9x6dOO7vCi6jI6Tw&t=2023-10-04T02%3A16%3A17.565Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/6409.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjQwOS5qcGciLCJpYXQiOjE2OTYzODU4MjAsImV4cCI6MTg1NDA2NTgyMH0.plLJ9n6LUKwSQ3pbuhhqfHG178xszgpAQIP9ZRTMYvs&t=2023-10-04T02%3A17%3A00.708Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/11761.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTE3NjEuanBnIiwiaWF0IjoxNjk2Mzg1OTQ1LCJleHAiOjE4NTQwNjU5NDV9.E7hM7pJABArjvNmjdCu4tFSWMw72nXIAiB1EKlr1Xsw&t=2023-10-04T02%3A19%3A05.976Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -1803,26 +1811,44 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 ```typescript
 function largestRectangleArea(heights: number[]): number {
-  const len = heights.length;
-  const stack: number[] = [];
-  let maxArea = 0;
+  const n: number = heights.length;
+  const st: number[] = [];
+  const leftsmall: number[] = new Array(n);
+  const rightsmall: number[] = new Array(n);
 
-  for (let i = 0; i <= len; i++) {
-    const h = i === len ? 0 : heights[i];
-
-    if (stack.length === 0 || h >= heights[stack[stack.length - 1]]) {
-      stack.push(i);
-    } else {
-      const tp = stack.pop()!;
-      maxArea = Math.max(
-        maxArea,
-        heights[tp] * (stack.length === 0 ? i : i - 1 - stack[stack.length - 1])
-      );
-      i--;
+  for (let i = 0; i < n; i++) {
+    while (st.length > 0 && heights[st[st.length - 1]] >= heights[i]) {
+      st.pop();
     }
+    if (st.length === 0) {
+      leftsmall[i] = 0;
+    } else {
+      leftsmall[i] = st[st.length - 1] + 1;
+    }
+    st.push(i);
   }
 
-  return maxArea;
+  // Clear the stack to be re-used
+  st.length = 0;
+
+  for (let i = n - 1; i >= 0; i--) {
+    while (st.length > 0 && heights[st[st.length - 1]] >= heights[i]) {
+      st.pop();
+    }
+    if (st.length === 0) {
+      rightsmall[i] = n - 1;
+    } else {
+      rightsmall[i] = st[st.length - 1] - 1;
+    }
+    st.push(i);
+  }
+
+  let maxA: number = 0;
+  for (let i = 0; i < n; i++) {
+    maxA = Math.max(maxA, heights[i] * (rightsmall[i] - leftsmall[i] + 1));
+  }
+
+  return maxA;
 }
 ```
 
@@ -1869,7 +1895,8 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/97.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTcuanBnIiwiaWF0IjoxNjk2Mzg3MDI2LCJleHAiOjE4NTQwNjcwMjZ9.cUFYuSJg6fu6aOg1qKcahYK-mwBeZWG0eSsyVnXOxZU&t=2023-10-04T02%3A37%3A06.962Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/42436.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDI0MzYuanBnIiwiaWF0IjoxNjk2Mzg3MDc1LCJleHAiOjE4NTQwNjcwNzV9.tNRaHfxaBlr8BKR1y_a_LjxJwIefQu0QbAkYFgNjCnw&t=2023-10-04T02%3A37%3A55.961Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
