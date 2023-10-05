@@ -1947,7 +1947,7 @@ Explanation: The longest valid parentheses substring is "()()".
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/24388.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjQzODguanBnIiwiaWF0IjoxNjk2NDcwMzQ2LCJleHAiOjE4NTQxNTAzNDZ9.jzC-AAfa58GB3uzVgkJoj1LAN_1kTLaEGmT075qjdCQ&t=2023-10-05T01%3A45%3A46.257Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2021,7 +2021,7 @@ Output: [1,1,2,3,4,4]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/25988.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjU5ODguanBnIiwiaWF0IjoxNjk2NDcxMDIzLCJleHAiOjE4NTQxNTEwMjN9.dLUZtcni8aJeZcZ6vdXirIF1TtWpfUFKIJxqSsZ6czs&t=2023-10-05T01%3A57%3A03.795Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2114,7 +2114,7 @@ Explanation: There is a cycle in the linked list, where the tail connects to the
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/12706.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTI3MDYuanBnIiwiaWF0IjoxNjk2NDcxNDY1LCJleHAiOjE4NTQxNTE0NjV9.5zpn1ecE8tz6Wcl2Bp-73naDgqYUYx8fs4lK4gBRyJI&t=2023-10-05T02%3A04%3A25.954Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2175,7 +2175,7 @@ Output: [5,4,3,2,1]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/69099.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjkwOTkuanBnIiwiaWF0IjoxNjk2NDcyMjQ4LCJleHAiOjE4NTQxNTIyNDh9.2yJo7d6AtN1Vf1bulrBEp9YmwPF85uLuM0_j9q8BvzA&t=2023-10-05T02%3A17%3A29.037Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2242,7 +2242,7 @@ Explanation: The middle node of the list is node 3.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/44461.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDQ0NjEuanBnIiwiaWF0IjoxNjk2NDcyNTQ3LCJleHAiOjE4NTQxNTI1NDd9.-KWXbD3R-c2LbtU6kfksGp3eb9K9g2qNuUSbAusiGKw&t=2023-10-05T02%3A22%3A27.888Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2293,7 +2293,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/27177.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjcxNzcuanBnIiwiaWF0IjoxNjk2NDczNDM3LCJleHAiOjE4NTQxNTM0Mzd9.jp0NFkG1cegyb13l4tSXhwCPF9F_C8nO3249jKTycEY&t=2023-10-05T02%3A37%3A18.016Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
