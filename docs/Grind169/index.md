@@ -2400,7 +2400,10 @@ lRUCache.get(4);    // return 4
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/35193.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzUxOTMuanBnIiwiaWF0IjoxNjk2NTYwNjAxLCJleHAiOjE4NTQyNDA2MDF9.Ph_VuOmTMCoYjdFmvHFJlPlSTi3I0bTg3tEXFpGuPaI&t=2023-10-06T02%3A50%3A02.057Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/98579.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTg1NzkuanBnIiwiaWF0IjoxNjk2NTYwNTU5LCJleHAiOjE4NTQyNDA1NTl9.sKmGX076MTx0FUNNekKhGTRY4ZlNoXrVcnN-xXx8N3I&t=2023-10-06T02%3A49%3A19.330Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/64697.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjQ2OTcuanBnIiwiaWF0IjoxNjk2NTYwNTI1LCJleHAiOjE4NTQyNDA1MjV9.k9KL86ovz4D89nJMUfCxdu96SodwVfVNh57ovzKT1xU&t=2023-10-06T02%3A48%3A45.693Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/45089.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDUwODkuanBnIiwiaWF0IjoxNjk2NTYwNDkxLCJleHAiOjE4NTQyNDA0OTF9.HZLlTAo9MJqncji80AOKFepf6iM5Z-JInV2VPjWZlgE&t=2023-10-06T02%3A48%3A11.470Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2497,7 +2500,7 @@ Output: [1,2,3,5]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/86033.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODYwMzMuanBnIiwiaWF0IjoxNjk2NTYyNzczLCJleHAiOjE4NTQyNDI3NzN9.Hgqeixi8zU1ayTsWSicmyS_cRUtt558fUh1Gu4kWOik&t=2023-10-06T03%3A26%3A13.328Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2565,7 +2568,7 @@ Output: [2,1,4,3]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/35492.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzU0OTIuanBnIiwiaWF0IjoxNjk2NTYzNTIzLCJleHAiOjE4NTQyNDM1MjN9.CS7w6_1_2byVWx48_GUMYxb_08qIY_u70sHMCgT8vQk&t=2023-10-06T03%3A38%3A44.046Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2629,7 +2632,7 @@ Output: [1,3,5,2,4]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/32928.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzI5MjguanBnIiwiaWF0IjoxNjk2NTY0MjMyLCJleHAiOjE4NTQyNDQyMzJ9.gNoup0V_eSr6CwzoZvioiIUyod1j0NBW1dy4Mz1EXzs&t=2023-10-06T03%3A50%3A33.129Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -2692,7 +2695,7 @@ Explanation: 342 + 465 = 807.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/61567.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjE1NjcuanBnIiwiaWF0IjoxNjk2NTY1MTQwLCJleHAiOjE4NTQyNDUxNDB9.BOcF6F7CfhWYozLMEn_I1GD_0v8UP1xYhBYHSfGJsvk&t=2023-10-06T04%3A05%3A41.009Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
