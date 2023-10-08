@@ -3164,7 +3164,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/10383.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTAzODMuanBnIiwiaWF0IjoxNjk2NzQ1Njg0LCJleHAiOjE4NTQ0MjU2ODR9.KwadfH8dcgKLtrG3hY3erBdrWqsYEJ5WvhSEa6iUd8Q&t=2023-10-08T06%3A14%3A44.240Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3217,7 +3217,7 @@ Explanation: One longest palindrome that can be built is "dccaccd", whose length
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/53263.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTMyNjMuanBnIiwiaWF0IjoxNjk2NzQ2NTUxLCJleHAiOjE4NTQ0MjY1NTF9.IMWFGcOeM2yJbg6-39l4KyMjvzOsT9-mTQflY-ZXlLM&t=2023-10-08T06%3A29%3A11.502Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3269,13 +3269,12 @@ Write a function to find the longest common prefix string amongst an array of st
 If there is no common prefix, return an empty string "".
 
 ```
-Input: strs = ["dog","racecar","car"]
-Output: ""
-Explanation: There is no common prefix among the input strings.
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/32255.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzIyNTUuanBnIiwiaWF0IjoxNjk2NzQ3MzA1LCJleHAiOjE4NTQ0MjczMDV9.iFfA3O-t-58d-VFJKUTcVZVwyO-i5gbBOKl3h7ZlUqA&t=2023-10-08T06%3A41%3A45.502Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3328,7 +3327,8 @@ Explanation: The answer is "abc", with the length of 3.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/29565.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjk1NjUuanBnIiwiaWF0IjoxNjk2NzQ5MDY0LCJleHAiOjE4NTQ0MjkwNjR9.0z4ca82dGyrd2MAyy6M9nGbJCmrGNaZg-HHKy4HyaZc&t=2023-10-08T07%3A11%3A04.255Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/1564.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTU2NC5qcGciLCJpYXQiOjE2OTY3NDkxMDMsImV4cCI6MTg1NDQyOTEwM30.cKhHnzssX9LCovwDE5GbI33Vu9FJcp-S2pIah7vnL8M&t=2023-10-08T07%3A11%3A43.874Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
