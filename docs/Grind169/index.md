@@ -4030,7 +4030,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/75498.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNzU0OTguanBnIiwiaWF0IjoxNjk2ODU1NzU4LCJleHAiOjE4NTQ1MzU3NTh9.sZupaHYGRmCIdsfkvgKBBBUXsgSpcnsvxM-Nkaiip3w&t=2023-10-09T12%3A49%3A18.853Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4104,7 +4104,7 @@ Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/57832.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTc4MzIuanBnIiwiaWF0IjoxNjk2ODU2NDg0LCJleHAiOjE4NTQ1MzY0ODR9.z4D6QCWWfa8F82XnRucNNYD8ORG5RjwmDccQpzGwnBQ&t=2023-10-09T13%3A01%3A25.042Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4174,7 +4174,7 @@ Output: 3
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/33860.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzM4NjAuanBnIiwiaWF0IjoxNjk2ODU3MTc0LCJleHAiOjE4NTQ1MzcxNzR9.b9gjo5r3uH4wiHnVyXOHvRRLeE6OX8kjZJWKcFH4M9I&t=2023-10-09T13%3A12%3A54.813Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
