@@ -3398,7 +3398,7 @@ Since 42 is in the range [-231, 231 - 1], the final result is 42.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/38941.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzg5NDEuanBnIiwiaWF0IjoxNjk2ODE2MDQzLCJleHAiOjE4NTQ0OTYwNDN9.n9NY1N2hy3Qxa5iTfJZXze7N5_tfVx6z8olBxQ8o4E0&t=2023-10-09T01%3A47%3A23.841Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3452,7 +3452,8 @@ Explanation: "aba" is also a valid answer.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/37721.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzc3MjEuanBnIiwiaWF0IjoxNjk2ODE3MDUzLCJleHAiOjE4NTQ0OTcwNTN9.FppLPoDSWK0Wx4cxdeNhOXvZqpxAJwsFHTu8ZlAoeTk&t=2023-10-09T02%3A04%3A13.782Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/56743.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTY3NDMuanBnIiwiaWF0IjoxNjk2ODE3MDg5LCJleHAiOjE4NTQ0OTcwODl9.oQU3VfgyWVzUpRYkFR_wc9Yl3xdVuvglVlJIc90n-Cg&t=2023-10-09T02%3A04%3A49.629Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3523,7 +3524,8 @@ The substring with start index = 6 is "bac", which is an anagram of "abc".
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/43718.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDM3MTguanBnIiwiaWF0IjoxNjk2ODE5MTY3LCJleHAiOjE4NTQ0OTkxNjd9.9Axnb281izZeLbs0Ttwx_CVP6a5749vR0TawFbRwjoQ&t=2023-10-09T02%3A39%3A27.905Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/36495.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzY0OTUuanBnIiwiaWF0IjoxNjk2ODE5MjIyLCJleHAiOjE4NTQ0OTkyMjJ9.j0uHbX849huYcnW8gu4h_n_YlPZttA4qDmkf_t0LIQU&t=2023-10-09T02%3A40%3A22.558Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3593,7 +3595,8 @@ Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/26893.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjY4OTMuanBnIiwiaWF0IjoxNjk2ODIyOTk3LCJleHAiOjE4NTQ1MDI5OTd9.Jkvljaw1-w841_tmpor3xJj93ewngJLVvxRB4hHbprA&t=2023-10-09T03%3A43%3A18.017Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/48058.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDgwNTguanBnIiwiaWF0IjoxNjk2ODIzMDM3LCJleHAiOjE4NTQ1MDMwMzd9.PgISs97SJmW1HgcdYDaRrYW5UFZpes9ZYaOVV5hkM6U&t=2023-10-09T03%3A43%3A58.023Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3653,7 +3656,7 @@ There may exists other ways to achive this answer too.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/75723.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNzU3MjMuanBnIiwiaWF0IjoxNjk2ODI1MDU4LCJleHAiOjE4NTQ1MDUwNTh9.aN_qfP8vhOIvmd93vSpyTBtPAqEaQFBanzYKD33lkA0&t=2023-10-09T04%3A17%3A38.221Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
