@@ -3711,7 +3711,7 @@ Output: "210"
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/18730.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTg3MzAuanBnIiwiaWF0IjoxNjk2ODI2NzQ5LCJleHAiOjE4NTQ1MDY3NDl9.Hd8Q62qsyaKI0zqjgVG7J5z76LKG5vn6ZYNOVatKZUY&t=2023-10-09T04%3A45%3A50.078Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -3961,7 +3961,8 @@ Output: [4,7,2,9,6,3,1]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/95021.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTUwMjEuanBnIiwiaWF0IjoxNjk2ODQxNTgxLCJleHAiOjE4NTQ1MjE1ODF9.BcEZsubGYtw3mMJGiCOXBs8eTeAypLjfsPu8E8BpW7A&t=2023-10-09T08%3A53%3A01.751Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/58040.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTgwNDAuanBnIiwiaWF0IjoxNjk2ODQxNjIyLCJleHAiOjE4NTQ1MjE2MjJ9.r8HWFSKBsvoCOJFu7rfY2Yfa2FdBLVphvPeCoE_ecyw&t=2023-10-09T08%3A53%3A42.362Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
