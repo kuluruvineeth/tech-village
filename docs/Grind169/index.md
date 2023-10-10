@@ -4227,7 +4227,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/38207.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzgyMDcuanBnIiwiaWF0IjoxNjk2OTA0NDE1LCJleHAiOjE4NTQ1ODQ0MTV9.acaqf2m7hNDS1JiRFSE7jq9ccUvTvvrN0eBWDHnCwzY&t=2023-10-10T02%3A20%3A15.405Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4284,7 +4284,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/36518.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzY1MTguanBnIiwiaWF0IjoxNjk2OTA0NDczLCJleHAiOjE4NTQ1ODQ0NzN9.GoVONBkKhuGKdIw1YWWfvj5fpInrtn3mOTt4s81PdNk&t=2023-10-10T02%3A21%3A13.656Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4350,7 +4350,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/33326.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzMzMjYuanBnIiwiaWF0IjoxNjk2OTA0NTQwLCJleHAiOjE4NTQ1ODQ1NDB9.0YBKmO6_nP7uNiBF7NNfxKKph6XsTXsxvPq2RYWxwRM&t=2023-10-10T02%3A22%3A20.508Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4428,7 +4428,7 @@ Output: [[3],[9,20],[15,7]]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/35004.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzUwMDQuanBnIiwiaWF0IjoxNjk2OTA0NTk1LCJleHAiOjE4NTQ1ODQ1OTV9.RS2HgY_LV_VbLDP_H7cpN4JOtJIWbNp9Ezh5deCRgfY&t=2023-10-10T02%3A23%3A15.089Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4504,7 +4504,7 @@ Explanation: The LCA of nodes 5 and 1 is 3.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/96565.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTY1NjUuanBnIiwiaWF0IjoxNjk2OTA0NjQ4LCJleHAiOjE4NTQ1ODQ2NDh9.DiYwQNoVAXQPUIcgD55N075IngC6bXLdRAGrL44pZfQ&t=2023-10-10T02%3A24%3A08.589Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -4563,7 +4563,7 @@ Output: [1,3,4]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/33650.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzM2NTAuanBnIiwiaWF0IjoxNjk2OTA0NzAxLCJleHAiOjE4NTQ1ODQ3MDF9.BPpcrgtAjioyqkR-1F3v4rmwNlWDS3hhVwPlQqSF7ZA&t=2023-10-10T02%3A25%3A01.369Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
