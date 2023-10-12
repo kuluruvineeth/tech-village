@@ -8779,7 +8779,7 @@ Explanation: III = 3.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/15750.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTU3NTAuanBnIiwiaWF0IjoxNjk3MDczNzE4LCJleHAiOjE4NTQ3NTM3MTh9.DiOXb1sTP_Jrn5basnWLatfLNfgYSOu-OTLbCfldKJQ&t=2023-10-12T01%3A21%3A58.941Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -8847,7 +8847,7 @@ Explanation: 121 reads as 121 from left to right and from right to left.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/74558.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNzQ1NTguanBnIiwiaWF0IjoxNjk3MDczNjUyLCJleHAiOjE4NTQ3NTM2NTJ9.7XRg7P1FyQg9-CGn3Bicf5Sn1zmDoxEOYGguygOOwfU&t=2023-10-12T01%3A20%3A53.071Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -10886,7 +10886,7 @@ Output: [[7,4,1],[8,5,2],[9,6,3]]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/80801.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODA4MDEuanBnIiwiaWF0IjoxNjk3MDczNTg1LCJleHAiOjE4NTQ3NTM1ODV9.XdUj86DVg-IWgpgLpLDEHY_P5ulh06_9o3rcDtu7nQU&t=2023-10-12T01%3A19%3A46.017Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -10940,7 +10940,7 @@ Output: [[1,0,1],[0,0,0],[1,0,1]]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/57689.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTc2ODkuanBnIiwiaWF0IjoxNjk3MDczNTIzLCJleHAiOjE4NTQ3NTM1MjN9.NToz5PK4kEiplEIMdk00yuf7kppURW_4ZSbMj-pTIfo&t=2023-10-12T01%3A18%3A43.797Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
