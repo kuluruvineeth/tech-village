@@ -4953,7 +4953,7 @@ Explanation: The paths that sum to 8 are shown.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/88548.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODg1NDguanBnIiwiaWF0IjoxNjk3MzQ0ODIyLCJleHAiOjE4NTUwMjQ4MjJ9.Yz6zgm1PyPZ9hTIaErV_70p1qEcj_lXKufl8-0aQYLw&t=2023-10-15T04%3A40%3A22.237Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -5243,7 +5243,7 @@ Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/97428.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTc0MjguanBnIiwiaWF0IjoxNjk3MzQ0ODg4LCJleHAiOjE4NTUwMjQ4ODh9.PY6bhaHnmcmYmiVA46KcGHoz63kOZmsXjjn9If1lzbs&t=2023-10-15T04%3A41%3A28.502Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -5907,7 +5907,8 @@ Note the bottom corner is not colored 2, because it is not 4-directionally conne
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/40099.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDAwOTkuanBnIiwiaWF0IjoxNjk3MzQ0OTgwLCJleHAiOjE4NTUwMjQ5ODB9.qtcx8P3kOg747aGF19Ov-Ynz0-h9lsk1trA_e1KILbA&t=2023-10-15T04%3A43%3A00.702Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/16971.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMTY5NzEuanBnIiwiaWF0IjoxNjk3MzQ1MDEzLCJleHAiOjE4NTUwMjUwMTN9.tMqbaWPIdgfxyxSENmJhTXXI4azs-MNTyDdBKqNegX4&t=2023-10-15T04%3A43%3A33.878Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -5986,7 +5987,8 @@ Output: [[0,0,0],[0,1,0],[1,2,1]]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/40910.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDA5MTAuanBnIiwiaWF0IjoxNjk3MzQ1MTE2LCJleHAiOjE4NTUwMjUxMTZ9.3EKxMFMjRfIz5pxAR9_aDS9NN0xVF6JCLT9aHXFQyNg&t=2023-10-15T04%3A45%3A16.255Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/20754.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjA3NTQuanBnIiwiaWF0IjoxNjk3MzQ1MTQyLCJleHAiOjE4NTUwMjUxNDJ9.DMpk5tFXUujKpkwRhLnItFAFvJ-rV0-d-hukvz7zKdU&t=2023-10-15T04%3A45%3A42.188Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -6153,7 +6155,7 @@ To take course 1 you should have finished course 0. So it is possible.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/35200.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMzUyMDAuanBnIiwiaWF0IjoxNjk3MzQ1MTkwLCJleHAiOjE4NTUwMjUxOTB9.7UStaEMgQ5MQAdJwtVvcpUrk1aiWuQWe67t35T2FA2g&t=2023-10-15T04%3A46%3A30.825Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -6228,7 +6230,7 @@ Output: 1
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/77798.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNzc3OTguanBnIiwiaWF0IjoxNjk3MzQ1MjU2LCJleHAiOjE4NTUwMjUyNTZ9.E71ZM6cnIsKStBv6fon0mkyu1FsuGs1oCDyQj3FlS-0&t=2023-10-15T04%3A47%3A36.179Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
