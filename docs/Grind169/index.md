@@ -7247,7 +7247,7 @@ Explanation: The LCA of nodes 2 and 8 is 6.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/68609.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjg2MDkuanBnIiwiaWF0IjoxNjk3NDIyODA0LCJleHAiOjE4NTUxMDI4MDR9.KbqLN2DzJfynPS9fLjPtKtFMwW8TswEXWquCF8OD0IQ&t=2023-10-16T02%3A20%3A04.632Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7311,7 +7311,7 @@ Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/63292.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjMyOTIuanBnIiwiaWF0IjoxNjk3NDIyNzQzLCJleHAiOjE4NTUxMDI3NDN9.8T0XCH19ar1vB8uswy3bdqIVmgCwUmRhTUb8CyP7t3g&t=2023-10-16T02%3A19%3A03.986Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7384,7 +7384,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87027.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODcwMjcuanBnIiwiaWF0IjoxNjk3NDIyNjkxLCJleHAiOjE4NTUxMDI2OTF9.Nt4wV4n4VigrzQ29n5sdciO-LP6dd3o16ihr3sBdBZo&t=2023-10-16T02%3A18%3A11.177Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7451,7 +7451,7 @@ Output: 1
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/55144.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNTUxNDQuanBnIiwiaWF0IjoxNjk3NDIyNjIzLCJleHAiOjE4NTUxMDI2MjN9.tTDocyLP85iMZ_JuUlZRb6iMAmrlQiQk-8vRxmJJyds&t=2023-10-16T02%3A17%3A03.202Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -9502,7 +9502,7 @@ Output: 5
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/4644.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDY0NC5qcGciLCJpYXQiOjE2OTc0MjI4NTUsImV4cCI6MTg1NTEwMjg1NX0.GT1mtLzxTtdZdaaWD1d-AvzUs52N2ISXMtYOXcu6R6Q&t=2023-10-16T02%3A20%3A55.701Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
