@@ -7769,7 +7769,7 @@ Explanation: There are two ways to climb to the top.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/97461.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTc0NjEuanBnIiwiaWF0IjoxNjk3NDYwNzI4LCJleHAiOjE4NTUxNDA3Mjh9.YXhWpuFqoq8UfH9YrafCkNE2yBz8NbLz93-yEZtrcL8&t=2023-10-16T12%3A52%3A08.698Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7778,22 +7778,21 @@ Explanation: There are two ways to climb to the top.
 
 ```typescript
 function climbStairs(n: number): number {
-  // Base cases
-  if (n <= 0) return 0;
-  if (n === 1) return 1;
-  if (n === 2) return 2;
+  const dp: number[] = Array(n + 1).fill(-1);
+  return helper(n, dp);
+}
 
-  let oneStepBefore: number = 2;
-  let twoStepsBefore: number = 1;
-  let allWays: number = 0;
-
-  for (let i = 2; i < n; i++) {
-    allWays = oneStepBefore + twoStepsBefore;
-    twoStepsBefore = oneStepBefore;
-    oneStepBefore = allWays;
+function helper(n: number, dp: number[]): number {
+  if (n <= 2) {
+    return n;
   }
 
-  return allWays;
+  if (dp[n] !== -1) {
+    return dp[n];
+  }
+
+  dp[n] = helper(n - 1, dp) + helper(n - 2, dp);
+  return dp[n];
 }
 ```
 
@@ -7821,7 +7820,7 @@ Explanation: The subarray [4,-1,2,1] has the largest sum 6.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/64100.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjQxMDAuanBnIiwiaWF0IjoxNjk3NDYwNzg5LCJleHAiOjE4NTUxNDA3ODl9.AO9jObzyeOD0KSvIKK-8cKWHGBT0QFhq110QYpkz_rQ&t=2023-10-16T12%3A53%3A09.931Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7868,7 +7867,7 @@ Explanation: 11 = 5 + 5 + 1
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/74588.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNzQ1ODguanBnIiwiaWF0IjoxNjk3NDYwODQyLCJleHAiOjE4NTUxNDA4NDJ9.BtJLsnupmHq6yP2cHZ_3toA1_yywm5RtzB2Rt1CJeVI&t=2023-10-16T12%3A54%3A03.125Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7876,23 +7875,43 @@ Explanation: 11 = 5 + 5 + 1
 <summary><b1>toggle code</b1></summary>
 
 ```typescript
-function coinChange(coins: number[], amount: number): number {
-  if (amount < 1) return 0;
-  const dp: number[] = new Array(amount + 1).fill(Number.MAX_VALUE);
-  dp[0] = 0;
+function coinChange(arr: number[], T: number): number {
+  const n: number = arr.length;
 
-  for (let sum = 1; sum <= amount; sum++) {
-    let min = Number.MAX_VALUE;
-    for (const coin of coins) {
-      if (sum >= coin && dp[sum - coin] !== -1) {
-        const temp = dp[sum - coin] + 1;
-        min = Math.min(min, temp);
-      }
+  // Create a 2D array to store dynamic programming results, initialized with -1
+  const dp: number[][] = Array.from({ length: n }).map(() =>
+    Array(T + 1).fill(-1)
+  );
+
+  // Helper function for dynamic programming
+  function minimumElementsUtil(ind: number, T: number): number {
+    // Base case: If the index is 0, check if T is divisible by arr[0]
+    if (ind === 0) {
+      if (T % arr[0] === 0) return T / arr[0];
+      else return Infinity; // Use Infinity to represent an impossible case
     }
-    dp[sum] = min === Number.MAX_VALUE ? -1 : min;
+
+    // If the result for this combination of 'ind' and 'T' has already been calculated, return it
+    if (dp[ind][T] !== -1) return dp[ind][T];
+
+    // Initialize variables to store results
+    let notTaken: number = 0 + minimumElementsUtil(ind - 1, T);
+    let taken: number = Infinity;
+
+    // If the current element is less than or equal to 'T', consider taking it
+    if (arr[ind] <= T) taken = 1 + minimumElementsUtil(ind, T - arr[ind]);
+
+    // Store the minimum result and return it
+    return (dp[ind][T] = Math.min(notTaken, taken));
   }
 
-  return dp[amount];
+  // Call the helper function to calculate the result
+  const ans: number = minimumElementsUtil(n - 1, T);
+
+  // If it's impossible to reach the target, return -1
+  if (ans === Infinity) return -1;
+
+  return ans;
 }
 ```
 
@@ -7918,7 +7937,7 @@ Explanation: The array can be partitioned as [1, 5, 5] and [11].
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/86975.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODY5NzUuanBnIiwiaWF0IjoxNjk3NDYwODk4LCJleHAiOjE4NTUxNDA4OTh9.5A9hggkqkoe3AvQGqWq6HrTqGkMYSm6jxq4UcgCUflU&t=2023-10-16T12%3A54%3A58.670Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -7926,32 +7945,53 @@ Explanation: The array can be partitioned as [1, 5, 5] and [11].
 <summary><b1>toggle code</b1></summary>
 
 ```typescript
-function canPartition(nums: number[]): boolean {
-  let sum = 0;
+function canPartition(arr: number[]): boolean {
+  const n: number = arr.length;
+  let totSum = 0;
 
-  for (const num of nums) {
-    sum += num;
+  // Calculate the total sum of elements in the array
+  for (let i = 0; i < n; i++) {
+    totSum += arr[i];
   }
 
-  if (sum % 2 !== 0) {
-    return false;
-  }
+  // If the total sum is odd, it cannot be partitioned into two equal subsets
+  if (totSum % 2 === 1) return false;
+  else {
+    const k = totSum / 2;
 
-  sum /= 2;
+    // Create a 2D boolean array to store results of subproblems (dynamic programming)
+    const dp: boolean[][] = new Array(n);
+    for (let i = 0; i < n; i++) {
+      dp[i] = new Array(k + 1).fill(false);
+    }
 
-  const n = nums.length;
-  const dp: boolean[] = new Array(sum + 1).fill(false);
-  dp[0] = true;
+    // Initialize the first row of the dp array
+    for (let i = 0; i < n; i++) {
+      dp[i][0] = true;
+    }
 
-  for (const num of nums) {
-    for (let i = sum; i > 0; i--) {
-      if (i >= num) {
-        dp[i] = dp[i] || dp[i - num];
+    // Initialize the first column of the dp array
+    if (arr[0] <= k) {
+      dp[0][arr[0]] = true;
+    }
+
+    // Fill the dp array using bottom-up dynamic programming
+    for (let ind = 1; ind < n; ind++) {
+      for (let target = 1; target <= k; target++) {
+        const notTaken = dp[ind - 1][target];
+
+        let taken = false;
+        if (arr[ind] <= target) {
+          taken = dp[ind - 1][target - arr[ind]];
+        }
+
+        dp[ind][target] = notTaken || taken;
       }
     }
-  }
 
-  return dp[sum];
+    // The final cell dp[n-1][k] contains the result
+    return dp[n - 1][k];
+  }
 }
 ```
 
@@ -7992,26 +8032,37 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 <summary><b1>toggle code</b1></summary>
 
 ```typescript
+function countWaysUtil(i: number, j: number, dp: number[][]): number {
+  // If we have reached the top-left corner, there is one way to reach it.
+  if (i === 0 && j === 0) {
+    return 1;
+  }
+
+  // If i or j is negative, we are out of bounds, so there are no ways to reach this cell.
+  if (i < 0 || j < 0) {
+    return 0;
+  }
+
+  // If we have already computed the number of ways to reach this cell, return it.
+  if (dp[i][j] !== -1) {
+    return dp[i][j];
+  }
+
+  // Calculate the number of ways to reach this cell by moving up and left.
+  const up = countWaysUtil(i - 1, j, dp);
+  const left = countWaysUtil(i, j - 1, dp);
+
+  // Store the result in the dp array and return it.
+  dp[i][j] = up + left;
+  return dp[i][j];
+}
+
 function uniquePaths(m: number, n: number): number {
-  const map: number[][] = new Array(m)
-    .fill(null)
-    .map(() => new Array(n).fill(0));
+  // Create a 2D array to store the results of subproblems. Initialize it with -1.
+  const dp: number[][] = Array.from(Array(m), () => Array(n).fill(-1));
 
-  for (let i = 0; i < m; i++) {
-    map[i][0] = 1;
-  }
-
-  for (let j = 0; j < n; j++) {
-    map[0][j] = 1;
-  }
-
-  for (let i = 1; i < m; i++) {
-    for (let j = 1; j < n; j++) {
-      map[i][j] = map[i - 1][j] + map[i][j - 1];
-    }
-  }
-
-  return map[m - 1][n - 1];
+  // Call the utility function to compute the result.
+  return countWaysUtil(m - 1, n - 1, dp);
 }
 ```
 
