@@ -8014,17 +8014,13 @@ Given the two integers m and n, return the number of possible unique paths that 
 The test cases are generated so that the answer will be less than or equal to 2 \* 109.
 
 ```
-Input: m = 3, n = 2
-Output: 3
-Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
-1. Right -> Down -> Down
-2. Down -> Down -> Right
-3. Down -> Right -> Down
+Input: m = 3, n = 7
+Output: 28
 
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/63445.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjM0NDUuanBnIiwiaWF0IjoxNjk3NTExMDg5LCJleHAiOjE4NTUxOTEwODl9.XT9mUK_JPZqaYZ2PXhAPausFB5KbnMi2DJ_BEJpHOkI&t=2023-10-17T02%3A51%3A29.962Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -8091,7 +8087,7 @@ Total amount you can rob = 1 + 3 = 4.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/42177.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNDIxNzcuanBnIiwiaWF0IjoxNjk3NTExMTUxLCJleHAiOjE4NTUxOTExNTF9.6e-Daa9bGAWKQ2dt4TIJD88tkYgnmf_A06II-Adcv4M&t=2023-10-17T02%3A52%3A31.688Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -8099,19 +8095,67 @@ Total amount you can rob = 1 + 3 = 4.
 <summary><b1>toggle code</b1></summary>
 
 ```typescript
-function rob(nums: number[]): number {
-  if (nums.length === 0) return 0;
+// function rob(nums: number[]): number {
+//     if (nums.length === 0) return 0;
 
-  const memo: number[] = new Array(nums.length + 1);
-  memo[0] = 0;
-  memo[1] = nums[0];
+//     const memo: number[] = new Array(nums.length + 1);
+//     memo[0] = 0;
+//     memo[1] = nums[0];
 
-  for (let i = 1; i < nums.length; i++) {
-    const val = nums[i];
-    memo[i + 1] = Math.max(memo[i], memo[i - 1] + val);
+//     for (let i = 1; i < nums.length; i++) {
+//         const val = nums[i];
+//         memo[i + 1] = Math.max(memo[i], memo[i - 1] + val);
+//     }
+
+//     return memo[nums.length];
+// }
+
+function rob(arr: number[]): number {
+  const n: number = arr.length;
+  if (n === 1) {
+    return arr[0];
   }
 
-  return memo[nums.length];
+  const arr1: number[] = [];
+  const arr2: number[] = [];
+
+  for (let i = 0; i < n; i++) {
+    if (i !== 0) {
+      arr1.push(arr[i]);
+    }
+    if (i !== n - 1) {
+      arr2.push(arr[i]);
+    }
+  }
+  console.log(arr1);
+  console.log(arr2);
+  const dp1 = new Array(arr1.length).fill(-1);
+  const dp2 = new Array(arr2.length).fill(-1);
+  console.log(dp1);
+  console.log(dp2);
+  const ans1: number = solve(arr1.length - 1, arr1, dp1);
+  const ans2: number = solve(arr2.length - 1, arr2, dp2);
+  console.log(dp1);
+  console.log(dp2);
+  return Math.max(ans1, ans2);
+}
+
+function solve(ind: number, arr: number[], dp: number[]): number {
+  // Check if the result for this index is already calculated
+  if (dp[ind] !== -1) return dp[ind];
+
+  // Base cases
+  if (ind === 0) return arr[ind];
+  if (ind < 0) return 0;
+
+  // Calculate the maximum value by either picking or not picking the current element
+  const pick = arr[ind] + solve(ind - 2, arr, dp);
+  const nonPick = 0 + solve(ind - 1, arr, dp);
+
+  // Store the result in the DP array and return it
+  dp[ind] = Math.max(pick, nonPick);
+
+  return dp[ind];
 }
 ```
 
@@ -8139,7 +8183,7 @@ Explanation: [2,3] has the largest product 6.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/25200.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvMjUyMDAuanBnIiwiaWF0IjoxNjk3NTExMjA1LCJleHAiOjE4NTUxOTEyMDV9.ptOacxBkb9BVeeah0bin-LjtJFf3C5FIYUUS4Kf5HHM&t=2023-10-17T02%3A53%3A25.153Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -8249,7 +8293,7 @@ Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/98924.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTg5MjQuanBnIiwiaWF0IjoxNjk3NTExMjczLCJleHAiOjE4NTUxOTEyNzN9.EZARSGDT0exuEWpgKpuD6wTmkfgGYmwKBSKghaq4I6Q&t=2023-10-17T02%3A54%3A33.167Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
