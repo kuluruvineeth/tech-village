@@ -10318,7 +10318,7 @@ wordDictionary.search("b.."); // return True
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/68734.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvNjg3MzQuanBnIiwiaWF0IjoxNjk3NjgzNjYxLCJleHAiOjE4NTUzNjM2NjF9.E2Qy0QFjhRpal6zta4XkodDVDsIRPe9lACgrvBFhCx4&t=2023-10-19T02%3A47%3A41.579Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -10826,7 +10826,7 @@ Output: [1,2,3,6,9,8,7,4,5]
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/94931.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTQ5MzEuanBnIiwiaWF0IjoxNjk3NjgzNTM4LCJleHAiOjE4NTUzNjM1Mzh9.N9SAyjKEu28SAJTyHeXVFW4isjfXWMA6v7s_wJ1v0UQ&t=2023-10-19T02%3A45%3A39.074Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
@@ -10918,7 +10918,7 @@ Output: true
 ```
 
 </p>
-<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/87716.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvODc3MTYuanBnIiwiaWF0IjoxNjk0NzYyNDYyLCJleHAiOjE4NTI0NDI0NjJ9.DkCQL4Zcfs8oaSx1CtAw38WX4vNi7CvJFTydg-HujwM&t=2023-09-15T07%3A21%3A02.603Z" alt="image"></img>
+<img src="https://phnsybzeyaskfgdhxkqg.supabase.co/storage/v1/object/sign/dsa/94589.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJkc2EvOTQ1ODkuanBnIiwiaWF0IjoxNjk3NjgzNTk2LCJleHAiOjE4NTUzNjM1OTZ9.567QNi6bM7Xr1uzf2wqpYOZPRAlrYO7Jhx2xZ-MpQW8&t=2023-10-19T02%3A46%3A37.041Z" alt="image"></img>
 
 <h3>Typescript Code</h3>
 
